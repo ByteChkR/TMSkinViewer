@@ -3,7 +3,7 @@
 using UnityEngine;
 
 [Serializable]
-[CreateAssetMenu(fileName = "Map", menuName = "TMSkin/Presets/Map")]
+[CreateAssetMenu( fileName = "Map", menuName = "TMSkin/Presets/Map" )]
 public class MapPreset : ScriptableObject
 {
 
@@ -12,7 +12,9 @@ public class MapPreset : ScriptableObject
 
     [SerializeField]
     private Color m_LightColor;
+
     public Color LightColor => m_LightColor;
 
     public bool IsNight => m_IsNight;
+
 }

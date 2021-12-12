@@ -14,7 +14,6 @@ namespace UI.MaterialEditor
 
         [SerializeField]
         private GameObject m_ViewerPrefab;
-        private GameObject m_ViewerInstance;
 
         [SerializeField]
         private RectTransform m_RenderTextureContainer;
@@ -65,6 +64,7 @@ namespace UI.MaterialEditor
         private Button m_RoughnessButton;
 
         private Camera m_Camera;
+        private GameObject m_ViewerInstance;
 
         private void Awake()
         {
@@ -155,21 +155,25 @@ namespace UI.MaterialEditor
             m_ViewerInstance = Instantiate( m_ViewerPrefab, PrefabSpawnHelper.GetSpawn(), Quaternion.identity );
             m_ViewerMaterial = Instantiate( m_ViewerMaterial );
 
-            foreach ( Renderer renderer in m_ViewerInstance.GetComponentsInChildren<Renderer>() )
+            foreach ( Renderer renderer in m_ViewerInstance.GetComponentsInChildren < Renderer >() )
             {
                 renderer.material = m_ViewerMaterial;
             }
-            m_Camera =m_ViewerInstance.GetComponentInChildren < Camera >();
+
+            m_Camera = m_ViewerInstance.GetComponentInChildren < Camera >();
             m_Window.OnResized += OnWindowResized;
             m_Window.OnClose += OnWindowClosed;
             OnWindowResized();
-            if(m_Material!=null)
+
+            if ( m_Material != null )
+            {
                 UpdateButtons();
+            }
         }
 
         private void OnWindowClosed()
         {
-            Destroy(m_ViewerInstance);
+            Destroy( m_ViewerInstance );
         }
 
         private void OnWindowResized()

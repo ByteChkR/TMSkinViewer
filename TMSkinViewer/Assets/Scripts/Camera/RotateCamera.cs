@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RotateCamera : MonoBehaviour
@@ -9,9 +7,10 @@ public class RotateCamera : MonoBehaviour
     private float m_RotationSpeed;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         transform.RotateAround( transform.parent.position, Vector3.up, m_RotationSpeed * Time.deltaTime );
-        transform.LookAt(transform.parent.position);
+        transform.LookAt( transform.parent.position );
     }
+
 }

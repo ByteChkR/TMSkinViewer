@@ -9,16 +9,18 @@ namespace UI.LoadingWindow
     public class LoadingWindow : MonoBehaviour
     {
 
-        public event Action OnComplete;
         [SerializeField]
         private Window m_Window;
+
         [SerializeField]
         private Text m_Text;
+
         [SerializeField]
         private Slider m_Slider;
 
+        public event Action OnComplete;
 
-        public void Process(TaskCollection collection)
+        public void Process( TaskCollection collection )
         {
             StartCoroutine( collection.ProcessTasks( TaskListCompleted, OnProgress ) );
         }
@@ -31,7 +33,7 @@ namespace UI.LoadingWindow
 
         private void OnProgress( int currentTask, int totalTasks, string status )
         {
-            m_Slider.value = currentTask / (float)totalTasks;
+            m_Slider.value = currentTask / ( float )totalTasks;
             m_Text.text = status;
         }
 

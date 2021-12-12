@@ -68,14 +68,18 @@ namespace UI.ResourceSelector
                 windowItem.Icon.sprite = ResourceSystem.GetDefaultIcon( ResourceType.Directory );
                 windowItem.Text.text = "..";
 
-                if(parent.Parent!=null)
-                windowItem.Button.onClick.AddListener(
-                                                      () => SetActiveItems(
-                                                                           parent.Parent.Children,
-                                                                           parent.Parent
-                                                                          )
-                                                     );
-                else windowItem.Button.onClick.AddListener(
+                if ( parent.Parent != null )
+                {
+                    windowItem.Button.onClick.AddListener(
+                                                          () => SetActiveItems(
+                                                                               parent.Parent.Children,
+                                                                               parent.Parent
+                                                                              )
+                                                         );
+                }
+                else
+                {
+                    windowItem.Button.onClick.AddListener(
                                                           () => SetActiveItems(
                                                                                ResourceSystem.GetResourceOrigins().
                                                                                    Select( x => x.GetRootNode() ),
@@ -83,6 +87,7 @@ namespace UI.ResourceSelector
                                                                                false
                                                                               )
                                                          );
+                }
 
                 m_ActiveItems.Add( windowItem.gameObject );
             }
@@ -97,7 +102,7 @@ namespace UI.ResourceSelector
 
                 if ( item.Type == ResourceType.Directory )
                 {
-                    windowItem.Button.onClick.AddListener( () => SetActiveItems( item.Children, item) );
+                    windowItem.Button.onClick.AddListener( () => SetActiveItems( item.Children, item ) );
                 }
                 else
                 {

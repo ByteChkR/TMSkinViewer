@@ -3,28 +3,33 @@
 using UnityEngine;
 
 [Serializable]
-[CreateAssetMenu(fileName = "CarPreset", menuName = "TMSkin/Presets/Car")]
+[CreateAssetMenu( fileName = "CarPreset", menuName = "TMSkin/Presets/Car" )]
 public class CarPreset : ScriptableObject
 {
 
-    [Range(0, 1)]
+    [Range( 0, 1 )]
     [SerializeField]
     private float m_BrakeLights;
-    [Range(0, 1)]
+
+    [Range( 0, 1 )]
     [SerializeField]
     private float m_Energy;
-    [Range(0, 1)]
+
+    [Range( 0, 1 )]
     [SerializeField]
     private float m_Turbo;
+
     [SerializeField]
     private Color m_TurboColor;
-    [Range(0, 1)]
+
+    [Range( 0, 1 )]
     [SerializeField]
     private float m_ExhaustHeat;
-    [Range(0, 1)]
+
+    [Range( 0, 1 )]
     [SerializeField]
     private float m_Boost;
-    
+
     //Wrap all members into get only properties
     public float BrakeLights => m_BrakeLights;
 

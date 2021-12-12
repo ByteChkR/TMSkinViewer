@@ -17,9 +17,9 @@ namespace UI.SkinEditorMainWindow
 
         [SerializeField]
         private Toggle m_UseTemplateToggle;
+
         [SerializeField]
         private Dropdown m_TemplateDropdown;
-
 
         private void Awake()
         {
@@ -29,7 +29,8 @@ namespace UI.SkinEditorMainWindow
                                                                          )
                                                );
         }
-        public void OnToggleFromTemplate(bool isOn)
+
+        public void OnToggleFromTemplate( bool isOn )
         {
             m_TemplateDropdown.interactable = isOn;
         }
@@ -45,15 +46,16 @@ namespace UI.SkinEditorMainWindow
                                                                  m_TemplateDropdown.options[m_TemplateDropdown.value].
                                                                      text
                                                            );
-                SkinDatabase.CreateSkin(name, template);
+
+                SkinDatabase.CreateSkin( name, template );
             }
             else
+            {
                 SkinDatabase.CreateSkin( name );
-            
+            }
+
             m_Window.Close();
         }
-        
-        
 
     }
 

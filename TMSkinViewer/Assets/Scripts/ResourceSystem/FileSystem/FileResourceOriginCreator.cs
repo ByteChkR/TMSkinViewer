@@ -8,9 +8,9 @@ public class FileResourceOriginCreator
 
     [SerializeField]
     private string m_Name;
+
     [SerializeField]
     private string m_Path;
-
 
     public FileSystemResourceOrigin CreateOrigin()
     {

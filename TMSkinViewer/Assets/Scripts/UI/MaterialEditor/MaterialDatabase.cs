@@ -9,28 +9,35 @@ namespace UI.SkinEditorMainWindow
     public class MaterialDatabase : MonoBehaviour
     {
 
-        public static event Action OnMaterialDatabaseChanged;
         private static MaterialDatabase s_Instance;
+
+        [SerializeField]
+        private List < CarMaterial > m_Materials = new List < CarMaterial >();
+
+        [SerializeField]
+        private CarMaterial m_DefaultMaterial;
+
+        public static IEnumerable < CarMaterial > Materials => s_Instance.m_Materials;
 
         private void Awake()
         {
             s_Instance = this;
         }
 
-        [SerializeField]
-        private List < CarMaterial > m_Materials = new List < CarMaterial >();
-        [SerializeField]
-        private CarMaterial m_DefaultMaterial;
+        public static event Action OnMaterialDatabaseChanged;
 
-        public static IEnumerable < CarMaterial > Materials => s_Instance.m_Materials;
-
-        public static CarMaterial CreateMaterial( string name ) => CreateMaterial( name, s_Instance.m_DefaultMaterial );
-        public static CarMaterial CreateMaterial(string name, CarMaterial template)
+        public static CarMaterial CreateMaterial( string name )
         {
-            CarMaterial material = Instantiate(template);
+            return CreateMaterial( name, s_Instance.m_DefaultMaterial );
+        }
+
+        public static CarMaterial CreateMaterial( string name, CarMaterial template )
+        {
+            CarMaterial material = Instantiate( template );
             material.MaterialName = name;
-            s_Instance.m_Materials.Add(material);
+            s_Instance.m_Materials.Add( material );
             OnMaterialDatabaseChanged?.Invoke();
+
             return material;
         }
 

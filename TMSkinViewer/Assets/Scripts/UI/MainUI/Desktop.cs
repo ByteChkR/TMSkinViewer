@@ -8,6 +8,7 @@ namespace UI
 
         [SerializeField]
         private Transform m_WindowContainer;
+
         [SerializeField]
         private DesktopApp[] m_Apps;
 
@@ -18,7 +19,7 @@ namespace UI
         {
             foreach ( DesktopApp app in m_Apps )
             {
-                DesktopItem item = Instantiate(m_AppButtonPrefab, transform).GetComponent<DesktopItem>();
+                DesktopItem item = Instantiate( m_AppButtonPrefab, transform ).GetComponent < DesktopItem >();
                 item.Icon.sprite = app.Icon;
                 item.Text.text = app.Name;
                 item.Button.onClick.AddListener( app.OnClick.Invoke );

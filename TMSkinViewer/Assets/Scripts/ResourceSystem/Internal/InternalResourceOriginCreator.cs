@@ -8,9 +8,9 @@ public class InternalResourceOriginCreator
 
     [SerializeField]
     private string m_Name;
+
     [SerializeField]
     private InternalResourceOriginContent[] m_Content;
-
 
     public InternalResourceOrigin CreateOrigin()
     {

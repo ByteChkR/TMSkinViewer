@@ -10,10 +10,10 @@ namespace UI.LoadingWindow
 
         [SerializeField]
         private GameObject m_LoadingWindowPrefab;
-        
+
         [SerializeField]
         private Transform m_LoadingWindowParent;
-        
+
         private void Awake()
         {
             s_Instance = this;
@@ -21,7 +21,7 @@ namespace UI.LoadingWindow
 
         public static LoadingWindow CreateWindow()
         {
-            GameObject window=Instantiate(s_Instance.m_LoadingWindowPrefab, s_Instance.m_LoadingWindowParent);
+            GameObject window = Instantiate( s_Instance.m_LoadingWindowPrefab, s_Instance.m_LoadingWindowParent );
 
             return window.GetComponent < LoadingWindow >();
         }

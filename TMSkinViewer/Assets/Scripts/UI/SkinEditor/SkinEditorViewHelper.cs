@@ -9,7 +9,7 @@ namespace UI.SkinEditorMainWindow
 
         [SerializeField]
         private SkinEditorWindow m_EditorWindow;
-        
+
         public void OnPointerClick( PointerEventData eventData )
         {
             m_EditorWindow.ViewerInstance.NextCamera();

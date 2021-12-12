@@ -1,6 +1,8 @@
 ﻿public class ResourceNodeRoot : ResourceNode
 {
 
+    #region Public
+
     public ResourceNodeRoot( string name, ResourceOrigin origin ) : base( name, null, ResourceType.Directory, origin )
     {
     }
@@ -28,13 +30,13 @@
             }
             else
             {
-                currentNode = currentNode.AddChild(pathPart, childType);
+                currentNode = currentNode.AddChild( pathPart, childType );
             }
         }
 
         return currentNode;
     }
-    
+
     public ResourceNode FindNode( string path, ResourceType type )
     {
         if ( path == null )
@@ -56,5 +58,7 @@
 
         return currentNode;
     }
+
+    #endregion
 
 }

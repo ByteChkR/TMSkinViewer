@@ -17,6 +17,7 @@ namespace UI.SkinEditorMainWindow
 
         [SerializeField]
         private Toggle m_UseTemplateToggle;
+
         [SerializeField]
         private Dropdown m_TemplateDropdown;
 
@@ -29,7 +30,7 @@ namespace UI.SkinEditorMainWindow
                                                );
         }
 
-        public void OnToggleFromTemplate(bool isOn)
+        public void OnToggleFromTemplate( bool isOn )
         {
             m_TemplateDropdown.interactable = isOn;
         }
@@ -42,18 +43,20 @@ namespace UI.SkinEditorMainWindow
             {
                 CarMaterial template = MaterialDatabase.Materials.First(
                                                                         x => x.MaterialName ==
-                                                                             m_TemplateDropdown.options[m_TemplateDropdown.value].
+                                                                             m_TemplateDropdown.
+                                                                                 options[m_TemplateDropdown.value].
                                                                                  text
                                                                        );
-                MaterialDatabase.CreateMaterial(name, template);
+
+                MaterialDatabase.CreateMaterial( name, template );
             }
             else
-                MaterialDatabase.CreateMaterial(name);
-            
+            {
+                MaterialDatabase.CreateMaterial( name );
+            }
+
             m_Window.Close();
         }
-        
-        
 
     }
 

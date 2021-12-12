@@ -6,18 +6,17 @@ public static class ResourceTypeParser
 {
 
     private static readonly Dictionary < ResourceType, string[] > s_FileExtensions =
-        new Dictionary < ResourceType, string[] >
-        {
-            { ResourceType.Texture , new []{".png"}}
-        };
+        new Dictionary < ResourceType, string[] > { { ResourceType.Texture, new[] { ".png" } } };
+
+    #region Public
 
     public static ResourceType ParseFromFileExtension( string file )
     {
-        string ext = Path.GetExtension(file);
+        string ext = Path.GetExtension( file );
 
-        foreach ( KeyValuePair<ResourceType,string[]> extensions in s_FileExtensions )
+        foreach ( KeyValuePair < ResourceType, string[] > extensions in s_FileExtensions )
         {
-            if(extensions.Value.Contains(ext))
+            if ( extensions.Value.Contains( ext ) )
             {
                 return extensions.Key;
             }
@@ -25,5 +24,7 @@ public static class ResourceTypeParser
 
         return ResourceType.Unknown;
     }
+
+    #endregion
 
 }

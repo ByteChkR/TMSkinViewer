@@ -31,7 +31,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn></NoWarn>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -41,7 +41,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn></NoWarn>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup>
@@ -52,60 +52,79 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Camera\CameraController.cs" />
-     <Compile Include="Assets\Scripts\Camera\CameraControllerPosition.cs" />
-     <Compile Include="Assets\Scripts\Car\CarController.cs" />
-     <Compile Include="Assets\Scripts\Car\SurfacePreset.cs" />
-     <Compile Include="Assets\Scripts\Car\MapPreset.cs" />
-     <Compile Include="Assets\Scripts\Car\MapController.cs" />
-     <Compile Include="Assets\Scripts\Car\TrackSurface.cs" />
-     <Compile Include="Assets\Scripts\Car\CarPreset.cs" />
      <Compile Include="Assets\Scripts\UI\Window.cs" />
-     <Compile Include="Assets\Scripts\UI\WindowTopHelper.cs" />
-     <Compile Include="Assets\Scripts\UI\WindowBottomHelper.cs" />
-     <Compile Include="Assets\Scripts\UI\CarViewer\CarViewerWindow.cs" />
-     <Compile Include="Assets\Scripts\UI\MaterialEditor\MaterialEditorWindow.cs" />
-     <Compile Include="Assets\Scripts\Car\Skin\CarSkin.cs" />
-     <Compile Include="Assets\Scripts\ResourceSystem\ResourceSystem.cs" />
-     <Compile Include="Assets\Scripts\ResourceSystem\ResourceNodeRoot.cs" />
-     <Compile Include="Assets\Scripts\ResourceSystem\Internal\InternalResouceOriginCreatorComponent.cs" />
-     <Compile Include="Assets\Scripts\ResourceSystem\Internal\InternalResourceOriginCreator.cs" />
-     <Compile Include="Assets\Scripts\ResourceSystem\Internal\InternalResourceOriginContent.cs" />
-     <Compile Include="Assets\Scripts\ResourceSystem\FileSystem\FileSystemResourceOrigin.cs" />
-     <Compile Include="Assets\Scripts\ResourceSystem\TaskCollection.cs" />
-     <Compile Include="Assets\Scripts\ResourceSystem\Internal\InternalResourceOrigin.cs" />
-     <Compile Include="Assets\Scripts\ResourceSystem\ResourceNode.cs" />
-     <Compile Include="Assets\Scripts\ResourceSystem\ResourceOrigin.cs" />
-     <Compile Include="Assets\Scripts\ResourceSystem\ResourceType.cs" />
-     <Compile Include="Assets\Scripts\ResourceSystem\ResourceTypeParser.cs" />
-     <Compile Include="Assets\Scripts\ResourceSystem\ResourceDefaultIcon.cs" />
-     <Compile Include="Assets\Scripts\UI\ResourceSelector\ResourceSelectorWindowItem.cs" />
-     <Compile Include="Assets\Scripts\UI\ResourceSelector\ResourceSelectorWindow.cs" />
-     <Compile Include="Assets\Scripts\UI\Loading\LoadingWindow.cs" />
-     <Compile Include="Assets\Scripts\UI\Loading\LoadingWindowBuilder.cs" />
-     <Compile Include="Assets\Scripts\UI\ResourceSelector\ResourceSelectorWindowBuilder.cs" />
-     <Compile Include="Assets\Scripts\UI\MaterialEditor\RotationScript.cs" />
-     <Compile Include="Assets\Scripts\PrefabSpawnHelper.cs" />
-     <Compile Include="Assets\Scripts\UI\SkinEditor\SkinEditorMainWindow.cs" />
      <Compile Include="Assets\Scripts\UI\MaterialEditor\MaterialDatabase.cs" />
-     <Compile Include="Assets\Scripts\UI\SkinEditor\SkinDatabase.cs" />
      <Compile Include="Assets\Scripts\UI\SkinEditor\SkinEditorWindow.cs" />
-     <Compile Include="Assets\Scripts\Car\Skin\CarMaterial.cs" />
-     <Compile Include="Assets\Scripts\UI\MaterialEditor\MaterialEditorMainWindow.cs" />
      <Compile Include="Assets\Scripts\UI\SkinEditor\SkinEditorMainWindowItem.cs" />
-     <Compile Include="Assets\Scripts\UI\SkinEditor\SkinEditorCreatorDialog.cs" />
-     <Compile Include="Assets\Scripts\UI\MaterialEditor\MaterialEditorCreatorDialog.cs" />
-     <Compile Include="Assets\Scripts\UI\MaterialEditor\MaterialEditorMainWindowItem.cs" />
-     <Compile Include="Assets\Scripts\UI\MainUI\DesktopApp.cs" />
-     <Compile Include="Assets\Scripts\UI\MainUI\Desktop.cs" />
+     <Compile Include="Assets\Scripts\Car\Skin\CarMaterial.cs" />
+     <Compile Include="Assets\Scripts\UI\ResourceSelector\ResourceSelectorWindow.cs" />
+     <Compile Include="Assets\Scripts\UI\WindowBottomHelper.cs" />
+     <Compile Include="Assets\Scripts\UI\MaterialEditor\RotationScript.cs" />
+     <Compile Include="Assets\Scripts\ResourceSystem\ResourceTypeParser.cs" />
+     <Compile Include="Assets\Scripts\ResourceSystem\ResourceOrigin.cs" />
+     <Compile Include="Assets\Scripts\UI\CarViewer\CarViewerWindow.cs" />
      <Compile Include="Assets\Scripts\UI\MainUI\DesktopItem.cs" />
-     <Compile Include="Assets\Scripts\UI\SkinEditor\SkinViewer.cs" />
-     <Compile Include="Assets\Scripts\UI\SkinEditor\SkinEditorViewHelper.cs" />
+     <Compile Include="Assets\Scripts\UI\MaterialEditor\MaterialEditorWindow.cs" />
+     <Compile Include="Assets\Scripts\ResourceSystem\Internal\InternalResouceOriginCreatorComponent.cs" />
+     <Compile Include="Assets\Scripts\UI\SkinEditor\SkinEditorMainWindow.cs" />
      <Compile Include="Assets\Scripts\Camera\RotateCamera.cs" />
-     <Compile Include="Assets\Scripts\UI\SkinEditor\SkinEditorPresetHelper.cs" />
+     <Compile Include="Assets\Scripts\ResourceSystem\FileSystem\FileSystemResourceOrigin.cs" />
+     <Compile Include="Assets\Scripts\UI\Loading\LoadingWindowBuilder.cs" />
+     <Compile Include="Assets\Scripts\Car\MapPreset.cs" />
+     <Compile Include="Assets\Scripts\UI\Loading\LoadingWindow.cs" />
+     <Compile Include="Assets\Scripts\Camera\CameraControllerPosition.cs" />
+     <Compile Include="Assets\Scripts\Camera\CameraController.cs" />
+     <Compile Include="Assets\Scripts\ResourceSystem\ResourceSystem.cs" />
+     <Compile Include="Assets\Scripts\Car\TrackSurface.cs" />
      <Compile Include="Assets\Scripts\UI\SkinEditor\SkinEditorMaterialHelper.cs" />
-     <Compile Include="Assets\Scripts\ResourceSystem\FileSystem\FileResourceOriginCreator.cs" />
+     <Compile Include="Assets\Scripts\UI\MainUI\Desktop.cs" />
+     <Compile Include="Assets\Scripts\UI\MainUI\DesktopApp.cs" />
+     <Compile Include="Assets\Scripts\Car\CarController.cs" />
+     <Compile Include="Assets\Scripts\ResourceSystem\Internal\InternalResourceOriginCreator.cs" />
+     <Compile Include="Assets\Scripts\ResourceSystem\Internal\InternalResourceOrigin.cs" />
+     <Compile Include="Assets\Scripts\UI\MaterialEditor\MaterialEditorMainWindowItem.cs" />
      <Compile Include="Assets\Scripts\ResourceSystem\FileSystem\FileResouceOriginCreatorComponent.cs" />
+     <Compile Include="Assets\Scripts\Car\CarPreset.cs" />
+     <Compile Include="Assets\Scripts\Car\SurfacePreset.cs" />
+     <Compile Include="Assets\Scripts\UI\SkinEditor\SkinEditorPresetHelper.cs" />
+     <Compile Include="Assets\Scripts\ResourceSystem\ResourceDefaultIcon.cs" />
+     <Compile Include="Assets\Scripts\UI\SkinEditor\SkinViewer.cs" />
+     <Compile Include="Assets\Scripts\ResourceSystem\ResourceNodeRoot.cs" />
+     <Compile Include="Assets\Scripts\UI\SkinEditor\SkinEditorViewHelper.cs" />
+     <Compile Include="Assets\Scripts\UI\SkinEditor\SkinEditorCreatorDialog.cs" />
+     <Compile Include="Assets\Scripts\UI\ResourceSelector\ResourceSelectorWindowBuilder.cs" />
+     <Compile Include="Assets\Scripts\Car\Skin\CarSkin.cs" />
+     <Compile Include="Assets\Scripts\ResourceSystem\TaskCollection.cs" />
+     <Compile Include="Assets\Scripts\ResourceSystem\ResourceType.cs" />
+     <Compile Include="Assets\Scripts\ResourceSystem\Internal\InternalResourceOriginContent.cs" />
+     <Compile Include="Assets\Scripts\UI\ResourceSelector\ResourceSelectorWindowItem.cs" />
+     <Compile Include="Assets\Scripts\PrefabSpawnHelper.cs" />
+     <Compile Include="Assets\Scripts\UI\WindowTopHelper.cs" />
+     <Compile Include="Assets\Scripts\ResourceSystem\FileSystem\FileResourceOriginCreator.cs" />
+     <Compile Include="Assets\Scripts\Car\MapController.cs" />
+     <Compile Include="Assets\Scripts\UI\MaterialEditor\MaterialEditorMainWindow.cs" />
+     <Compile Include="Assets\Scripts\UI\MaterialEditor\MaterialEditorCreatorDialog.cs" />
+     <Compile Include="Assets\Scripts\UI\SkinEditor\SkinDatabase.cs" />
+     <Compile Include="Assets\Scripts\ResourceSystem\ResourceNode.cs" />
+     <Compile Include="Assets\StandaloneFileBrowser\Sample\BasicSample.cs" />
+     <Compile Include="Assets\StandaloneFileBrowser\IStandaloneFileBrowser.cs" />
+     <Compile Include="Assets\StandaloneFileBrowser\Sample\CanvasSampleOpenFileTextMultiple.cs" />
+     <Compile Include="Assets\StandaloneFileBrowser\Sample\CanvasSampleOpenFileImage.cs" />
+     <Compile Include="Assets\StandaloneFileBrowser\StandaloneFileBrowserEditor.cs" />
+     <Compile Include="Assets\StandaloneFileBrowser\StandaloneFileBrowserMac.cs" />
+     <Compile Include="Assets\StandaloneFileBrowser\StandaloneFileBrowser.cs" />
+     <Compile Include="Assets\StandaloneFileBrowser\Sample\CanvasSampleSaveFileImage.cs" />
+     <Compile Include="Assets\StandaloneFileBrowser\StandaloneFileBrowserWindows.cs" />
+     <Compile Include="Assets\StandaloneFileBrowser\Sample\CanvasSampleOpenFileText.cs" />
+     <Compile Include="Assets\StandaloneFileBrowser\StandaloneFileBrowserLinux.cs" />
+     <Compile Include="Assets\StandaloneFileBrowser\Sample\CanvasSampleSaveFileText.cs" />
+     <Compile Include="Assets\Scripts\DDS\DDSImage.cs" />
+     <Compile Include="Assets\Scripts\Importer\SkinImporter.cs" />
+     <Compile Include="Assets\Scripts\Importer\SkinImporterTest.cs" />
+     <Compile Include="Assets\StandaloneFileBrowser\ExtensionFilter.cs" />
+     <Compile Include="Assets\Scripts\DDS\NotADDSImageException.cs" />
+     <Compile Include="Assets\Scripts\DDS\UnknownFileFormatException.cs" />
+     <Compile Include="Assets\Scripts\DDS\InvalidFileHeaderException.cs" />
      <None Include="Assets\TMCarShader.shader" />
  <Reference Include="UnityEngine">
  <HintPath>D:/UnityHub/2020.3.18f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -319,6 +338,12 @@
  </Reference>
  <Reference Include="UnityEditor.UnityConnectModule">
  <HintPath>D:/UnityHub/2020.3.18f1/Editor/Data/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
+ </Reference>
+ <Reference Include="Ookii.Dialogs">
+ <HintPath>D:/Users/Tim/Documents/TMSkinViewer/TMSkinViewer/Assets/StandaloneFileBrowser/Plugins/Ookii.Dialogs.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Windows.Forms">
+ <HintPath>D:/Users/Tim/Documents/TMSkinViewer/TMSkinViewer/Assets/StandaloneFileBrowser/Plugins/System.Windows.Forms.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>D:/UnityHub/2020.3.18f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -691,9 +716,6 @@
  </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>D:/Users/Tim/Documents/TMSkinViewer/TMSkinViewer/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
- </Reference>
- <Reference Include="Unity.PlasticSCM.Editor">
- <HintPath>D:/Users/Tim/Documents/TMSkinViewer/TMSkinViewer/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rider.Editor">
  <HintPath>D:/Users/Tim/Documents/TMSkinViewer/TMSkinViewer/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>

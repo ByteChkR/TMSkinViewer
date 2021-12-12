@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 namespace UI
 {
+
     [Serializable]
     public class DesktopApp
     {
