@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bba783bbf2e43919db2a9285f2ad37b, type: 3}
+  m_Name: WheelMaterial
+  m_EditorClassIdentifier: 
+  m_MaterialName: Default Wheel Material
+  m_Albedo: {fileID: 2800000, guid: c288913b0c05eb14ea89a1d9cee220ac, type: 3}
+  m_Normal: {fileID: 2800000, guid: 83334fd72c3ff904cb2f4b9c8430ad85, type: 3}
+  m_AmbientOcclusion: {fileID: 2800000, guid: 0864547c5fe5dee40a97a131d1d9def4, type: 3}
+  m_Emissive: {fileID: 0}
+  m_DirtMask: {fileID: 2800000, guid: f783a1e309a488940b08e28db324a04f, type: 3}
+  m_Roughness: {fileID: 2800000, guid: 44b0cb1259844ef4aadeb5c6e59ef819, type: 3}

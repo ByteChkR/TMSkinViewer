@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bba783bbf2e43919db2a9285f2ad37b, type: 3}
+  m_Name: GlassMaterial
+  m_EditorClassIdentifier: 
+  m_MaterialName: Default Glass Material
+  m_Albedo: {fileID: 2800000, guid: 424ad22b500248840a1015fefff378d4, type: 3}
+  m_Normal: {fileID: 0}
+  m_AmbientOcclusion: {fileID: 2800000, guid: a1a4cacf055bba849a8f4e5e94c87efa, type: 3}
+  m_Emissive: {fileID: 2800000, guid: df8c81d73689cbc45972a60882dc74ef, type: 3}
+  m_DirtMask: {fileID: 0}
+  m_Roughness: {fileID: 0}
