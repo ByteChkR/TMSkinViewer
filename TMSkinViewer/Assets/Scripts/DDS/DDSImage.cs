@@ -442,26 +442,33 @@ namespace S16.Drawing
             // BitmapData data = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height)
             //     , ImageLockMode.WriteOnly, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
             // IntPtr scan = data.Scan0;
-            // int size = bitmap.Width * bitmap.Height * 4;
+            int size = bitmap.width * bitmap.height * 4;
 
-            bitmap.LoadRawTextureData( rawData );
+            for ( int i = 0; i < size; i += 4 )
+            {
+                float red = rawData[i] / 255.0f;
+                float green = rawData[i + 1] / 255.0f;
+                float blue = rawData[i + 2] / 255.0f;
+                float alpha = rawData[i + 3] / 255.0f;
+                Color c = new Color( red, green, blue, alpha );
+                bitmap.SetPixel( i / 4 % width, height-i / 4 / width, c );
+            }
 
-            // unsafe
+            // for ( int w = 0; w < width; w++ )
             // {
-            //     byte* p = (byte*)scan;
-            //     for (int i = 0; i < size; i += 4)
+            //     for ( int h = 0; h < height; h++ )
             //     {
-            //         // iterate through bytes.
-            //         // Bitmap stores it's data in RGBA order.
-            //         // DDS stores it's data in BGRA order.
-            //         p[i] = rawData[i + 2]; // blue
-            //         p[i + 1] = rawData[i + 1]; // green
-            //         p[i + 2] = rawData[i];   // red
-            //         p[i + 3] = rawData[i + 3]; // alpha
+            //         float red = rawData[w * height + h] / 255.0f;
+            //         float green = rawData[w * height + h + 1] / 255.0f;
+            //         float blue = rawData[w * height + h + 2] / 255.0f;
+            //         float alpha = rawData[w * height + h + 3] / 255.0f;
+            //         Color c = new Color( red, green, blue, alpha );
+            //         bitmap.SetPixel( w, h, c );
             //     }
             // }
-            //
-            // bitmap.UnlockBits(data);
+
+            bitmap.Apply();
+
             return bitmap;
         }
 
