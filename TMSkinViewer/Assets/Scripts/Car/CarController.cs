@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.IO;
 
 using UnityEngine;
 
@@ -44,7 +45,7 @@ public class CarController : MonoBehaviour
 
     public void SetSurfacePreset( SurfacePreset preset )
     {
-        if ( preset.TrackSurface == TrackSurface.Default )
+        if ( !preset.ApplySurfaceColor )
         {
             StartCoroutine( SurfaceChangeAnimation( DirtLevel, 0, 1 ) );
         }

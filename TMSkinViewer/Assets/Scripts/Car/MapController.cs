@@ -7,7 +7,7 @@ public class MapController : MonoBehaviour
     private CarController m_CarController;
 
     [SerializeField]
-    private Material m_GroundMaterial;
+    private Renderer m_GroundRenderer;
 
     [SerializeField]
     private MapPreset m_MapPreset;
@@ -46,7 +46,7 @@ public class MapController : MonoBehaviour
 
     public void SetSurfacePreset( SurfacePreset preset )
     {
-        m_GroundMaterial.color = preset.SurfaceColor;
+        m_GroundRenderer.material = preset.SurfaceMaterial;
         m_CarController.SetSurfacePreset( preset );
     }
 

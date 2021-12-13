@@ -439,9 +439,6 @@ namespace S16.Drawing
         {
             Texture2D bitmap = new Texture2D( width, height );
 
-            // BitmapData data = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height)
-            //     , ImageLockMode.WriteOnly, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
-            // IntPtr scan = data.Scan0;
             int size = bitmap.width * bitmap.height * 4;
 
             for ( int i = 0; i < size; i += 4 )
@@ -451,22 +448,8 @@ namespace S16.Drawing
                 float blue = rawData[i + 2] / 255.0f;
                 float alpha = rawData[i + 3] / 255.0f;
                 Color c = new Color( red, green, blue, alpha );
-                bitmap.SetPixel( i / 4 % width, height-i / 4 / width, c );
+                bitmap.SetPixel( i / 4 % width, height - i / 4 / width, c );
             }
-
-            // for ( int w = 0; w < width; w++ )
-            // {
-            //     for ( int h = 0; h < height; h++ )
-            //     {
-            //         float red = rawData[w * height + h] / 255.0f;
-            //         float green = rawData[w * height + h + 1] / 255.0f;
-            //         float blue = rawData[w * height + h + 2] / 255.0f;
-            //         float alpha = rawData[w * height + h + 3] / 255.0f;
-            //         Color c = new Color( red, green, blue, alpha );
-            //         bitmap.SetPixel( w, h, c );
-            //     }
-            // }
-
             bitmap.Apply();
 
             return bitmap;

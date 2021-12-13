@@ -1,9 +1,18 @@
 ﻿public enum TrackSurface
 {
 
-    Default,
+    Concrete,
     Dirt,
     Water,
-    Ice
+    Ice,
+    Grass,
+    PenaltyGrass,
+    PenaltySand,
+    Plastic,
+    RedBooster,
+    RedTurbo,
+    Scaffolding,
+    YellowBooster,
+    YellowTurbo
 
 }

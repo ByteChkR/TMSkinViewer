@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0733474e6e05471f8bcb9c691b317044, type: 3}
+  m_Name: Concrete
+  m_EditorClassIdentifier: 
+  m_TrackSurface: 0
+  m_SurfaceMaterial: {fileID: 2100000, guid: 28b61be196a9a9e43ab75b2b541c63cb, type: 2}
+  m_SurfaceColor: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 0}

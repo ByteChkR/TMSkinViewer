@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Ice
   m_EditorClassIdentifier: 
   m_TrackSurface: 3
+  m_SurfaceMaterial: {fileID: 2100000, guid: 6f73927ebf5351d4fa2e4ac1fda243b3, type: 2}
+  m_ApplySurfaceColor: 1
   m_SurfaceColor: {r: 1, g: 1, b: 1, a: 1}

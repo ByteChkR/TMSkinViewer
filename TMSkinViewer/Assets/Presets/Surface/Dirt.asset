@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Dirt
   m_EditorClassIdentifier: 
   m_TrackSurface: 1
+  m_SurfaceMaterial: {fileID: 2100000, guid: acca892383b3d73418d0c41634bd10aa, type: 2}
+  m_ApplySurfaceColor: 1
   m_SurfaceColor: {r: 0.91764706, g: 0.6, b: 0.48235294, a: 1}
