@@ -30,11 +30,11 @@ Shader "Custom/TMCarShader"
         [Space(20)]
         [Header(Car Control Properties)]
         [Space(10)]
-        _BrakeLights ("Brake Lights", Range(0,1)) = 0
+        _BrakeLights ("Brake Lights", Range(0,2)) = 0
         _Energy ("Energy", Range(0,1)) = 0
         _BrakeHeat ("Brake Heat", Range(0,1)) = 0
         _SelfIllumination ("Self Illumination", Range(0,1)) = 0
-        _FrontLights ("Front Lights", Range(0,1)) = 0
+        _FrontLights ("Front Lights", Range(0,2)) = 0
         _TurboIntensity ("Turbo Intensity", Range(0,1)) = 0
         _ExhaustHeat ("Exhaust Heat", Range(0,1)) = 0
         _Boost ("Boost", Range(0,1)) = 0

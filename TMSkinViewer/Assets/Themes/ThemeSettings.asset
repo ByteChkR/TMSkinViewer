@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ac0a180cb7946e3bddf2774b37c460d, type: 3}
+  m_Name: ThemeSettings
+  m_EditorClassIdentifier: 
+  Targets:
+  - Name: Default
+    TextColor: {r: 1, g: 1, b: 1, a: 1}
+    BackgroundColor: {r: 0.10196079, g: 0.54901963, b: 0.35686275, a: 1}
+    SelectableColors:
+      m_NormalColor: {r: 0.07058824, g: 0.45882356, b: 0.2901961, a: 1}
+      m_HighlightedColor: {r: 0.078431375, g: 0.23529413, b: 0.21960786, a: 1}
+      m_PressedColor: {r: 0.050980397, g: 0.40784317, b: 0.2784314, a: 1}
+      m_SelectedColor: {r: 0.06666667, g: 0.45098042, b: 0.2901961, a: 1}
+      m_DisabledColor: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
+      m_ColorMultiplier: 1
+      m_FadeDuration: 0.1
+  - Name: LoadingWindow.ProgressBar.Background
+    TextColor: {r: 0, g: 0.19607845, b: 0.15686275, a: 1}
+    BackgroundColor: {r: 0, g: 0, b: 0, a: 1}
+    SelectableColors:
+      m_NormalColor: {r: 0.9058824, g: 0.9058824, b: 0.9058824, a: 1}
+      m_HighlightedColor: {r: 0.078431375, g: 0.23529413, b: 0.21960786, a: 1}
+      m_PressedColor: {r: 0.050980397, g: 0.40784317, b: 0.2784314, a: 1}
+      m_SelectedColor: {r: 0.06666667, g: 0.45098042, b: 0.2901961, a: 1}
+      m_DisabledColor: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
+      m_ColorMultiplier: 1
+      m_FadeDuration: 0.1
+  - Name: LoadingWindow.ProgressBar.Fill
+    TextColor: {r: 0, g: 0.19607845, b: 0.15686275, a: 1}
+    BackgroundColor: {r: 1, g: 1, b: 1, a: 1}
+    SelectableColors:
+      m_NormalColor: {r: 0.9058824, g: 0.9058824, b: 0.9058824, a: 1}
+      m_HighlightedColor: {r: 0.078431375, g: 0.23529413, b: 0.21960786, a: 1}
+      m_PressedColor: {r: 0.050980397, g: 0.40784317, b: 0.2784314, a: 1}
+      m_SelectedColor: {r: 0.06666667, g: 0.45098042, b: 0.2901961, a: 1}
+      m_DisabledColor: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
+      m_ColorMultiplier: 1
+      m_FadeDuration: 0.1

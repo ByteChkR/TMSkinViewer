@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 444776815}
   - component: {fileID: 444776816}
+  - component: {fileID: 3722233420560401987}
   m_Layer: 5
   m_Name: ProgressBar
   m_TagString: Untagged
@@ -90,6 +91,23 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3722233420560401987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444776814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b33c08ce6a45eaaddc8b9d1122c950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ThemeSelectors:
+  - LoadingWindow.ProgressBar
+  - LoadingWindow
+  - Window
+  - Default
 --- !u!1 &693360234
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,6 +119,7 @@ GameObject:
   - component: {fileID: 693360235}
   - component: {fileID: 693360237}
   - component: {fileID: 693360236}
+  - component: {fileID: 343115974232645712}
   m_Layer: 5
   m_Name: ProgressText
   m_TagString: Untagged
@@ -169,6 +188,23 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: New Text
+--- !u!114 &343115974232645712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693360234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b33c08ce6a45eaaddc8b9d1122c950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ThemeSelectors:
+  - LoadingWindow.ProgressText
+  - LoadingWindow
+  - Window
+  - Default
 --- !u!1 &1060735583
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,6 +216,7 @@ GameObject:
   - component: {fileID: 1060735584}
   - component: {fileID: 1060735586}
   - component: {fileID: 1060735585}
+  - component: {fileID: 5980891924792891080}
   m_Layer: 5
   m_Name: Fill
   m_TagString: Untagged
@@ -244,6 +281,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5980891924792891080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060735583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b33c08ce6a45eaaddc8b9d1122c950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ThemeSelectors:
+  - LoadingWindow.ProgressBar.Fill
+  - LoadingWindow
+  - Window
+  - Default
 --- !u!1 &1074582352
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,6 +309,7 @@ GameObject:
   - component: {fileID: 1074582353}
   - component: {fileID: 1074582355}
   - component: {fileID: 1074582354}
+  - component: {fileID: 6348330336561456560}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -319,6 +374,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6348330336561456560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074582352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b33c08ce6a45eaaddc8b9d1122c950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ThemeSelectors:
+  - LoadingWindow.ProgressBar.Background
+  - LoadingWindow
+  - Window
+  - Default
 --- !u!1 &1374720654
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,6 +560,126 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 815819893580422616, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 815819893580422616, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[0]
+      value: Window.Maximize
+      objectReference: {fileID: 0}
+    - target: {fileID: 815819893580422616, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[1]
+      value: Window.Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 815819893580422616, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[2]
+      value: Window
+      objectReference: {fileID: 0}
+    - target: {fileID: 815819893580422616, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[3]
+      value: Default
+      objectReference: {fileID: 0}
+    - target: {fileID: 815819893580422616, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[4]
+      value: Default
+      objectReference: {fileID: 0}
+    - target: {fileID: 815819893580422616, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[5]
+      value: Default
+      objectReference: {fileID: 0}
+    - target: {fileID: 815819893580422616, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[6]
+      value: Default
+      objectReference: {fileID: 0}
+    - target: {fileID: 1670603280502239775, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1670603280502239775, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[0]
+      value: Window.Resize
+      objectReference: {fileID: 0}
+    - target: {fileID: 1670603280502239775, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[1]
+      value: Window.Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 1670603280502239775, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[2]
+      value: Window
+      objectReference: {fileID: 0}
+    - target: {fileID: 1670603280502239775, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[3]
+      value: Default
+      objectReference: {fileID: 0}
+    - target: {fileID: 1670603280502239775, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[4]
+      value: Default
+      objectReference: {fileID: 0}
+    - target: {fileID: 1670603280502239775, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[5]
+      value: Default
+      objectReference: {fileID: 0}
+    - target: {fileID: 1670603280502239775, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[6]
+      value: Default
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678446943039882725, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678446943039882725, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[0]
+      value: Window.Close
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678446943039882725, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[1]
+      value: Window.Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678446943039882725, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[2]
+      value: Window
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678446943039882725, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[3]
+      value: Default
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678446943039882725, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[4]
+      value: Default
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678446943039882725, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[5]
+      value: Default
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678446943039882725, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[6]
+      value: Default
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095640354112663081, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095640354112663081, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[0]
+      value: Window.Title
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095640354112663081, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[1]
+      value: Window
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095640354112663081, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[2]
+      value: Default
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095640354112663081, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[3]
+      value: Default
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095640354112663081, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[4]
+      value: Default
+      objectReference: {fileID: 0}
     - target: {fileID: 5882561813192076495, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -591,6 +783,54 @@ PrefabInstance:
     - target: {fileID: 5882561813657698035, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6104594700788136324, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6104594700788136324, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[0]
+      value: Window.ToolBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 6104594700788136324, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[1]
+      value: Window
+      objectReference: {fileID: 0}
+    - target: {fileID: 6104594700788136324, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[2]
+      value: Default
+      objectReference: {fileID: 0}
+    - target: {fileID: 6104594700788136324, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[3]
+      value: Default
+      objectReference: {fileID: 0}
+    - target: {fileID: 6104594700788136324, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[4]
+      value: Default
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422030033793193755, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422030033793193755, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[0]
+      value: Window.TopBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422030033793193755, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[1]
+      value: Window
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422030033793193755, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[2]
+      value: Default
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422030033793193755, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[3]
+      value: Default
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422030033793193755, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}
+      propertyPath: m_ThemeSelectors.Array.data[4]
+      value: Default
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db4d9edd4ddd8da4a9562f7bc57cfc48, type: 3}

@@ -59,10 +59,12 @@ public class CarController : MonoBehaviour
         if ( preset.IsNight )
         {
             SelfIlluminationNight = 1;
+            BrakeLight = 1;
         }
         else
         {
             SelfIlluminationNight = 0;
+            BrakeLight = 0;
         }
     }
 
@@ -152,7 +154,7 @@ public class CarController : MonoBehaviour
     {
         foreach ( Material material in CarMaterials )
         {
-            material.SetFloat( "_FrontLights", enable ? 1 : 0 );
+            material.SetFloat( "_FrontLights", enable ? 2 : 0 );
         }
 
         foreach ( Light light in m_Lights )
@@ -172,9 +174,9 @@ public class CarController : MonoBehaviour
         get => m_BrakeLightIntensity;
         set
         {
-            if ( value > 1.0f )
+            if ( value > 2.0f )
             {
-                m_BrakeLightIntensity = 1.0f;
+                m_BrakeLightIntensity = 2.0f;
             }
             else if ( value < 0.0f )
             {

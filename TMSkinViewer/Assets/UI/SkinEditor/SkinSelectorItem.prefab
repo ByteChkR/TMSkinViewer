@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3221155724309840830}
   - component: {fileID: 4616181406408440170}
   - component: {fileID: 5260741981966704741}
+  - component: {fileID: 6454075694404663961}
   m_Layer: 5
   m_Name: SkinSelectorItem
   m_TagString: Untagged
@@ -138,6 +139,21 @@ MonoBehaviour:
   m_Button: {fileID: 4616181406408440170}
   m_Icon: {fileID: 6871154059790238260}
   m_Text: {fileID: 3925351293813085142}
+--- !u!114 &6454075694404663961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566902096946921458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b33c08ce6a45eaaddc8b9d1122c950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ThemeSelectors:
+  - MaterialSelectorItem
+  - Default
 --- !u!1 &894325867528604095
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,6 +165,7 @@ GameObject:
   - component: {fileID: 6184278727285731551}
   - component: {fileID: 1747213856002242893}
   - component: {fileID: 3925351293813085142}
+  - component: {fileID: 7709566176119839405}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -217,6 +234,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Name
+--- !u!114 &7709566176119839405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894325867528604095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b33c08ce6a45eaaddc8b9d1122c950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ThemeSelectors:
+  - MaterialSelectorItem.Icon.Text
+  - Default
 --- !u!1 &5251314768423354627
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,6 +260,7 @@ GameObject:
   - component: {fileID: 9045828419607961704}
   - component: {fileID: 6857321479697204104}
   - component: {fileID: 3304704180889465400}
+  - component: {fileID: 156123717387437232}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -293,6 +326,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &156123717387437232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5251314768423354627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b33c08ce6a45eaaddc8b9d1122c950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ThemeSelectors:
+  - MaterialSelectorItem.Icon.TextBackground
+  - Default
 --- !u!1 &7228514724213444202
 GameObject:
   m_ObjectHideFlags: 0
