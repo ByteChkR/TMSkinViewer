@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18168063, g: 0.25392744, b: 0.28955835, a: 1}
+  m_IndirectSpecularColor: {r: 0.20116276, g: 0.25940216, b: 0.387362, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -349,7 +349,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1083808592}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6888504583ca4d439bf80935dccffd3b, type: 3}
   m_Name: 
@@ -727,8 +727,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_WindowContainer: {fileID: 1589466431}
+  m_ExitApp:
+    Name: Exit
+    Icon: {fileID: 21300000, guid: 7f3bead8a1d2a1b4e9c8e945d933c474, type: 3}
+    OnClick:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1810186503}
+          m_TargetAssemblyTypeName: UI.Desktop, Assembly-CSharp
+          m_MethodName: Exit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   m_Apps:
-  - Name: Skin Editor
+  - Name: Skin Database
     Icon: {fileID: 21300000, guid: dab8c9382bb806c4586e1ad7beedf93b, type: 3}
     OnClick:
       m_PersistentCalls:
@@ -745,7 +763,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - Name: Material Editor
+  - Name: Material Database
     Icon: {fileID: 21300000, guid: dab8c9382bb806c4586e1ad7beedf93b, type: 3}
     OnClick:
       m_PersistentCalls:
@@ -757,23 +775,6 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 7073233230536028573, guid: 80abc975ccb92de4e8d25fea217f1ee7, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - Name: Exit
-    Icon: {fileID: 21300000, guid: 7f3bead8a1d2a1b4e9c8e945d933c474, type: 3}
-    OnClick:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1810186503}
-          m_TargetAssemblyTypeName: UI.Desktop, Assembly-CSharp
-          m_MethodName: Exit
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 

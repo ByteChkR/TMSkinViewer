@@ -278,7 +278,7 @@ public class NVWaterShaders : MonoBehaviour
         //--------------
 
         Vector4 q = projection.inverse * new Vector4(Sgn(clipPlane.x), Sgn(clipPlane.y), 1.0f, 1.0f);
-        Vector4 c = clipPlane * (2.0F / (Vector4.Dot(clipPlane, q)));
+        Vector4 c = clipPlane * (2.0F / Vector4.Dot(clipPlane, q));
         projection[2] = c.x - projection[3];
         projection[6] = c.y - projection[7];
         projection[10] = c.z - projection[11];

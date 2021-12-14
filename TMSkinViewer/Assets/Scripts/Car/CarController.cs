@@ -24,10 +24,6 @@ public class CarController : MonoBehaviour
             m_SkinRenderer.material, m_DetailRenderer.material, m_GlassRenderer.material, m_WheelRenderer.material,
         };
 
-    private void Update()
-    {
-        UpdateWheels();
-    }
 
     private IEnumerator SurfaceChangeAnimation( float start, float end, float time )
     {
@@ -438,42 +434,6 @@ public class CarController : MonoBehaviour
 
     #endregion
 
-    #region Wheel Settings
-
-    private float m_WheelAcceleration = 0.02f;
-
-    public float WheelAcceleration
-    {
-        get => m_WheelAcceleration;
-        set => m_WheelAcceleration = value;
-    }
-
-    private float m_WheelFriction = 0.99f;
-
-    public float WheelFriction
-    {
-        get => m_WheelFriction;
-        set => m_WheelFriction = value;
-    }
-
-    private float m_WheelSpeed = 0;
-    private float m_WheelPosition = 0;
-
-    private void UpdateWheels()
-    {
-        m_WheelSpeed += m_WheelAcceleration * Time.deltaTime;
-        m_WheelSpeed *= m_WheelFriction;
-        m_WheelPosition += m_WheelSpeed;
-
-        Vector2 v = new Vector2( 0, m_WheelPosition );
-        m_WheelRenderer.material.SetTextureOffset( "_MainTex", v );
-        m_WheelRenderer.material.SetTextureOffset( "_AO", v );
-        m_WheelRenderer.material.SetTextureOffset( "_Normals", v );
-        m_WheelRenderer.material.SetTextureOffset( "_Emission", v );
-        m_WheelRenderer.material.SetTextureOffset( "_DirtMask", v );
-        m_WheelRenderer.material.SetTextureOffset( "_Roughness", v );
-    }
-
-    #endregion
+   
 
 }

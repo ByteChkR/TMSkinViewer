@@ -120,6 +120,7 @@
      <Compile Include="Assets\Scripts\UI\MaterialEditor\MaterialEditorCreatorDialog.cs" />
      <Compile Include="Assets\Scripts\UI\SkinEditor\SkinDatabase.cs" />
      <Compile Include="Assets\Scripts\ResourceSystem\ResourceNode.cs" />
+     <Compile Include="Assets\Scripts\Importer\SkinImporterWindow.cs" />
      <None Include="Assets\Shaders\Water\#NVJOB Water Shaders V2\Water Specular.shader" />
      <None Include="Assets\Shaders\TMCarShader.shader" />
      <None Include="Assets\Shaders\Water\license_unity.txt" />

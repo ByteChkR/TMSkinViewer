@@ -15,6 +15,10 @@ namespace UI.SkinEditorMainWindow
         private Sprite m_AddSkinSprite;
 
         [SerializeField]
+        private Sprite m_ImportSkinSprite;
+
+
+        [SerializeField]
         private Sprite m_SkinSprite;
 
         [SerializeField]
@@ -25,6 +29,9 @@ namespace UI.SkinEditorMainWindow
 
         [SerializeField]
         private GameObject m_AddSkinDialogPrefab;
+        
+        [SerializeField]
+        private GameObject m_ImportSkinDialogPrefab;
 
         [SerializeField]
         private GameObject m_EditSkinDialogPrefab;
@@ -32,15 +39,22 @@ namespace UI.SkinEditorMainWindow
         private readonly List < GameObject > m_SkinButtons = new List < GameObject >();
 
         private GameObject m_AddSkinButtonInstance;
+        private GameObject m_ImportSkinButtonInstance;
 
         private void Awake()
         {
             SkinDatabase.OnSkinDatabaseChanged += OnSkinDatabaseChanged;
             m_AddSkinButtonInstance = Instantiate( m_SkinButtonPrefab, m_SkinButtonContainer );
-            SkinEditorMainWindowItem item = m_AddSkinButtonInstance.GetComponent < SkinEditorMainWindowItem >();
-            item.Button.onClick.AddListener( CreateSkin );
-            item.Icon.sprite = m_AddSkinSprite;
-            item.Text.text = "New";
+            SkinEditorMainWindowItem addItem = m_AddSkinButtonInstance.GetComponent < SkinEditorMainWindowItem >();
+            addItem.Button.onClick.AddListener( CreateSkin );
+            addItem.Icon.sprite = m_AddSkinSprite;
+            addItem.Text.text = "New";
+            
+            m_ImportSkinButtonInstance = Instantiate( m_SkinButtonPrefab, m_SkinButtonContainer );
+            SkinEditorMainWindowItem importItem = m_ImportSkinButtonInstance.GetComponent < SkinEditorMainWindowItem >();
+            importItem.Button.onClick.AddListener( ImportSkin );
+            importItem.Icon.sprite = m_AddSkinSprite;
+            importItem.Text.text = "Import";
 
             RebuildSkinList();
         }
@@ -48,6 +62,11 @@ namespace UI.SkinEditorMainWindow
         private void CreateSkin()
         {
             Instantiate( m_AddSkinDialogPrefab, transform.parent );
+        }
+
+        private void ImportSkin()
+        {
+            Instantiate( m_ImportSkinDialogPrefab, transform.parent );
         }
 
         private void EditSkin( CarSkin skin )
