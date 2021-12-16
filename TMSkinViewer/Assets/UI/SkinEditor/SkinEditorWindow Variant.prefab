@@ -4893,6 +4893,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 67d840329ef08844b826a4cac3c85c8f, type: 2}
   m_CarPresets:
   - {fileID: 11400000, guid: 94987b9657e694d43bd0c4ceb4e6b4b3, type: 2}
+  - {fileID: 11400000, guid: 78ac56823896e944da3371267c42a55b, type: 2}
+  - {fileID: 11400000, guid: d67d8caac8a6a4a4ba6d2e7f52d91e6c, type: 2}
   - {fileID: 11400000, guid: b31f99ceeff43b24c9526f66c1d38e29, type: 2}
   - {fileID: 11400000, guid: 81274a9260e6ced448badc5681c77bc3, type: 2}
   - {fileID: 11400000, guid: f0abeed06ed6ecb468233344b5118f76, type: 2}

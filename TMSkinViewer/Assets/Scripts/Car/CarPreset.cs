@@ -7,9 +7,35 @@ using UnityEngine;
 public class CarPreset : ScriptableObject
 {
 
+    [SerializeField]
+    private bool m_IsAccelerating;
+
+    [Range( 0, 1 )]
+    [SerializeField]
+    private float m_Turn = 0.5f;
+
+    [Range( 0, 1 )]
+    [SerializeField]
+    private float m_Wings;
+
+    [Range( 0, 1 )]
+    [SerializeField]
+    private float m_ExhaustUp;
+    [Range( 0, 1 )]
+    [SerializeField]
+    private float m_ExhaustDown;
+
+    [Range( 0, 1 )]
+    [SerializeField]
+    private float m_WheelDown;
+
     [Range( 0, 1 )]
     [SerializeField]
     private float m_BrakeLights;
+
+    [Range( 0, 1 )]
+    [SerializeField]
+    private float m_BrakeAnimation;
 
     [Range( 0, 1 )]
     [SerializeField]
@@ -32,6 +58,8 @@ public class CarPreset : ScriptableObject
 
     //Wrap all members into get only properties
     public float BrakeLights => m_BrakeLights;
+    
+    public float BrakeAnimation => m_BrakeAnimation;
 
     public float Energy => m_Energy;
 
@@ -42,5 +70,17 @@ public class CarPreset : ScriptableObject
     public float ExhaustHeat => m_ExhaustHeat;
 
     public float Boost => m_Boost;
+    
+    public float Turn => m_Turn;
+    
+    public float Wings => m_Wings;
+    
+    public float ExhaustUp => m_ExhaustUp;
+    
+    public float ExhaustDown => m_ExhaustDown;
+    
+    public float WheelDown => m_WheelDown;
+    
+    public bool IsAccelerating => m_IsAccelerating;
 
 }

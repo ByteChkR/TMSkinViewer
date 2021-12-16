@@ -6,6 +6,7 @@ namespace Themes
 {
 
     [CreateAssetMenu( fileName = "New Theme", menuName = "TMSkin/Theme" )]
+    [SettingsCategory("Theme")]
     public class ThemeSettings : ScriptableObject
     {
 
@@ -16,6 +17,7 @@ namespace Themes
             OnSettingsChanged?.Invoke();
         }
 
+        [SettingsProperty("Targets")]
         public ThemeSelectorTarget[] Targets;
 
     }

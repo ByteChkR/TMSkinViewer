@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Themes;
+
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI.Settings
@@ -15,5 +17,4 @@ namespace UI.Settings
         }
 
     }
-
 }

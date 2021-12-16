@@ -21,6 +21,11 @@ namespace Themes
             m_Settings.OnSettingsChanged += ApplyToAllElements;
         }
 
+        private void Start()
+        {
+            SettingsManager.AddSettingsObject(m_Settings);
+        }
+
         private static void ApplyToAllElements()
         {
             for ( int i = s_Instance.m_Elements.Count - 1; i >= 0; i-- )

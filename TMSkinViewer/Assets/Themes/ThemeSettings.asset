@@ -46,3 +46,14 @@ MonoBehaviour:
       m_DisabledColor: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
       m_ColorMultiplier: 1
       m_FadeDuration: 0.1
+  - Name: MaterialEditor.TextureButton
+    TextColor: {r: 0, g: 0.19607845, b: 0.15686275, a: 1}
+    BackgroundColor: {r: 1, g: 1, b: 1, a: 1}
+    SelectableColors:
+      m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+      m_HighlightedColor: {r: 0.078431375, g: 0.23529413, b: 0.21960786, a: 1}
+      m_PressedColor: {r: 0.050980397, g: 0.40784317, b: 0.2784314, a: 1}
+      m_SelectedColor: {r: 0.06666667, g: 0.45098042, b: 0.2901961, a: 1}
+      m_DisabledColor: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
+      m_ColorMultiplier: 1
+      m_FadeDuration: 0.1

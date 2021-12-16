@@ -1,10 +1,12 @@
 ﻿using System.Collections;
-using System.IO;
 
 using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
+
+    [SerializeField]
+    private Animator m_Animator;
 
     [SerializeField]
     private Renderer m_SkinRenderer;
@@ -23,7 +25,6 @@ public class CarController : MonoBehaviour
         {
             m_SkinRenderer.material, m_DetailRenderer.material, m_GlassRenderer.material, m_WheelRenderer.material,
         };
-
 
     private IEnumerator SurfaceChangeAnimation( float start, float end, float time )
     {
@@ -71,11 +72,25 @@ public class CarController : MonoBehaviour
     public void SetCarPreset( CarPreset preset )
     {
         BrakeLight = preset.BrakeLights;
+        BrakeAnimation = preset.BrakeAnimation;
+        IsAccelerating = preset.IsAccelerating;
+        Turn = preset.Turn;
+        Wings = preset.Wings;
+        ExhaustUp = preset.ExhaustUp;
+        ExhaustDown = preset.ExhaustDown;
+        WheelDown = preset.WheelDown;
         Boost = preset.Boost;
         Energy = preset.Energy;
         Turbo = preset.Turbo;
         TurboColor = preset.TurboColor;
         ExhaustHeat = preset.ExhaustHeat;
+    }
+
+    private void SetAnimation( string name, float weight )
+    {
+        int layer = m_Animator.GetLayerIndex( name );
+        m_Animator.SetLayerWeight( layer, weight );
+        m_Animator.Play( name, layer, 0 );
     }
 
     #region Dirt Settings
@@ -133,6 +148,107 @@ public class CarController : MonoBehaviour
 
     #endregion
 
+    #region Wing Settings
+
+    private float m_Wings = 0.0f;
+
+    public float Wings
+    {
+        get => m_Wings;
+        set
+        {
+            m_Wings = Mathf.Clamp01( value );
+            SetAnimation( "Wings", m_Wings );
+        }
+    }
+
+    #endregion
+
+    #region Exhaust Settings
+
+    private float m_ExhaustUp = 0.0f;
+    private float m_ExhaustDown = 0.0f;
+
+    public float ExhaustUp
+    {
+        get => m_ExhaustUp;
+        set
+        {
+            m_ExhaustUp = Mathf.Clamp01( value );
+            SetAnimation( "ExhaustUp", m_ExhaustUp );
+        }
+    }
+
+    public float ExhaustDown
+    {
+        get => m_ExhaustDown;
+        set
+        {
+            m_ExhaustDown = Mathf.Clamp01( value );
+            SetAnimation( "ExhaustDown", m_ExhaustDown );
+        }
+    }
+
+    #endregion
+
+    #region Turn Settings
+
+    private float m_Turn = 0.5f;
+
+    public float Turn
+    {
+        get => m_Turn;
+        set
+        {
+            m_Turn = Mathf.Clamp01( value );
+
+            if ( m_Turn < 0.5f )
+            {
+                SetAnimation( "TurnLeft", m_Turn * 2 );
+                SetAnimation( "TurnRight", 0 );
+            }
+            else if ( m_Turn > 0.5f )
+            {
+                SetAnimation( "TurnRight", ( m_Turn - 0.5f ) * 2 );
+                SetAnimation( "TurnLeft", 0 );
+            }
+        }
+    }
+
+    #endregion
+
+    #region ReleaseAcceleration Settings
+
+    private bool m_IsAccelerating = false;
+
+    public bool IsAccelerating
+    {
+        get => m_IsAccelerating;
+        set
+        {
+            m_IsAccelerating = value;
+            SetAnimation( "ReleasePanels", m_IsAccelerating ? 0 : 1 );
+        }
+    }
+
+    #endregion
+
+    #region Wheel Settings
+    
+    private float m_WheelDown = 0.0f;
+    
+    public float WheelDown
+    {
+        get => m_WheelDown;
+        set
+        {
+            m_WheelDown = Mathf.Clamp01( value );
+            SetAnimation( "WheelsDown", m_WheelDown );
+        }
+    }
+
+    #endregion
+
     #region Front Light Settings
 
     private bool m_LightsOn = false;
@@ -167,7 +283,18 @@ public class CarController : MonoBehaviour
 
     #region Brake Light Settings
 
+    private float m_BrakeAnimationStrength = 0.0f;
     private float m_BrakeLightIntensity = 0.0f;
+
+    public float BrakeAnimation
+    {
+        get => m_BrakeAnimationStrength;
+        set
+        {
+            m_BrakeAnimationStrength = Mathf.Clamp01( value );
+            SetAnimation( "BrakePanels", m_BrakeAnimationStrength );
+        }
+    }
 
     public float BrakeLight
     {
@@ -435,7 +562,5 @@ public class CarController : MonoBehaviour
     }
 
     #endregion
-
-   
 
 }
