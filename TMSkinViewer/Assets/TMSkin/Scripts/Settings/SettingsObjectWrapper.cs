@@ -32,6 +32,14 @@ public class SettingsObjectWrapper
             OnObjectChanged += so.OnSettingsChanged;
         }
     }
+    
+    public void OnObjectLoaded()
+    {
+        if ( m_Object is ISettingsObject so )
+        {
+            so.OnObjectLoaded();
+        }
+    }
 
     #endregion
 

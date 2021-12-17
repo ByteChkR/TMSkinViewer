@@ -5,6 +5,7 @@ using System.Reflection;
 
 using UnityEngine;
 
+
 public static class SettingsManager
 {
 
@@ -29,19 +30,23 @@ public static class SettingsManager
     }
 
     #region Public
-
-    public static void AddSettingsObject( object o )
+    
+    
+    public static void AddSettingsObject( object o, string path = null )
     {
         SettingsCategoryAttribute attribute = o.GetType().GetCustomAttribute < SettingsCategoryAttribute >();
 
-        if ( attribute == null )
+        if ( path == null )
         {
-            throw new Exception( $"Object {o} does not have a SettingsCategoryAttribute" );
+            if(attribute==null)
+                throw new Exception( $"Object {o} does not have a SettingsCategoryAttribute" );
+
+            path = attribute.Path;
         }
 
-        Debug.Log( $"Adding Category '{attribute.Path}'" );
+        Debug.Log( $"Adding Category '{path}'" );
 
-        SettingsCategory cat = GetOrCreate( attribute.Path );
+        SettingsCategory cat = GetOrCreate( path );
 
         cat.AddSettingsObject( o );
     }

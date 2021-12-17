@@ -63,6 +63,11 @@ public class TestSettings : ISettingsObject
         Debug.Log( "Test Settings Changed" );
     }
 
+    public void OnObjectLoaded()
+    {
+        Debug.Log( "Test Settings Loaded" );
+    }
+
     #endregion
 
 }

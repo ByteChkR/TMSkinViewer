@@ -46,6 +46,8 @@ public class SettingsCategory
     {
         SettingsObjectWrapper wrapper = new SettingsObjectWrapper( o );
         m_Objects.Add( wrapper );
+        wrapper.OnObjectLoaded();
+
     }
 
     public SettingsCategory GetChild( string name )

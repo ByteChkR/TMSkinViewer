@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Targets:
   - Name: Default
-    TextColor: {r: 1, g: 1, b: 1, a: 1}
-    BackgroundColor: {r: 0.10196079, g: 0.54901963, b: 0.35686275, a: 1}
+    m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+    m_BackgroundColor: {r: 0.043137256, g: 0.14150941, b: 0.13169721, a: 1}
     SelectableColors:
       m_NormalColor: {r: 0.07058824, g: 0.45882356, b: 0.2901961, a: 1}
       m_HighlightedColor: {r: 0.078431375, g: 0.23529413, b: 0.21960786, a: 1}
@@ -25,8 +25,8 @@ MonoBehaviour:
       m_ColorMultiplier: 1
       m_FadeDuration: 0.1
   - Name: LoadingWindow.ProgressBar.Background
-    TextColor: {r: 0, g: 0.19607845, b: 0.15686275, a: 1}
-    BackgroundColor: {r: 0, g: 0, b: 0, a: 1}
+    m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+    m_BackgroundColor: {r: 0.043137256, g: 0.14117648, b: 0.13333334, a: 1}
     SelectableColors:
       m_NormalColor: {r: 0.9058824, g: 0.9058824, b: 0.9058824, a: 1}
       m_HighlightedColor: {r: 0.078431375, g: 0.23529413, b: 0.21960786, a: 1}
@@ -36,8 +36,8 @@ MonoBehaviour:
       m_ColorMultiplier: 1
       m_FadeDuration: 0.1
   - Name: LoadingWindow.ProgressBar.Fill
-    TextColor: {r: 0, g: 0.19607845, b: 0.15686275, a: 1}
-    BackgroundColor: {r: 1, g: 1, b: 1, a: 1}
+    m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+    m_BackgroundColor: {r: 0.043137256, g: 0.14117648, b: 0.13333334, a: 1}
     SelectableColors:
       m_NormalColor: {r: 0.9058824, g: 0.9058824, b: 0.9058824, a: 1}
       m_HighlightedColor: {r: 0.078431375, g: 0.23529413, b: 0.21960786, a: 1}
@@ -47,8 +47,8 @@ MonoBehaviour:
       m_ColorMultiplier: 1
       m_FadeDuration: 0.1
   - Name: MaterialEditor.TextureButton
-    TextColor: {r: 0, g: 0.19607845, b: 0.15686275, a: 1}
-    BackgroundColor: {r: 1, g: 1, b: 1, a: 1}
+    m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+    m_BackgroundColor: {r: 0.043137256, g: 0.14117648, b: 0.13333334, a: 1}
     SelectableColors:
       m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
       m_HighlightedColor: {r: 0.078431375, g: 0.23529413, b: 0.21960786, a: 1}

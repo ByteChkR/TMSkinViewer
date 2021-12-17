@@ -7,14 +7,72 @@ namespace Themes
 {
 
     [Serializable]
-    public class ThemeSelectorTarget
+    public class ThemeSelectorTarget: ISettingsObject
     {
 
         public string Name;
-        public Color TextColor;
-        public Color BackgroundColor;
+        [SerializeField]
+        private Color m_TextColor;
+        [SerializeField]
+        private Color m_BackgroundColor;
         public ColorBlock SelectableColors;
+        
+        public Action OnSettingsChanged;
 
+        [SettingsProperty]
+        public Color TextColor
+        {
+            get => m_TextColor;
+            set => m_TextColor = value;
+        }
+        
+        [SettingsProperty]
+        public Color BackgroundColor
+        {
+            get => m_BackgroundColor;
+            set => m_BackgroundColor = value;
+        }
+
+        [SettingsProperty]
+        public Color NormalColor {get=>SelectableColors.normalColor; set => SelectableColors.normalColor = value;}
+
+        [SettingsProperty]
+        public Color HighlightedColor
+        {
+            get => SelectableColors.highlightedColor;
+            set => SelectableColors.highlightedColor = value;
+        }
+        
+        [SettingsProperty]
+        public Color PressedColor
+        {
+            get => SelectableColors.pressedColor;
+            set => SelectableColors.pressedColor = value;
+        }
+        
+        [SettingsProperty]
+        public Color DisabledColor
+        {
+            get => SelectableColors.disabledColor;
+            set => SelectableColors.disabledColor = value;
+        }
+        
+        [SettingsProperty]
+        public float ColorMultiplier
+        {
+            get => SelectableColors.colorMultiplier;
+            set => SelectableColors.colorMultiplier = value;
+        }
+        
+        [SettingsProperty]
+        public float FadeDuration
+        {
+            get => SelectableColors.fadeDuration;
+            set => SelectableColors.fadeDuration = value;
+        }
+
+        
+        
         public void ApplyTheme( GameObject obj )
         {
             Text t = obj.GetComponent < Text >();
@@ -35,6 +93,15 @@ namespace Themes
             {
                 i.color = BackgroundColor;
             }
+        }
+
+        void ISettingsObject.OnSettingsChanged()
+        {
+            OnSettingsChanged?.Invoke();
+        }
+
+        public void OnObjectLoaded()
+        {
         }
 
     }

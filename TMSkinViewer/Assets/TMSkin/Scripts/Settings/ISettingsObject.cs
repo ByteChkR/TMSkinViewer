@@ -3,4 +3,6 @@
 
     void OnSettingsChanged();
 
+    void OnObjectLoaded();
+
 }

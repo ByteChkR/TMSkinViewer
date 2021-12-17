@@ -18,6 +18,9 @@ namespace Themes
         private void Awake()
         {
             s_Instance = this;
+            #if UNITY_EDITOR
+            m_Settings = Instantiate( m_Settings );
+            #endif
             m_Settings.OnSettingsChanged += ApplyToAllElements;
         }
 
