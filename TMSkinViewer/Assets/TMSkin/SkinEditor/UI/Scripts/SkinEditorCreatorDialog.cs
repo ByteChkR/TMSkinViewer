@@ -24,9 +24,9 @@ namespace UI.SkinEditorMainWindow
         private void Awake()
         {
             m_TemplateDropdown.options.AddRange(
-                                                SkinDatabase.Skins.Select(
-                                                                          x => new Dropdown.OptionData( x.SkinName )
-                                                                         )
+                                                SkinDatabase.LoadedSkins.Select(
+                                                                                x => new Dropdown.OptionData( x.SkinName )
+                                                                               )
                                                );
         }
 
@@ -41,11 +41,11 @@ namespace UI.SkinEditorMainWindow
 
             if ( m_UseTemplateToggle.isOn )
             {
-                CarSkin template = SkinDatabase.Skins.First(
-                                                            x => x.SkinName ==
-                                                                 m_TemplateDropdown.options[m_TemplateDropdown.value].
-                                                                     text
-                                                           );
+                CarSkin template = SkinDatabase.LoadedSkins.First(
+                                                                  x => x.SkinName ==
+                                                                       m_TemplateDropdown.options[m_TemplateDropdown.value].
+                                                                           text
+                                                                 );
 
                 SkinDatabase.CreateSkin( name, template );
             }

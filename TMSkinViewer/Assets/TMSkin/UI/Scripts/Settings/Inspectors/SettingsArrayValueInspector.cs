@@ -17,7 +17,7 @@ namespace UI.Settings
 
         private SettingsInspector m_Inspector;
 
-        private GameObject m_InspectorPrefab;
+        private SettingsValueInspectorEntry m_InspectorPrefab;
 
         private SettingsPropertyWrapper m_Wrapper;
 
@@ -37,7 +37,7 @@ namespace UI.Settings
 
             m_Wrapper = prop;
 
-            m_InspectorPrefab = m_Inspector.GetPrefab( prop.Type.GetElementType() );
+            m_InspectorPrefab = m_Inspector.GetEntry( prop.Type.GetElementType() );
 
             if ( m_InspectorPrefab == null )
             {
@@ -65,30 +65,46 @@ namespace UI.Settings
                 return;
             }
 
-            SettingsValueInspector inspector = Instantiate( m_InspectorPrefab, m_InspectorContent ).
-                GetComponent < SettingsValueInspector >();
+            GameObject inspector = Instantiate( m_InspectorPrefab.InspectorPrefab, m_InspectorContent );
 
-            m_InspectorItems.Add( inspector.gameObject );
+            object instance = ( ( Array )m_Wrapper.Value ).GetValue( i );
+            m_InspectorPrefab.OnCreate(inspector, instance);
+            m_InspectorItems.Add( inspector );
+
             inspector.transform.SetSiblingIndex( m_InspectorContent.childCount - 2 );
 
-            inspector.SetProperty(
-                                  new SettingsArrayPropertyWrapper(
-                                                                   i.ToString(),
-                                                                   m_Wrapper.Type.GetElementType(),
-                                                                   o =>
-                                                                   {
-                                                                       Array cur = ( Array )m_Wrapper.Value;
+            SettingsValueInspector insp = inspector.
+                GetComponent < SettingsValueInspector >();
+            
+            if ( insp == null )
+                return;
 
-                                                                       cur.SetValue( o, i );
-                                                                   },
-                                                                   () =>
-                                                                   {
-                                                                       Array cur = ( Array )m_Wrapper.Value;
+            Action<object> setter = null;
 
-                                                                       return cur.GetValue( i );
-                                                                   }
-                                                                  )
-                                 );
+            if ( m_Wrapper.CanWrite )
+            {
+                setter = o =>
+                         {
+                             Array cur = ( Array )m_Wrapper.Value;
+
+                             cur.SetValue( o, i );
+                         };
+            }
+            insp.SetProperty(
+                             new SettingsArrayPropertyWrapper(
+                                                              i.ToString(),
+                                                              m_Wrapper.Type.GetElementType(),
+                                                              setter,
+                                                              () =>
+                                                              {
+                                                                  Array cur = ( Array )m_Wrapper.Value;
+
+                                                                  return cur.GetValue( i );
+                                                              },
+                                                              null,
+                                                              m_Wrapper.GetCustomAttributes<Attribute>()
+                                                             )
+                            );
 
             //Get Inspector UI Prefab for the element type
             //Create Inspector UI for each element
@@ -134,28 +150,34 @@ namespace UI.Settings
         private class SettingsArrayPropertyWrapper : SettingsPropertyWrapper
         {
 
+            private readonly IEnumerable <Attribute> m_Attributes;
             private readonly Action < object > m_Setter;
             private readonly Func < object > m_Getter;
+
+            public override bool CanWrite => m_Setter != null;
 
             public override Type Type { get; }
 
             public override object Value
             {
                 get => m_Getter();
-                set => m_Setter( value );
+                set => m_Setter?.Invoke( value );
             }
 
+            public override IEnumerable < T > GetCustomAttributes < T >() => m_Attributes.Where(x=> x is T).Cast<T>();
             #region Public
 
             public SettingsArrayPropertyWrapper(
                 string name,
                 Type elemType,
                 Action < object > set,
-                Func < object > get ) : base( name, null, null )
+                Func < object > get, SettingsHeaderAttribute header,
+                IEnumerable < Attribute > attributes ) : base( name, null, null, header )
             {
                 Type = elemType;
                 m_Setter = set;
                 m_Getter = get;
+                m_Attributes = attributes;
             }
 
             #endregion

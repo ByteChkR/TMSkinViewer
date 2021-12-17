@@ -6,6 +6,12 @@ using UnityEngine;
 [CreateAssetMenu( fileName = "CarPreset", menuName = "TMSkin/Presets/Car" )]
 public class CarPreset : ScriptableObject
 {
+    [SettingsProperty]
+    public string Name
+    {
+        get => name;
+        set => name = value;
+    }
 
     [SerializeField]
     private bool m_IsAccelerating;
@@ -57,31 +63,111 @@ public class CarPreset : ScriptableObject
     [SerializeField]
     private float m_Boost;
 
-    //Wrap all members into get only properties
-    public float BrakeLights => m_BrakeLights;
-
-    public float BrakeAnimation => m_BrakeAnimation;
-
-    public float Energy => m_Energy;
-
-    public float Turbo => m_Turbo;
-
-    public Color TurboColor => m_TurboColor;
-
-    public float ExhaustHeat => m_ExhaustHeat;
-
-    public float Boost => m_Boost;
-
-    public float Turn => m_Turn;
-
-    public float Wings => m_Wings;
-
-    public float ExhaustUp => m_ExhaustUp;
-
-    public float ExhaustDown => m_ExhaustDown;
-
-    public float WheelDown => m_WheelDown;
-
-    public bool IsAccelerating => m_IsAccelerating;
+    //Wrap all members into get/set properties
+    [SettingsProperty]
+    public bool IsAccelerating
+    {
+        get => m_IsAccelerating;
+        set => m_IsAccelerating = value;
+    }
+    
+    [SettingsProperty]
+    [SettingsRange( 0, 1 )]
+    public float Turn
+    {
+        get => m_Turn;
+        set => m_Turn = value;
+    }
+    
+    [SettingsProperty]
+    [SettingsRange( 0, 1 )]
+    public float Wings
+    {
+        get => m_Wings;
+        set => m_Wings = value;
+    }
+    
+    [SettingsProperty]
+    [SettingsRange( 0, 1 )]
+    public float ExhaustUp
+    {
+        get => m_ExhaustUp;
+        set => m_ExhaustUp = value;
+    }
+    
+    [SettingsProperty]
+    [SettingsRange( 0, 1 )]
+    public float ExhaustDown
+    {
+        get => m_ExhaustDown;
+        set => m_ExhaustDown = value;
+    }
+    
+    [SettingsProperty]
+    [SettingsRange( 0, 1 )]
+    public float WheelDown
+    {
+        get => m_WheelDown;
+        set => m_WheelDown = value;
+    }
+    
+    [SettingsProperty]
+    [SettingsRange( 0, 1 )]
+    public float BrakeLights
+    {
+        get => m_BrakeLights;
+        set => m_BrakeLights = value;
+    }
+    
+    [SettingsProperty]
+    [SettingsRange( 0, 1 )]
+    public float BrakeAnimation
+    {
+        get => m_BrakeAnimation;
+        set => m_BrakeAnimation = value;
+    }
+    
+    [SettingsProperty]
+    [SettingsRange( 0, 1 )]
+    public float Energy
+    {
+        get => m_Energy;
+        set => m_Energy = value;
+    }
+    
+    [SettingsProperty]
+    [SettingsRange( 0, 1 )]
+    public float Turbo
+    {
+        get => m_Turbo;
+        set => m_Turbo = value;
+    }
+    
+    [SettingsProperty]
+    public Color TurboColor
+    {
+        get => m_TurboColor;
+        set => m_TurboColor = value;
+    }
+    
+    [SettingsProperty]
+    [SettingsRange( 0, 1 )]
+    public float ExhaustHeat
+    {
+        get => m_ExhaustHeat;
+        set => m_ExhaustHeat = value;
+    }
+    
+    [SettingsProperty]
+    [SettingsRange( 0, 1 )]
+    public float Boost
+    {
+        get => m_Boost;
+        set => m_Boost = value;
+    }
+    
+    
+    
+    
 
 }

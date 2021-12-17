@@ -74,7 +74,7 @@ namespace UI.MaterialEditor
 
             m_SkinButtons.Clear();
 
-            foreach ( CarMaterial material in MaterialDatabase.Materials )
+            foreach ( CarMaterial material in MaterialDatabase.LoadedMaterials )
             {
                 GameObject button = Instantiate( m_MaterialButtonPrefab, m_MaterialButtonContainer );
                 m_SkinButtons.Add( button );

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 
 using UnityEngine;
@@ -9,11 +10,15 @@ public class SettingsObjectWrapper
 
     private readonly object m_Object;
 
+    public object Instance => m_Object;
+
     private readonly SettingsPropertyWrapper[] m_Properties;
+    private readonly (string, MethodInfo)[] m_Methods;
 
     public event Action OnObjectChanged;
 
     public IEnumerable < SettingsPropertyWrapper > Properties => m_Properties;
+    public IEnumerable <(string, MethodInfo)> Methods => m_Methods;
 
     #region Public
 
@@ -26,6 +31,7 @@ public class SettingsObjectWrapper
                                                   );
 
         m_Properties = CreateProperties();
+        m_Methods = CreateMethods();
 
         if ( o is ISettingsObject so )
         {
@@ -45,11 +51,25 @@ public class SettingsObjectWrapper
 
     #region Private
 
+    private (string, MethodInfo)[] CreateMethods()
+    {
+        List<(string, MethodInfo)> methods = new List<(string, MethodInfo)>();
+
+        foreach ( MethodInfo method in m_Object.GetType().GetMethods( BindingFlags.Instance | BindingFlags.Public ) )
+        {
+            SettingsButtonAttribute attribute = method.GetCustomAttribute<SettingsButtonAttribute>();
+            if(attribute!=null)
+                methods.Add( ( attribute.Name ?? method.Name, method ) );
+        }
+
+        return methods.ToArray();
+    }
+    
     private SettingsPropertyWrapper[] CreateProperties()
     {
         List < SettingsPropertyWrapper > properties = new List < SettingsPropertyWrapper >();
 
-        foreach ( PropertyInfo info in m_Object.GetType().GetProperties( BindingFlags.Public | BindingFlags.Instance ) )
+        foreach ( PropertyInfo info in m_Object.GetType().GetProperties( BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy ) )
         {
             SettingsPropertyAttribute attribute = info.GetCustomAttribute < SettingsPropertyAttribute >();
 
@@ -66,9 +86,8 @@ public class SettingsObjectWrapper
     {
         string name = attribute.Name ?? info.Name;
 
-        Debug.Log( $"Adding Property '{name}'" );
 
-        SettingsPropertyWrapper wrapper = new SettingsPropertyWrapper( name, m_Object, info );
+        SettingsPropertyWrapper wrapper = new SettingsPropertyWrapper( name, m_Object, info, info.GetCustomAttribute<SettingsHeaderAttribute>() );
 
         wrapper.OnPropertyChanged += OnPropertyChanged;
 

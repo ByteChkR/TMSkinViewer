@@ -33,6 +33,8 @@ namespace UI.Settings
 
             foreach ( SettingsCategory category in SettingsManager.AllCategories )
             {
+                if ( !category.HasObjects())
+                    continue;
                 GameObject i = Instantiate( m_CategoryItem, m_CategoryParent );
                 Button btn = i.GetComponent < Button >();
                 Text txt = i.GetComponentInChildren < Text >();

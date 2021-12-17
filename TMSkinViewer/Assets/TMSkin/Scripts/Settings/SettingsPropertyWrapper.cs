@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 
 public class SettingsPropertyWrapper
 {
 
+    public SettingsHeaderAttribute Header { get;}
     public readonly string Name;
     private readonly object m_Instance;
     private readonly PropertyInfo m_Info;
@@ -12,6 +15,7 @@ public class SettingsPropertyWrapper
 
     public event Action < object > OnPropertyChanged;
 
+    public virtual bool CanWrite => m_Info.CanWrite;
     public virtual object Value
     {
         get => m_Info.GetValue( m_Instance );
@@ -21,13 +25,24 @@ public class SettingsPropertyWrapper
             OnPropertyChanged?.Invoke( value );
         }
     }
+    
+    public virtual IEnumerable <T> GetCustomAttributes<T>() where T : Attribute
+    {
+        return m_Info.GetCustomAttributes<T>();
+    }
+    
+    public T GetCustomAttribute<T>() where T : Attribute
+    {
+        return GetCustomAttributes<T>().FirstOrDefault();
+    }
 
     #region Public
 
-    public SettingsPropertyWrapper( string name, object instance, PropertyInfo info )
+    public SettingsPropertyWrapper( string name, object instance, PropertyInfo info, SettingsHeaderAttribute header )
     {
         Name = name;
         m_Info = info;
+        Header = header;
         m_Instance = instance;
     }
 

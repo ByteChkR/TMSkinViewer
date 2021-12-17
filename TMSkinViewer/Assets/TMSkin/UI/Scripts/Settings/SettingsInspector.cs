@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI.Settings
 {
@@ -9,111 +12,128 @@ namespace UI.Settings
     public class SettingsInspector : MonoBehaviour
     {
 
+        private class CustomInspectorEntry : SettingsValueInspectorEntry
+        {
+
+            private readonly Type m_Type;
+            private readonly Action < GameObject, object > m_OnCreate;
+            private readonly bool m_AllowInherited;
+
+            public CustomInspectorEntry( Type type, GameObject prefab, Action < GameObject, object > create, bool allowInherited = false )
+            {
+                m_Type = type;
+                m_OnCreate = create;
+                InspectorPrefab = prefab;
+                Type = SettingsValueInspectorType.Custom;
+                m_AllowInherited = allowInherited;
+            }
+
+            public override bool IsValidInspectorPropertyType( Type t )
+            {
+                return  m_AllowInherited? t.IsAssignableFrom(m_Type): t == m_Type;
+            }
+
+            public override void OnCreate( GameObject inspector, object instance )
+            {
+                base.OnCreate( inspector, instance );
+                m_OnCreate( inspector, instance );
+            }
+
+        }
+
+        private static readonly List < SettingsValueInspectorEntry > m_CustomInspectors =
+            new List < SettingsValueInspectorEntry >();
+
         [SerializeField]
-        private SettingsValueInspectorEntry[] m_Inspectors;
+        private List < SettingsValueInspectorEntry > m_Inspectors;
 
         [SerializeField]
         private Transform m_InspectorParent;
+        
+        [SerializeField]
+        private GameObject m_InspectorButtonPrefab;
+        
+        [SerializeField]
+        private GameObject m_InspectorHeaderPrefab;
 
-        private SettingsValueInspector CreateInspector( SettingsValueInspectorType type )
+        private static CustomInspectorEntry s_FallbackInspector;
+
+        public static void AddFallbackInspector( GameObject obj, Action < GameObject, object > onCreate ) =>
+            s_FallbackInspector = new CustomInspectorEntry( typeof( object ), obj, onCreate, true );
+        
+
+        public static void AddCustomInspector( Type t, GameObject obj, Action <GameObject, object> onCreate, bool allowInherited = false )
         {
-            SettingsValueInspectorEntry e = m_Inspectors.FirstOrDefault( x => x.Type == type );
+            m_CustomInspectors.Add( new CustomInspectorEntry( t, obj, onCreate, allowInherited ) );
+        }
 
-            if ( e == null )
+
+        private void Awake()
+        {
+            m_Inspectors.AddRange(m_CustomInspectors);
+        }
+
+        private static object CreateObjectInstance( Type t )
+        {
+            try
+            {
+                return t == typeof(string) ? "" : Activator.CreateInstance(t);
+            }
+            catch ( Exception e )
             {
                 return null;
             }
+        }
+        
+        private SettingsValueInspector CreateInspector( Type type ) =>
+            CreateInspector(CreateObjectInstance(type), type);
+        private SettingsValueInspector CreateInspector(  object instance, Type type = null )
+        {
+            type ??= instance.GetType();
+            SettingsValueInspectorEntry e = GetEntry(type );
 
-            return Instantiate( e.InspectorPrefab, m_InspectorParent ).
+
+            GameObject r= Instantiate( e.InspectorPrefab, m_InspectorParent );
+            e.OnCreate( r, instance );
+            return r.
                 GetComponent < SettingsValueInspector >();
         }
 
-        private GameObject GetPrefab( SettingsValueInspectorType type )
+        public SettingsValueInspectorEntry GetEntry( Type type )
         {
-            SettingsValueInspectorEntry e = m_Inspectors.FirstOrDefault( x => x.Type == type );
+            SettingsValueInspectorEntry e = m_Inspectors.LastOrDefault( x => x.IsValidInspectorPropertyType(type) );
 
             if ( e == null )
             {
-                return null;
+                return s_FallbackInspector;
             }
 
-            return e.InspectorPrefab;
+            return e;
         }
 
-        public GameObject GetPrefab( Type t )
+        private void CreateButtonValue(object instance, string name, MethodInfo info )
         {
-            if ( t == typeof( string ) )
-            {
-                return GetPrefab( SettingsValueInspectorType.String );
-            }
-            else if ( t == typeof( int ) )
-            {
-                return GetPrefab( SettingsValueInspectorType.Integer );
-            }
-            else if ( t == typeof( float ) )
-            {
-                return GetPrefab( SettingsValueInspectorType.Decimal );
-            }
-            else if ( t.IsEnum )
-            {
-                return GetPrefab( SettingsValueInspectorType.Enum );
-            }
-            else if ( t == typeof( Color ) )
-            {
-                return GetPrefab( SettingsValueInspectorType.Color );
-            }
-            else if ( t == typeof( Vector2 ) )
-            {
-                return GetPrefab( SettingsValueInspectorType.Vector2 );
-            }
-            else if ( t == typeof( Vector3 ) )
-            {
-                return GetPrefab( SettingsValueInspectorType.Vector3 );
-            }
-            else if ( t.IsArray )
-            {
-                return GetPrefab( SettingsValueInspectorType.Array );
-            }
-
-            return null;
+            GameObject button = Instantiate( m_InspectorButtonPrefab, m_InspectorParent );
+            button.GetComponentInChildren < Text >().text = name;
+            button.GetComponentInChildren < Button >().onClick.AddListener( () =>
+                                                                            {
+                                                                                info.Invoke( instance, null );
+                                                                            } );
         }
 
         private void CreateInspectorValue( SettingsPropertyWrapper property )
         {
-            SettingsValueInspector inspector = null;
+            if(property.Header != null)
+            {
+                GameObject header = Instantiate( m_InspectorHeaderPrefab, m_InspectorParent );
+                header.GetComponentInChildren<Text>().text = property.Header.Name;
+            }
 
-            if ( property.Type == typeof( string ) )
-            {
-                inspector = CreateInspector( SettingsValueInspectorType.String );
-            }
-            else if ( property.Type == typeof( int ) )
-            {
-                inspector = CreateInspector( SettingsValueInspectorType.Integer );
-            }
-            else if ( property.Type == typeof( float ) )
-            {
-                inspector = CreateInspector( SettingsValueInspectorType.Decimal );
-            }
-            else if ( property.Type.IsEnum )
-            {
-                inspector = CreateInspector( SettingsValueInspectorType.Enum );
-            }
-            else if ( property.Type == typeof( Color ) )
-            {
-                inspector = CreateInspector( SettingsValueInspectorType.Color );
-            }
-            else if ( property.Type == typeof( Vector2 ) )
-            {
-                inspector = CreateInspector( SettingsValueInspectorType.Vector2 );
-            }
-            else if ( property.Type == typeof( Vector3 ) )
-            {
-                inspector = CreateInspector( SettingsValueInspectorType.Vector3 );
-            }
-            else if ( property.Type.IsArray )
-            {
-                inspector = CreateInspector( SettingsValueInspectorType.Array );
-            }
+
+            SettingsValueInspector inspector = property.Value != null
+                                                   ? CreateInspector( property.Value )
+                                                   : CreateInspector( property.Type );
+            
 
             if ( inspector != null )
             {
@@ -124,6 +144,8 @@ namespace UI.Settings
                 Debug.Log( $"No Inspector found for type {property.Type}" );
             }
         }
+        
+       
 
         public void SetCategory( SettingsCategory category )
         {
@@ -137,6 +159,11 @@ namespace UI.Settings
                 foreach ( SettingsPropertyWrapper property in objectWrapper.Properties )
                 {
                     CreateInspectorValue( property );
+                }
+
+                foreach (  (string name,  MethodInfo info) method in objectWrapper.Methods )
+                {
+                    CreateButtonValue( objectWrapper.Instance, name, method.info );
                 }
             }
         }

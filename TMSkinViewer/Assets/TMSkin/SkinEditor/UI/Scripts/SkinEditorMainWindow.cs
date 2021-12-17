@@ -89,7 +89,7 @@ namespace UI.SkinEditorMainWindow
 
             m_SkinButtons.Clear();
 
-            foreach ( CarSkin skin in SkinDatabase.Skins )
+            foreach ( CarSkin skin in SkinDatabase.LoadedSkins )
             {
                 GameObject button = Instantiate( m_SkinButtonPrefab, m_SkinButtonContainer );
                 m_SkinButtons.Add( button );

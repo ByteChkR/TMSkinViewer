@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Linq;
 
@@ -6,6 +7,12 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
 
+    private Func <bool> m_EnableKeyboardInput;
+    public Func<bool> EnableKeyboardInput
+    {
+        get => m_EnableKeyboardInput;
+        set => m_EnableKeyboardInput = value;
+    }
     [SerializeField]
     private AnimationCurve m_TransitionCurve = AnimationCurve.Linear( 0, 0, 1, 1 );
 
@@ -19,6 +26,14 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
+        if ( !m_IsTransitioning && m_Position != null )
+        {
+            transform.SetPositionAndRotation( m_Position.position, m_Position.rotation );
+        }
+
+        bool enableKeyboardInput = m_EnableKeyboardInput?.Invoke() ?? true;
+        if ( !enableKeyboardInput)
+            return;
         CameraControllerPosition pos = m_CameraPositions.FirstOrDefault( x => Input.GetKeyDown( x.ActionKey ) );
 
         if ( pos != null )
@@ -26,10 +41,6 @@ public class CameraController : MonoBehaviour
             ChangePosition( pos.TargetTransform );
         }
 
-        if ( !m_IsTransitioning && m_Position != null )
-        {
-            transform.SetPositionAndRotation( m_Position.position, m_Position.rotation );
-        }
     }
 
     private IEnumerator CameraTransition( Transform target )

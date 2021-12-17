@@ -12,6 +12,8 @@
         Vector2,
         Vector3,
         Array,
+        Custom,
+        Texture
 
     }
 

@@ -6,6 +6,7 @@ using UnityEngine;
 namespace UI.SkinEditorMainWindow
 {
 
+    [SettingsCategory("Car Skin Settings")]
     public class SkinDatabase : MonoBehaviour
     {
 
@@ -16,12 +17,31 @@ namespace UI.SkinEditorMainWindow
 
         [SerializeField]
         private CarSkin m_DefaultSkin;
+        
+        [SettingsProperty]
+        [SettingsHeader("Skin Settings")]
+        public CarSkin DefaultSkin
+        {
+            get => m_DefaultSkin;
+            set => m_DefaultSkin = value;
+        }
 
-        public static IEnumerable < CarSkin > Skins => s_Instance.m_Skins;
+        public static IEnumerable < CarSkin > LoadedSkins => s_Instance.m_Skins;
+
+        [SettingsProperty]
+        public CarSkin[] Skins
+        {
+            get => m_Skins.ToArray();
+            set => m_Skins = new List<CarSkin>(value);
+        }
+
+        public CarSkin Default => s_Instance.DefaultSkin;
+
 
         private void Awake()
         {
             s_Instance = this;
+            SettingsManager.AddSettingsObject(this);
         }
 
         public static event Action OnSkinDatabaseChanged;

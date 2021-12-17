@@ -12,48 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ac0a180cb7946e3bddf2774b37c460d, type: 3}
   m_Name: ThemeSettings
   m_EditorClassIdentifier: 
-  Targets:
-  - Name: Default
+  m_Targets:
+  - m_Name: Default
     m_TextColor: {r: 1, g: 1, b: 1, a: 1}
-    m_BackgroundColor: {r: 0.043137256, g: 0.14150941, b: 0.13169721, a: 1}
+    m_BackgroundColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     SelectableColors:
-      m_NormalColor: {r: 0.07058824, g: 0.45882356, b: 0.2901961, a: 1}
-      m_HighlightedColor: {r: 0.078431375, g: 0.23529413, b: 0.21960786, a: 1}
-      m_PressedColor: {r: 0.050980397, g: 0.40784317, b: 0.2784314, a: 1}
-      m_SelectedColor: {r: 0.06666667, g: 0.45098042, b: 0.2901961, a: 1}
-      m_DisabledColor: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
+      m_NormalColor: {r: 0.33333334, g: 0.33333334, b: 0.33333334, a: 1}
+      m_HighlightedColor: {r: 0.46666667, g: 0.46666667, b: 0.46666667, a: 1}
+      m_PressedColor: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 1}
+      m_SelectedColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
+      m_DisabledColor: {r: 0, g: 0, b: 0, a: 1}
       m_ColorMultiplier: 1
-      m_FadeDuration: 0.1
-  - Name: LoadingWindow.ProgressBar.Background
+      m_FadeDuration: 0.2
+  - m_Name: Settings.ValueInspector.TextureButton
     m_TextColor: {r: 1, g: 1, b: 1, a: 1}
-    m_BackgroundColor: {r: 0.043137256, g: 0.14117648, b: 0.13333334, a: 1}
-    SelectableColors:
-      m_NormalColor: {r: 0.9058824, g: 0.9058824, b: 0.9058824, a: 1}
-      m_HighlightedColor: {r: 0.078431375, g: 0.23529413, b: 0.21960786, a: 1}
-      m_PressedColor: {r: 0.050980397, g: 0.40784317, b: 0.2784314, a: 1}
-      m_SelectedColor: {r: 0.06666667, g: 0.45098042, b: 0.2901961, a: 1}
-      m_DisabledColor: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
-      m_ColorMultiplier: 1
-      m_FadeDuration: 0.1
-  - Name: LoadingWindow.ProgressBar.Fill
-    m_TextColor: {r: 1, g: 1, b: 1, a: 1}
-    m_BackgroundColor: {r: 0.043137256, g: 0.14117648, b: 0.13333334, a: 1}
-    SelectableColors:
-      m_NormalColor: {r: 0.9058824, g: 0.9058824, b: 0.9058824, a: 1}
-      m_HighlightedColor: {r: 0.078431375, g: 0.23529413, b: 0.21960786, a: 1}
-      m_PressedColor: {r: 0.050980397, g: 0.40784317, b: 0.2784314, a: 1}
-      m_SelectedColor: {r: 0.06666667, g: 0.45098042, b: 0.2901961, a: 1}
-      m_DisabledColor: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
-      m_ColorMultiplier: 1
-      m_FadeDuration: 0.1
-  - Name: MaterialEditor.TextureButton
-    m_TextColor: {r: 1, g: 1, b: 1, a: 1}
-    m_BackgroundColor: {r: 0.043137256, g: 0.14117648, b: 0.13333334, a: 1}
+    m_BackgroundColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     SelectableColors:
       m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-      m_HighlightedColor: {r: 0.078431375, g: 0.23529413, b: 0.21960786, a: 1}
-      m_PressedColor: {r: 0.050980397, g: 0.40784317, b: 0.2784314, a: 1}
-      m_SelectedColor: {r: 0.06666667, g: 0.45098042, b: 0.2901961, a: 1}
-      m_DisabledColor: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
+      m_HighlightedColor: {r: 0.46666667, g: 0.46666667, b: 0.46666667, a: 1}
+      m_PressedColor: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 1}
+      m_SelectedColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
+      m_DisabledColor: {r: 0, g: 0, b: 0, a: 1}
       m_ColorMultiplier: 1
-      m_FadeDuration: 0.1
+      m_FadeDuration: 0.2

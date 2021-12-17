@@ -10,14 +10,6 @@ namespace UI.SkinEditorMainWindow
         [SerializeField]
         private SkinEditorWindow m_EditorWindow;
 
-        [SerializeField]
-        private MapPreset[] m_MapPresets;
-
-        [SerializeField]
-        private SurfacePreset[] m_SurfacePresets;
-
-        [SerializeField]
-        private CarPreset[] m_CarPresets;
 
         [SerializeField]
         private Dropdown m_MapPresetDropdown;
@@ -30,17 +22,18 @@ namespace UI.SkinEditorMainWindow
 
         private void Awake()
         {
-            foreach ( MapPreset mapPreset in m_MapPresets )
+            
+            foreach ( MapPreset mapPreset in SkinEditorPresets.Instance.MapPresets )
             {
                 m_MapPresetDropdown.options.Add( new Dropdown.OptionData( mapPreset.name ) );
             }
 
-            foreach ( CarPreset carPreset in m_CarPresets )
+            foreach ( CarPreset carPreset in SkinEditorPresets.Instance.CarPresets )
             {
                 m_CarPresetDropdown.options.Add( new Dropdown.OptionData( carPreset.name ) );
             }
 
-            foreach ( SurfacePreset surfacePreset in m_SurfacePresets )
+            foreach ( SurfacePreset surfacePreset in SkinEditorPresets.Instance.SurfacePresets )
             {
                 m_SurfacePresetDropdown.options.Add( new Dropdown.OptionData( surfacePreset.name ) );
             }
@@ -48,17 +41,17 @@ namespace UI.SkinEditorMainWindow
 
         public void SetMapPreset( int i )
         {
-            m_EditorWindow.ViewerInstance.MapController.SetMapPreset( m_MapPresets[i] );
+            m_EditorWindow.ViewerInstance.MapController.SetMapPreset( SkinEditorPresets.Instance.MapPresets[i] );
         }
 
         public void SetSurfacePreset( int i )
         {
-            m_EditorWindow.ViewerInstance.MapController.SetSurfacePreset( m_SurfacePresets[i] );
+            m_EditorWindow.ViewerInstance.MapController.SetSurfacePreset( SkinEditorPresets.Instance.SurfacePresets[i] );
         }
 
         public void SetCarPreset( int i )
         {
-            m_EditorWindow.ViewerInstance.MapController.SetCarPreset( m_CarPresets[i] );
+            m_EditorWindow.ViewerInstance.MapController.SetCarPreset( SkinEditorPresets.Instance.CarPresets[i] );
         }
 
         public void Toggle()

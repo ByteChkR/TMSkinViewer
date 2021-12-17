@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 using UnityEngine;
 
 namespace UI.ResourceSelector
 {
+    
 
     public class ResourceSelectorWindow : MonoBehaviour
     {
@@ -19,17 +21,23 @@ namespace UI.ResourceSelector
         private GameObject m_ResourceItemPrefab;
 
         private readonly List < GameObject > m_ActiveItems = new List < GameObject >();
+        private Type[] m_TypeFilter = Array.Empty < Type >();
 
         private void Awake()
         {
             SetActiveItems( ResourceSystem.GetResourceOrigins().Select( x => x.GetRootNode() ), null, false );
         }
 
-        public event System.Action < Object > OnResourceSelected;
+        public void SetTypeFilter( Type[] types )
+        {
+            m_TypeFilter = types;
+        }
+
+        public event Action < ResourceNode > OnResourceSelected;
 
         private void ResourceSelected( ResourceNode node )
         {
-            OnResourceSelected?.Invoke( node.GetResource() );
+            OnResourceSelected?.Invoke( node );
             m_Window.Close();
         }
 
@@ -91,9 +99,21 @@ namespace UI.ResourceSelector
 
                 m_ActiveItems.Add( windowItem.gameObject );
             }
-
+            
             foreach ( ResourceNode item in items )
             {
+                if ( item.Type == ResourceType.Directory )
+                {
+                    if ( !item.Children.Any() )
+                    {
+                        continue;
+                    }
+                }
+                else if ( m_TypeFilter.Length != 0 && !m_TypeFilter.Contains( item.GetResourceType() ) )
+                {
+                    continue;
+                }
+
                 GameObject newItem = Instantiate( m_ResourceItemPrefab, m_Content );
                 ResourceSelectorWindowItem windowItem = newItem.GetComponent < ResourceSelectorWindowItem >();
 

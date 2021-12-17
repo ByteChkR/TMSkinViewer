@@ -22,30 +22,36 @@ public class CarSkin : ScriptableObject
     [SerializeField]
     private CarMaterial m_Details;
 
+    [SettingsProperty]
     public string SkinName
     {
         get => m_SkinName;
         set => m_SkinName = value;
     }
 
+    [SettingsHeader("Skin Materials")]
+    [SettingsProperty]
     public CarMaterial Skin
     {
         get => m_Skin;
         set => m_Skin = value;
     }
 
+    [SettingsProperty]
     public CarMaterial Glass
     {
         get => m_Glass;
         set => m_Glass = value;
     }
 
+    [SettingsProperty]
     public CarMaterial Wheel
     {
         get => m_Wheel;
         set => m_Wheel = value;
     }
 
+    [SettingsProperty]
     public CarMaterial Details
     {
         get => m_Details;

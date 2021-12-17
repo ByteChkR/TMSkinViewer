@@ -1,5 +1,7 @@
 ﻿using System;
 
+
+[AttributeUsage( AttributeTargets.Property )]
 public class SettingsPropertyAttribute : Attribute
 {
 

@@ -435,8 +435,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b9804fb0b464d95a2cd2bcc321e01c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Inspectors: []
+  m_Inspectors:
+  - Type: 0
+    InspectorPrefab: {fileID: 7543905032583839115, guid: ebcefb12607c7084da0c7cc4d327c2f5, type: 3}
+  - Type: 1
+    InspectorPrefab: {fileID: 1046941405607011912, guid: 63bf231eee1300841b6b34b263731f39, type: 3}
+  - Type: 2
+    InspectorPrefab: {fileID: 3348334899722641341, guid: e85f93c5ad7066b4ba1eef7aa8b1609c, type: 3}
+  - Type: 3
+    InspectorPrefab: {fileID: 5660754221829249498, guid: cd3fd8b5b98ef5a42affcf8dee3ef832, type: 3}
+  - Type: 7
+    InspectorPrefab: {fileID: 7457771001500790319, guid: 28c95147a07faa84ab45e33a20094991, type: 3}
+  - Type: 4
+    InspectorPrefab: {fileID: 3512925784156844100, guid: ca90178e0337adc48a769fa05b3acbdf, type: 3}
+  - Type: 9
+    InspectorPrefab: {fileID: 4295862983302580840, guid: b60a82a3840f3d247a342e054b826937, type: 3}
   m_InspectorParent: {fileID: 2210347011282555590}
+  m_InspectorButtonPrefab: {fileID: 3226477307148592372, guid: 0556ad71d8f0f564ab6bedec9fb7917b, type: 3}
+  m_InspectorHeaderPrefab: {fileID: 6171719898454282470, guid: ea8a3629fbc231440933e49630304f57, type: 3}
+  m_PopOutInspectorPrefab: {fileID: 3226477307148592372, guid: 0556ad71d8f0f564ab6bedec9fb7917b, type: 3}
+  m_PopOutCustomWindowPrefab: {fileID: 5098305238307494804, guid: 204cfbd1c3265164d86fac64fd26334f, type: 3}
 --- !u!114 &2956040655396596984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -738,7 +756,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000008195639}
+  m_AnchoredPosition: {x: 0, y: -0.000019356608}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &7206746702686038151

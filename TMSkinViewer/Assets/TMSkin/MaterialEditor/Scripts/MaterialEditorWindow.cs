@@ -72,11 +72,11 @@ namespace UI.MaterialEditor
                                                () =>
                                                {
                                                    ResourceSelectorWindow window =
-                                                       ResourceSelectorWindowBuilder.CreateWindow();
+                                                       ResourceSelectorWindowBuilder.CreateWindow<Texture2D>();
 
                                                    window.OnResourceSelected += o =>
                                                    {
-                                                       m_Material.Albedo = ( Texture2D )o;
+                                                       m_Material.Albedo = ( Texture2D )o.GetResource();
                                                        UpdateButtons();
                                                    };
                                                }
@@ -86,11 +86,11 @@ namespace UI.MaterialEditor
                                                () =>
                                                {
                                                    ResourceSelectorWindow window =
-                                                       ResourceSelectorWindowBuilder.CreateWindow();
+                                                       ResourceSelectorWindowBuilder.CreateWindow<Texture2D>();
 
                                                    window.OnResourceSelected += o =>
                                                    {
-                                                       m_Material.Normal = ( Texture2D )o;
+                                                       m_Material.Normal = ( Texture2D )o.GetResource();
                                                        UpdateButtons();
                                                    };
                                                }
@@ -100,11 +100,11 @@ namespace UI.MaterialEditor
                                                          () =>
                                                          {
                                                              ResourceSelectorWindow window =
-                                                                 ResourceSelectorWindowBuilder.CreateWindow();
+                                                                 ResourceSelectorWindowBuilder.CreateWindow<Texture2D>();
 
                                                              window.OnResourceSelected += o =>
                                                              {
-                                                                 m_Material.AmbientOcclusion = ( Texture2D )o;
+                                                                 m_Material.AmbientOcclusion = ( Texture2D )o.GetResource();
                                                                  UpdateButtons();
                                                              };
                                                          }
@@ -114,11 +114,11 @@ namespace UI.MaterialEditor
                                                  () =>
                                                  {
                                                      ResourceSelectorWindow window =
-                                                         ResourceSelectorWindowBuilder.CreateWindow();
+                                                         ResourceSelectorWindowBuilder.CreateWindow<Texture2D>();
 
                                                      window.OnResourceSelected += o =>
                                                      {
-                                                         m_Material.Emissive = ( Texture2D )o;
+                                                         m_Material.Emissive = ( Texture2D )o.GetResource();
                                                          UpdateButtons();
                                                      };
                                                  }
@@ -128,11 +128,11 @@ namespace UI.MaterialEditor
                                                  () =>
                                                  {
                                                      ResourceSelectorWindow window =
-                                                         ResourceSelectorWindowBuilder.CreateWindow();
+                                                         ResourceSelectorWindowBuilder.CreateWindow<Texture2D>();
 
                                                      window.OnResourceSelected += o =>
                                                      {
-                                                         m_Material.DirtMask = ( Texture2D )o;
+                                                         m_Material.DirtMask = ( Texture2D )o.GetResource();
                                                          UpdateButtons();
                                                      };
                                                  }
@@ -142,11 +142,11 @@ namespace UI.MaterialEditor
                                                   () =>
                                                   {
                                                       ResourceSelectorWindow window =
-                                                          ResourceSelectorWindowBuilder.CreateWindow();
+                                                          ResourceSelectorWindowBuilder.CreateWindow<Texture2D>();
 
                                                       window.OnResourceSelected += o =>
                                                       {
-                                                          m_Material.Roughness = ( Texture2D )o;
+                                                          m_Material.Roughness = ( Texture2D )o.GetResource();
                                                           UpdateButtons();
                                                       };
                                                   }

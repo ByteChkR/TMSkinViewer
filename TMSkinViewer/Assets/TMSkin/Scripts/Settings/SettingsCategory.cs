@@ -55,6 +55,8 @@ public class SettingsCategory
         return m_Categories.FirstOrDefault( x => x.Name == name );
     }
 
+    public bool HasObjects() => m_Objects.Count != 0;
+    public bool HasChild() => m_Categories.Count != 0;
     public bool HasChild( string name )
     {
         return m_Categories.Any( x => x.Name == name );

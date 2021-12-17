@@ -7,6 +7,7 @@ using UnityEngine;
 public class SurfacePreset : ScriptableObject
 {
 
+
     [SerializeField]
     private TrackSurface m_TrackSurface;
 
@@ -16,6 +17,7 @@ public class SurfacePreset : ScriptableObject
     [SerializeField]
     [Range( 0, 1 )]
     private float m_SurfaceReflectivity;
+
     [SerializeField]
     [Range( 0, 1 )]
     private float m_SurfaceRefractionDistortion;
@@ -26,16 +28,48 @@ public class SurfacePreset : ScriptableObject
     [SerializeField]
     private Color m_SurfaceColor;
 
-    public TrackSurface TrackSurface => m_TrackSurface;
+    [SettingsProperty]
+    public TrackSurface TrackSurface
+    {
+        get => m_TrackSurface;
+        set => m_TrackSurface = value;
+    }
 
-    public Texture2D SurfaceTexture => m_SurfaceTexture;
+    [SettingsProperty]
+    public Texture2D SurfaceTexture
+    {
+        get => m_SurfaceTexture;
+        set => m_SurfaceTexture = value;
+    }
 
-    public float SurfaceReflectivity => m_SurfaceReflectivity;
+    [SettingsProperty]
+    [SettingsRange( 0, 1 )]
+    public float SurfaceReflectivity
+    {
+        get => m_SurfaceReflectivity;
+        set => m_SurfaceReflectivity = value;
+    }
 
-    public float SurfaceRefractionDistortion => m_SurfaceRefractionDistortion;
+    [SettingsProperty]
+    [SettingsRange( 0, 1 )]
+    public float SurfaceRefractionDistortion
+    {
+        get => m_SurfaceRefractionDistortion;
+        set => m_SurfaceRefractionDistortion = value;
+    }
 
-    public bool ApplySurfaceColor => m_ApplySurfaceColor;
+    [SettingsProperty]
+    public bool ApplySurfaceColor
+    {
+        get => m_ApplySurfaceColor;
+        set => m_ApplySurfaceColor = value;
+    }
 
-    public Color SurfaceColor => m_SurfaceColor;
+    [SettingsProperty]
+    public Color SurfaceColor
+    {
+        get => m_SurfaceColor;
+        set => m_SurfaceColor = value;
+    }
 
 }

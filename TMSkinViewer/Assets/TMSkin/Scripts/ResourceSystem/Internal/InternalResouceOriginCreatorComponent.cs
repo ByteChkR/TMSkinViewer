@@ -12,8 +12,9 @@ public class InternalResouceOriginCreatorComponent : MonoBehaviour
         {
             ResourceOrigin resourceOrigin = origin.CreateOrigin();
             ResourceSystem.AddOrigin( resourceOrigin );
-            ResourceSystem.Initialize();
+            
         }
+        ResourceSystem.Initialize();
     }
 
 }

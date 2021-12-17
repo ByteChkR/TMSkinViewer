@@ -38,6 +38,8 @@ namespace UI.SkinEditorMainWindow
         public MapController MapController => m_MapController;
 
         public CarController CarController => m_CarController;
+        
+        public CameraController CameraController => m_CameraController;
 
         private void Awake()
         {

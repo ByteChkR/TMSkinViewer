@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+
+using UnityEngine;
+
+using Object = UnityEngine.Object;
 
 public abstract class ResourceOrigin
 {
@@ -6,6 +10,19 @@ public abstract class ResourceOrigin
     private readonly string m_Name;
 
     public string Name => m_Name;
+    
+    public static Type GetDefaultType( ResourceType type )
+    {
+        switch ( type )
+        {
+            case ResourceType.Directory:
+                return null;
+            case ResourceType.Texture:
+                return typeof( Texture2D );
+            default:
+                return null;
+        }
+    }
 
     #region Public
 

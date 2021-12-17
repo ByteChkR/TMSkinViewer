@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 using UnityEngine;
@@ -11,8 +12,16 @@ namespace Themes
     public class ThemeSettings : ScriptableObject, ISettingsObject
     {
 
-        public ThemeSelectorTarget[] Targets;
+        [SerializeField]
+        private List<ThemeSelectorTarget> m_Targets;
+        
 
+        [SettingsProperty]
+        public ThemeSelectorTarget[] Targets
+        {
+            get => m_Targets.ToArray();
+            set => m_Targets = value.ToList();
+        }
 
         private void OnValidate()
         {
@@ -26,13 +35,8 @@ namespace Themes
             OnSettingsChanged?.Invoke();
         }
 
-        void ISettingsObject.OnObjectLoaded()
+        public void OnObjectLoaded()
         {
-            for ( int i = 0; i < Targets.Length; i++ )
-            {
-                SettingsManager.AddSettingsObject( Targets[i], $"Theme/{Targets[i].Name}" );
-                Targets[i].OnSettingsChanged += OnValidate;
-            }
         }
 
     }

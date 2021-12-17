@@ -65,6 +65,7 @@ namespace UI.SkinEditorMainWindow
             m_ViewerInstance = Instantiate( m_ViewerPrefab, PrefabSpawnHelper.GetSpawn(), Quaternion.identity ).
                 GetComponent < SkinViewer >();
 
+            m_ViewerInstance.CameraController.EnableKeyboardInput = m_Window.HasFocus;
             m_Camera = ViewerInstance.GetComponentInChildren < Camera >();
             m_Window.OnResized += OnWindowResized;
             m_Window.OnClose += OnWindowClosed;
@@ -74,7 +75,7 @@ namespace UI.SkinEditorMainWindow
                                                                  idx =>
                                                                  {
                                                                      CarMaterial material =
-                                                                         MaterialDatabase.Materials.First(
+                                                                         MaterialDatabase.LoadedMaterials.First(
                                                                               x => x.MaterialName ==
                                                                                   m_DetailsMaterialDropdown.
                                                                                       options[idx].
@@ -90,7 +91,7 @@ namespace UI.SkinEditorMainWindow
                                                                idx =>
                                                                {
                                                                    CarMaterial material =
-                                                                       MaterialDatabase.Materials.First(
+                                                                       MaterialDatabase.LoadedMaterials.First(
                                                                             x => x.MaterialName ==
                                                                                 m_GlassMaterialDropdown.
                                                                                     options[idx].
@@ -106,7 +107,7 @@ namespace UI.SkinEditorMainWindow
                                                               idx =>
                                                               {
                                                                   CarMaterial material =
-                                                                      MaterialDatabase.Materials.First(
+                                                                      MaterialDatabase.LoadedMaterials.First(
                                                                            x => x.MaterialName ==
                                                                                m_SkinMaterialDropdown.
                                                                                    options[idx].
@@ -122,7 +123,7 @@ namespace UI.SkinEditorMainWindow
                                                                idx =>
                                                                {
                                                                    CarMaterial material =
-                                                                       MaterialDatabase.Materials.First(
+                                                                       MaterialDatabase.LoadedMaterials.First(
                                                                             x => x.MaterialName ==
                                                                                 m_WheelMaterialDropdown.
                                                                                     options[idx].
@@ -146,7 +147,7 @@ namespace UI.SkinEditorMainWindow
             m_DetailsMaterialDropdown.options.Clear();
 
             m_DetailsMaterialDropdown.options.AddRange(
-                                                       MaterialDatabase.Materials.Select(
+                                                       MaterialDatabase.LoadedMaterials.Select(
                                                             x => new Dropdown.OptionData( x.MaterialName )
                                                            )
                                                       );
@@ -154,7 +155,7 @@ namespace UI.SkinEditorMainWindow
             m_GlassMaterialDropdown.options.Clear();
 
             m_GlassMaterialDropdown.options.AddRange(
-                                                     MaterialDatabase.Materials.Select(
+                                                     MaterialDatabase.LoadedMaterials.Select(
                                                           x => new Dropdown.OptionData( x.MaterialName )
                                                          )
                                                     );
@@ -162,7 +163,7 @@ namespace UI.SkinEditorMainWindow
             m_WheelMaterialDropdown.options.Clear();
 
             m_WheelMaterialDropdown.options.AddRange(
-                                                     MaterialDatabase.Materials.Select(
+                                                     MaterialDatabase.LoadedMaterials.Select(
                                                           x => new Dropdown.OptionData( x.MaterialName )
                                                          )
                                                     );
@@ -170,7 +171,7 @@ namespace UI.SkinEditorMainWindow
             m_SkinMaterialDropdown.options.Clear();
 
             m_SkinMaterialDropdown.options.AddRange(
-                                                    MaterialDatabase.Materials.Select(
+                                                    MaterialDatabase.LoadedMaterials.Select(
                                                          x => new Dropdown.OptionData( x.MaterialName )
                                                         )
                                                    );

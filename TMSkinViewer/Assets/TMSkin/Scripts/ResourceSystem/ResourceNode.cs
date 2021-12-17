@@ -14,6 +14,8 @@ public class ResourceNode
 
     public readonly string Name;
 
+    private readonly Type m_ResourceType;
+
     private ResourceNode m_Parent;
 
     private readonly List < ResourceNode > m_Children;
@@ -26,11 +28,11 @@ public class ResourceNode
 
     #region Public
 
-    public ResourceNode AddChild( string name, ResourceType type )
+    public ResourceNode AddChild( string name, ResourceType type, Type resourceType )
     {
         if ( !HasNode( name, type ) )
         {
-            ResourceNode node = new ResourceNode( name, this, type, Origin );
+            ResourceNode node = new ResourceNode( name, this, type, Origin, resourceType );
             m_Children.Add( node );
 
             return node;
@@ -60,6 +62,11 @@ public class ResourceNode
     {
         return Origin.GetResource( Path );
     }
+    
+    public Type GetResourceType()
+    {
+        return m_ResourceType;
+    }
 
     public bool HasNode( string name )
     {
@@ -75,13 +82,14 @@ public class ResourceNode
 
     #region Protected
 
-    protected ResourceNode( string name, ResourceNode parent, ResourceType type, ResourceOrigin origin )
+    protected ResourceNode( string name, ResourceNode parent, ResourceType type, ResourceOrigin origin, Type resourceType )
     {
         Name = name;
         m_Parent = parent;
         Type = type;
         Origin = origin;
         m_Children = new List < ResourceNode >();
+        m_ResourceType = resourceType;
     }
 
     #endregion

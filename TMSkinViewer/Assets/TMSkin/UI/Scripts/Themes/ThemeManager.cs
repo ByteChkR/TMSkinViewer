@@ -1,17 +1,24 @@
 ﻿using System.Collections.Generic;
 
+using UI;
+using UI.Settings;
+
+
 using UnityEngine;
+using UnityEngine.UI;
+
 
 namespace Themes
 {
 
     public class ThemeManager : MonoBehaviour
     {
-
+        
         private static ThemeManager s_Instance;
 
         [SerializeField]
         private ThemeSettings m_Settings;
+        
 
         private readonly List < ThemeElement > m_Elements = new List < ThemeElement >();
 
@@ -28,6 +35,8 @@ namespace Themes
         {
             SettingsManager.AddSettingsObject( m_Settings );
         }
+
+        
 
         private static void ApplyToAllElements()
         {
@@ -59,7 +68,6 @@ namespace Themes
                 {
                     if ( target.Name == selector )
                     {
-                        Debug.Log( $"Apply theme {target.Name} to element {elem.gameObject.name}" );
                         target.ApplyTheme( elem.gameObject );
 
                         return;

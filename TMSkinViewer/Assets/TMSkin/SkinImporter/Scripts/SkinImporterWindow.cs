@@ -76,7 +76,7 @@ public class SkinImporterWindow : MonoBehaviour
     {
         m_Progress.text = "Importing Skin...";
 
-        CarSkin template = SkinDatabase.Skins.First(
+        CarSkin template = SkinDatabase.LoadedSkins.First(
                                                     x => x.SkinName ==
                                                          m_TemplateDropdown.options[m_TemplateDropdown.value].text
                                                    );
@@ -89,7 +89,7 @@ public class SkinImporterWindow : MonoBehaviour
 
     private void Start()
     {
-        m_TemplateDropdown.options.AddRange( SkinDatabase.Skins.Select( x => new Dropdown.OptionData( x.SkinName ) ) );
+        m_TemplateDropdown.options.AddRange( SkinDatabase.LoadedSkins.Select( x => new Dropdown.OptionData( x.SkinName ) ) );
     }
 
 }

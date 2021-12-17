@@ -9,8 +9,8 @@ namespace Themes
     [Serializable]
     public class ThemeSelectorTarget: ISettingsObject
     {
-
-        public string Name;
+        [SerializeField]
+        private string m_Name;
         [SerializeField]
         private Color m_TextColor;
         [SerializeField]
@@ -19,6 +19,14 @@ namespace Themes
         
         public Action OnSettingsChanged;
 
+        
+        [SettingsProperty]
+        public string Name
+        {
+            get => m_Name;
+            set => m_Name = value;
+        }
+        
         [SettingsProperty]
         public Color TextColor
         {

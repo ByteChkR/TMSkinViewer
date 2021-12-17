@@ -1,13 +1,15 @@
-﻿public class ResourceNodeRoot : ResourceNode
+﻿using System;
+
+public class ResourceNodeRoot : ResourceNode
 {
 
     #region Public
 
-    public ResourceNodeRoot( string name, ResourceOrigin origin ) : base( name, null, ResourceType.Directory, origin )
+    public ResourceNodeRoot( string name, ResourceOrigin origin ) : base( name, null, ResourceType.Directory, origin, null )
     {
     }
 
-    public ResourceNode CreateNode( string path, ResourceType type )
+    public ResourceNode CreateNode( string path, ResourceType type, Type resourceType )
     {
         if ( path == null )
         {
@@ -23,6 +25,7 @@
             string pathPart = pathParts[i];
 
             ResourceType childType = i == pathParts.Length - 1 ? type : ResourceType.Directory;
+            Type childResType = i == pathParts.Length - 1 ? resourceType : null;
 
             if ( currentNode.HasNode( pathPart, childType ) )
             {
@@ -30,7 +33,7 @@
             }
             else
             {
-                currentNode = currentNode.AddChild( pathPart, childType );
+                currentNode = currentNode.AddChild( pathPart, childType, childResType );
             }
         }
 

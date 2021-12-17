@@ -24,7 +24,7 @@ namespace UI.SkinEditorMainWindow
         private void Awake()
         {
             m_TemplateDropdown.options.AddRange(
-                                                MaterialDatabase.Materials.Select(
+                                                MaterialDatabase.LoadedMaterials.Select(
                                                      x => new Dropdown.OptionData( x.MaterialName )
                                                     )
                                                );
@@ -41,12 +41,12 @@ namespace UI.SkinEditorMainWindow
 
             if ( m_UseTemplateToggle.isOn )
             {
-                CarMaterial template = MaterialDatabase.Materials.First(
-                                                                        x => x.MaterialName ==
-                                                                             m_TemplateDropdown.
-                                                                                 options[m_TemplateDropdown.value].
-                                                                                 text
-                                                                       );
+                CarMaterial template = MaterialDatabase.LoadedMaterials.First(
+                                                                              x => x.MaterialName ==
+                                                                                  m_TemplateDropdown.
+                                                                                      options[m_TemplateDropdown.value].
+                                                                                      text
+                                                                             );
 
                 MaterialDatabase.CreateMaterial( name, template );
             }

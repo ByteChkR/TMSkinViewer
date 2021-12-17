@@ -8,6 +8,7 @@ namespace UI
 
     public class Window : MonoBehaviour, IPointerClickHandler
     {
+        public static Transform DefaultHost { get; set; }
 
         [SerializeField]
         private Vector2 m_MinSize;
@@ -20,6 +21,7 @@ namespace UI
 
         private RectTransform m_RectTransform;
 
+        public bool HasFocus() => m_RectTransform.GetSiblingIndex() == m_RectTransform.parent.childCount - 1;
         public Vector2 Position
         {
             get => m_RectTransform.anchoredPosition;
