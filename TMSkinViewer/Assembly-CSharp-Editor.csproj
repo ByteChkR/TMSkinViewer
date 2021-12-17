@@ -52,7 +52,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Shaders\Water\#NVJOB Water Shaders V2\Editor\NVWaterMaterials.cs" />
+     <Compile Include="Assets\TMSkin\Shaders\Water\#NVJOB Water Shaders V2\Editor\NVWaterMaterials.cs" />
  <Reference Include="UnityEngine">
  <HintPath>D:/UnityHub/2020.3.18f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
@@ -294,10 +294,10 @@
  <HintPath>D:/UnityHub/2020.3.18f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="Ookii.Dialogs">
- <HintPath>D:/Users/Tim/Documents/TMSkinViewer/TMSkinViewer/Assets/StandaloneFileBrowser/Plugins/Ookii.Dialogs.dll</HintPath>
+ <HintPath>D:/Users/Tim/Documents/TMSkinViewer/TMSkinViewer/Assets/TMSkin/StandaloneFileBrowser/Plugins/Ookii.Dialogs.dll</HintPath>
  </Reference>
  <Reference Include="System.Windows.Forms">
- <HintPath>D:/Users/Tim/Documents/TMSkinViewer/TMSkinViewer/Assets/StandaloneFileBrowser/Plugins/System.Windows.Forms.dll</HintPath>
+ <HintPath>D:/Users/Tim/Documents/TMSkinViewer/TMSkinViewer/Assets/TMSkin/StandaloneFileBrowser/Plugins/System.Windows.Forms.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
  <HintPath>D:/Users/Tim/Documents/TMSkinViewer/TMSkinViewer/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
