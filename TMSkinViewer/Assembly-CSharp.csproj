@@ -144,6 +144,9 @@
      <Compile Include="Assets\TMSkin\Shaders\MagicMirror\MirrorReflectionScript.cs" />
      <Compile Include="Assets\TMSkin\Shaders\MagicMirror\MirrorCameraScript.cs" />
      <Compile Include="Assets\TMSkin\Shaders\MagicMirror\MirrorScript.cs" />
+     <Compile Include="Assets\TMSkin\UI\Scripts\Settings\ColorPicker\SettingsColorValueInspector.cs" />
+     <Compile Include="Assets\TMSkin\UI\Scripts\Settings\ColorPicker\ColorPickerWindow.cs" />
+     <Compile Include="Assets\TMSkin\UI\Scripts\Settings\ColorPicker\SettingsColorValueInspectorButtonHelper.cs" />
      <None Include="Assets\TMSkin\Shaders\Water\#NVJOB Water Shaders V2\Water Specular.shader" />
      <None Include="Assets\TMSkin\Shaders\MagicMirror\Readme.txt" />
      <None Include="Assets\TMSkin\Shaders\TMCarShader.shader" />

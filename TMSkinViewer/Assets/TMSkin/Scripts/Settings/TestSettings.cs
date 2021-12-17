@@ -21,7 +21,7 @@ public class TestSettings : ISettingsObject
     public int TestInteger { get; set; }
 
     [SettingsProperty]
-    public Color TestColor { get; set; }
+    public Color TestColor { get; set; } = Color.white;
 
     [SettingsProperty]
     public Vector2 TestVector2 { get; set; }
