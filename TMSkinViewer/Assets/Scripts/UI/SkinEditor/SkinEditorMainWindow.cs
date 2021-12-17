@@ -17,7 +17,6 @@ namespace UI.SkinEditorMainWindow
         [SerializeField]
         private Sprite m_ImportSkinSprite;
 
-
         [SerializeField]
         private Sprite m_SkinSprite;
 
@@ -29,7 +28,7 @@ namespace UI.SkinEditorMainWindow
 
         [SerializeField]
         private GameObject m_AddSkinDialogPrefab;
-        
+
         [SerializeField]
         private GameObject m_ImportSkinDialogPrefab;
 
@@ -49,9 +48,12 @@ namespace UI.SkinEditorMainWindow
             addItem.Button.onClick.AddListener( CreateSkin );
             addItem.Icon.sprite = m_AddSkinSprite;
             addItem.Text.text = "New";
-            
+
             m_ImportSkinButtonInstance = Instantiate( m_SkinButtonPrefab, m_SkinButtonContainer );
-            SkinEditorMainWindowItem importItem = m_ImportSkinButtonInstance.GetComponent < SkinEditorMainWindowItem >();
+
+            SkinEditorMainWindowItem importItem =
+                m_ImportSkinButtonInstance.GetComponent < SkinEditorMainWindowItem >();
+
             importItem.Button.onClick.AddListener( ImportSkin );
             importItem.Icon.sprite = m_AddSkinSprite;
             importItem.Text.text = "Import";

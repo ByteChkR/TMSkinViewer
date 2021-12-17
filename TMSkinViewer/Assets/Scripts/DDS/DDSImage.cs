@@ -450,6 +450,7 @@ namespace S16.Drawing
                 Color c = new Color( red, green, blue, alpha );
                 bitmap.SetPixel( i / 4 % width, height - i / 4 / width, c );
             }
+
             bitmap.Apply();
 
             return bitmap;

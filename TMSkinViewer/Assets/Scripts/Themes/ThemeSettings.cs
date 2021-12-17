@@ -6,19 +6,19 @@ namespace Themes
 {
 
     [CreateAssetMenu( fileName = "New Theme", menuName = "TMSkin/Theme" )]
-    [SettingsCategory("Theme")]
+    [SettingsCategory( "Theme" )]
     public class ThemeSettings : ScriptableObject
     {
 
-        public event Action OnSettingsChanged;
+        [SettingsProperty( "Targets" )]
+        public ThemeSelectorTarget[] Targets;
 
         private void OnValidate()
         {
             OnSettingsChanged?.Invoke();
         }
 
-        [SettingsProperty("Targets")]
-        public ThemeSelectorTarget[] Targets;
+        public event Action OnSettingsChanged;
 
     }
 

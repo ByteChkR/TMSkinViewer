@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: RedTurbo
   m_EditorClassIdentifier: 
   m_TrackSurface: 9
-  m_SurfaceMaterial: {fileID: 2100000, guid: 01c9551e8e1118f4cba8d3f4b7f16658, type: 2}
+  m_SurfaceTexture: {fileID: 2800000, guid: 965b8b9728fb6b140893f6a1aa1bb566, type: 3}
+  m_SurfaceReflectivity: 0
+  m_ApplySurfaceColor: 0
   m_SurfaceColor: {r: 1, g: 1, b: 1, a: 1}

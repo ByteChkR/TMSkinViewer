@@ -142,8 +142,13 @@
      <Compile Include="Assets\Scripts\DDS\UnknownFileFormatException.cs" />
      <Compile Include="Assets\Scripts\ResourceSystem\ResourceNode.cs" />
      <Compile Include="Assets\Scripts\Car\CarPreset.cs" />
+     <Compile Include="Assets\MagicMirror\MirrorReflectionScript.cs" />
+     <Compile Include="Assets\MagicMirror\MirrorCameraScript.cs" />
+     <Compile Include="Assets\MagicMirror\MirrorScript.cs" />
      <None Include="Assets\Shaders\Water\#NVJOB Water Shaders V2\Water Specular.shader" />
+     <None Include="Assets\MagicMirror\Readme.txt" />
      <None Include="Assets\Shaders\TMCarShader.shader" />
+     <None Include="Assets\MagicMirror\MirrorShader.shader" />
      <None Include="Assets\Shaders\Water\license_unity.txt" />
      <None Include="Assets\Shaders\Water\license_nvjob.txt" />
      <None Include="Assets\Shaders\Water\#NVJOB Water Shaders V2\Water Surface.shader" />

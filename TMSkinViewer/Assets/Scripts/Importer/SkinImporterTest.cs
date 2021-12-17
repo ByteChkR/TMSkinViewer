@@ -17,7 +17,6 @@ public class SkinImporterTest : MonoBehaviour
 
     private void Start()
     {
-        
         string[] files = StandaloneFileBrowser.OpenFilePanel( "Open File", "", "zip", false );
 
         foreach ( string file in files )

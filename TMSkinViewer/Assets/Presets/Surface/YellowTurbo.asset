@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: YellowTurbo
   m_EditorClassIdentifier: 
   m_TrackSurface: 12
-  m_SurfaceMaterial: {fileID: 2100000, guid: e64b879c6dc8aa141b9a64961bc6e0e4, type: 2}
+  m_SurfaceTexture: {fileID: 2800000, guid: 51ef3ca72d8591541a0960cf9a0dd5de, type: 3}
+  m_SurfaceReflectivity: 0
+  m_ApplySurfaceColor: 0
   m_SurfaceColor: {r: 1, g: 1, b: 1, a: 1}

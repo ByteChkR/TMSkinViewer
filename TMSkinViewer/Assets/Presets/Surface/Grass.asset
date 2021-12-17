@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Grass
   m_EditorClassIdentifier: 
   m_TrackSurface: 4
-  m_SurfaceMaterial: {fileID: 2100000, guid: 183043f418c791246854b66eef233934, type: 2}
+  m_SurfaceTexture: {fileID: 2800000, guid: 4279b102054f60f46ad696327c06eb61, type: 3}
+  m_SurfaceReflectivity: 0
+  m_ApplySurfaceColor: 0
   m_SurfaceColor: {r: 1, g: 1, b: 1, a: 1}

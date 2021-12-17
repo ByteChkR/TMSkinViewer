@@ -1,6 +1,4 @@
-﻿using Themes;
-
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI.Settings
@@ -11,10 +9,12 @@ namespace UI.Settings
 
         [SerializeField]
         private Text m_PropertyName;
+
         public virtual void SetProperty( SettingsPropertyWrapper prop )
         {
             m_PropertyName.text = prop.Name;
         }
 
     }
+
 }

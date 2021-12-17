@@ -4,7 +4,6 @@ using System.Reflection;
 public class SettingsPropertyWrapper
 {
 
-
     public readonly string Name;
     private readonly object m_Instance;
     private readonly PropertyInfo m_Info;
@@ -16,11 +15,14 @@ public class SettingsPropertyWrapper
     public virtual object Value
     {
         get => m_Info.GetValue( m_Instance );
-        set {
+        set
+        {
             m_Info.SetValue( m_Instance, value );
-            OnPropertyChanged?.Invoke(value);
+            OnPropertyChanged?.Invoke( value );
         }
     }
+
+    #region Public
 
     public SettingsPropertyWrapper( string name, object instance, PropertyInfo info )
     {
@@ -29,5 +31,6 @@ public class SettingsPropertyWrapper
         m_Instance = instance;
     }
 
+    #endregion
 
 }

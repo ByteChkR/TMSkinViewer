@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Plastic
   m_EditorClassIdentifier: 
   m_TrackSurface: 7
-  m_SurfaceMaterial: {fileID: 2100000, guid: 3ca77e784d3ade540bd7befd16d2b9a5, type: 2}
+  m_SurfaceTexture: {fileID: 2800000, guid: b56da0b43b681df4590f6490eecad8b8, type: 3}
+  m_SurfaceReflectivity: 0
+  m_ApplySurfaceColor: 0
   m_SurfaceColor: {r: 1, g: 1, b: 1, a: 1}

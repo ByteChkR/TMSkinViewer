@@ -46,7 +46,9 @@ public class MapController : MonoBehaviour
 
     public void SetSurfacePreset( SurfacePreset preset )
     {
-        m_GroundRenderer.material = preset.SurfaceMaterial;
+        m_GroundRenderer.material.SetTexture( "_DetailTex", preset.SurfaceTexture );
+        m_GroundRenderer.material.SetFloat( "_ReflectionIntensity", preset.SurfaceReflectivity );
+        m_GroundRenderer.material.SetFloat( "_DistortionIntensity", preset.SurfaceRefractionDistortion );
         m_CarController.SetSurfacePreset( preset );
     }
 

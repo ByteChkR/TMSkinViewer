@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Concrete
   m_EditorClassIdentifier: 
   m_TrackSurface: 0
-  m_SurfaceMaterial: {fileID: 2100000, guid: 28b61be196a9a9e43ab75b2b541c63cb, type: 2}
+  m_SurfaceTexture: {fileID: 2800000, guid: 2dd8facb2696fb84d8bf331a5121ca1a, type: 3}
+  m_SurfaceReflectivity: 0
+  m_ApplySurfaceColor: 0
   m_SurfaceColor: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 0}

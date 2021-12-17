@@ -1,16 +1,18 @@
-﻿
+﻿using System;
 
-using System;
-
-[AttributeUsage(AttributeTargets.Class)]
+[AttributeUsage( AttributeTargets.Class )]
 public class SettingsCategoryAttribute : Attribute
 {
 
     public readonly string Path;
 
-    public SettingsCategoryAttribute( string path)
+    #region Public
+
+    public SettingsCategoryAttribute( string path )
     {
         Path = path;
     }
+
+    #endregion
 
 }

@@ -23,7 +23,7 @@ namespace Themes
 
         private void Start()
         {
-            SettingsManager.AddSettingsObject(m_Settings);
+            SettingsManager.AddSettingsObject( m_Settings );
         }
 
         private static void ApplyToAllElements()

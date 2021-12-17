@@ -13,14 +13,11 @@ namespace Themes
 
         public IEnumerable < string > ThemeSelectors => m_ThemeSelectors;
 
-
         private void Start()
         {
-            
-            ThemeManager.Apply(this);
-            
+            ThemeManager.Apply( this );
         }
-        
+
     }
 
 }

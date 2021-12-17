@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: YellowBooster
   m_EditorClassIdentifier: 
   m_TrackSurface: 11
-  m_SurfaceMaterial: {fileID: 2100000, guid: 5ad1e81ff5f7e074ea7e324ea403772c, type: 2}
+  m_SurfaceTexture: {fileID: 2800000, guid: cb85647393af46e4fad6dbb2dc8a819c, type: 3}
+  m_SurfaceReflectivity: 0
+  m_ApplySurfaceColor: 0
   m_SurfaceColor: {r: 1, g: 1, b: 1, a: 1}

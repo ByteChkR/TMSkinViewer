@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: RedBooster
   m_EditorClassIdentifier: 
   m_TrackSurface: 8
-  m_SurfaceMaterial: {fileID: 2100000, guid: f375501717cd4df4a8720b75e4e31cb5, type: 2}
+  m_SurfaceTexture: {fileID: 2800000, guid: 4d1c4b4507c5fcb44bfd41e206d47ecb, type: 3}
+  m_SurfaceReflectivity: 0
+  m_ApplySurfaceColor: 0
   m_SurfaceColor: {r: 1, g: 1, b: 1, a: 1}
