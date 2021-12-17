@@ -27,6 +27,14 @@ namespace UI.SkinEditorMainWindow
         [SerializeField]
         private Renderer m_GlassRenderer;
 
+        public Renderer WheelRenderer => m_WheelRenderer;
+
+        public Renderer DetailRenderer => m_DetailRenderer;
+
+        public Renderer SkinRenderer => m_SkinRenderer;
+
+        public Renderer GlassRenderer => m_GlassRenderer;
+
         public MapController MapController => m_MapController;
 
         public CarController CarController => m_CarController;

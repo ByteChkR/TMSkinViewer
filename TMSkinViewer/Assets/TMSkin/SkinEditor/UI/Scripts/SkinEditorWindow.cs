@@ -33,6 +33,26 @@ namespace UI.SkinEditorMainWindow
         [SerializeField]
         private Dropdown m_WheelMaterialDropdown;
 
+        public void ToggleSkinMaterial(bool enable)
+        {
+            m_ViewerInstance.SkinRenderer.enabled = enable;
+        }
+        
+        public void ToggleDetailsMaterial(bool enable)
+        {
+            m_ViewerInstance.DetailRenderer.enabled = enable;
+        }
+        
+        public void ToggleGlassMaterial(bool enable)
+        {
+            m_ViewerInstance.GlassRenderer.enabled = enable;
+        }
+        
+        public void ToggleWheelMaterial(bool enable)
+        {
+            m_ViewerInstance.WheelRenderer.enabled = enable;
+        }
+        
         private Camera m_Camera;
 
         private CarSkin m_Skin;
