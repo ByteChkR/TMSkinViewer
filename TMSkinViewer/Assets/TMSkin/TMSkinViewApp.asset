@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42432d2080f94ef783d5d650d17a3436, type: 3}
+  m_Name: TMSkinViewApp
+  m_EditorClassIdentifier: 
+  m_AppName: skin
+  m_AppPrefab: {fileID: 1551656764643268739, guid: c7b846f0aedaa704a9019c04dbe088da, type: 3}

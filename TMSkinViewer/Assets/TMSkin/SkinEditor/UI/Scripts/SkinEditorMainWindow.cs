@@ -9,6 +9,8 @@ namespace UI.SkinEditorMainWindow
     {
 
         [SerializeField]
+        private bool m_ViewOnly = false;
+        [SerializeField]
         private Window m_Window;
 
         [SerializeField]
@@ -43,20 +45,24 @@ namespace UI.SkinEditorMainWindow
         private void Awake()
         {
             SkinDatabase.OnSkinDatabaseChanged += OnSkinDatabaseChanged;
-            m_AddSkinButtonInstance = Instantiate( m_SkinButtonPrefab, m_SkinButtonContainer );
-            SkinEditorMainWindowItem addItem = m_AddSkinButtonInstance.GetComponent < SkinEditorMainWindowItem >();
-            addItem.Button.onClick.AddListener( CreateSkin );
-            addItem.Icon.sprite = m_AddSkinSprite;
-            addItem.Text.text = "New";
 
-            m_ImportSkinButtonInstance = Instantiate( m_SkinButtonPrefab, m_SkinButtonContainer );
+            if ( !m_ViewOnly )
+            {
+                m_AddSkinButtonInstance = Instantiate( m_SkinButtonPrefab, m_SkinButtonContainer );
+                SkinEditorMainWindowItem addItem = m_AddSkinButtonInstance.GetComponent < SkinEditorMainWindowItem >();
+                addItem.Button.onClick.AddListener( CreateSkin );
+                addItem.Icon.sprite = m_AddSkinSprite;
+                addItem.Text.text = "New";
 
-            SkinEditorMainWindowItem importItem =
-                m_ImportSkinButtonInstance.GetComponent < SkinEditorMainWindowItem >();
+                m_ImportSkinButtonInstance = Instantiate( m_SkinButtonPrefab, m_SkinButtonContainer );
 
-            importItem.Button.onClick.AddListener( ImportSkin );
-            importItem.Icon.sprite = m_AddSkinSprite;
-            importItem.Text.text = "Import";
+                SkinEditorMainWindowItem importItem =
+                    m_ImportSkinButtonInstance.GetComponent < SkinEditorMainWindowItem >();
+
+                importItem.Button.onClick.AddListener( ImportSkin );
+                importItem.Icon.sprite = m_AddSkinSprite;
+                importItem.Text.text = "Import";
+            }
 
             RebuildSkinList();
         }
@@ -76,6 +82,8 @@ namespace UI.SkinEditorMainWindow
             //Show Skin Editor
             SkinEditorWindow window = Instantiate( m_EditSkinDialogPrefab, transform.parent ).
                 GetComponent < SkinEditorWindow >();
+
+            window.ReadOnly = m_ViewOnly;
 
             window.SetSkin( skin );
         }

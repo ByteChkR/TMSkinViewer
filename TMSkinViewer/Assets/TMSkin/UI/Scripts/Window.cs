@@ -6,8 +6,19 @@ using UnityEngine.EventSystems;
 namespace UI
 {
 
+    
     public class Window : MonoBehaviour, IPointerClickHandler
     {
+        public class WindowClosingEventArgs
+        {
+
+            public bool IsAborting { get; private set; }
+            public void Abort()
+            {
+                IsAborting = true;
+            }
+
+        }
         public static Transform DefaultHost { get; set; }
 
         [SerializeField]
@@ -73,6 +84,7 @@ namespace UI
         public event Action OnResized;
 
         public event Action OnClose;
+        public event Action<WindowClosingEventArgs> OnClosing;
 
         public void TriggerOnResized()
         {
@@ -88,6 +100,12 @@ namespace UI
 
         public void Close()
         {
+            WindowClosingEventArgs args = new WindowClosingEventArgs();   
+            OnClosing?.Invoke( args );
+            if(args.IsAborting)
+            {
+                return;
+            }
             OnClose?.Invoke();
             Destroy( gameObject );
         }

@@ -17,6 +17,8 @@ namespace UI.SkinEditorMainWindow
     {
 
         private static SkinDatabase s_Instance;
+        
+        public event Action OnSkinDatabaseLoaded;
 
         [SerializeField]
         private List < CarSkin > m_Skins = new List < CarSkin >();
@@ -70,6 +72,7 @@ namespace UI.SkinEditorMainWindow
                 ProcessImports();
             }
         }
+
         private void ProcessImports()
         {
             AppStartArgs args = AppStartArgs.Args;
@@ -81,7 +84,11 @@ namespace UI.SkinEditorMainWindow
                                                             FromUrlArgument( args["skin_imports"] ).
                                                             ToDictionary( x => x.Name, x => x.Url );
 
-                    ProcessImports( skinImports );
+                    ProcessImports( skinImports, OnSkinDatabaseLoaded );
+            }
+            else
+            {
+                OnSkinDatabaseLoaded?.Invoke();
             }
         }
 

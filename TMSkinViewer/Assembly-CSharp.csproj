@@ -164,6 +164,7 @@
      <Compile Include="Assets\TMSkin\Scripts\PrefabInitializeHelper.cs" />
      <Compile Include="Assets\TMSkin\SkinEditor\UI\Scripts\SkinUrlImport.cs" />
      <Compile Include="Assets\TMSkin\SkinEditor\UI\Scripts\SkinDatabaseImportHelper.cs" />
+     <Compile Include="Assets\TMSkin\SkinEditor\Scripts\SkinArgumentViewerHelper.cs" />
      <None Include="Assets\TMSkin\Shaders\Water\#NVJOB Water Shaders V2\Water Specular.shader" />
      <None Include="Assets\TMSkin\Shaders\MagicMirror\Readme.txt" />
      <None Include="Assets\TMSkin\Shaders\TMCarShader.shader" />

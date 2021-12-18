@@ -33,6 +33,21 @@ namespace UI.SkinEditorMainWindow
         [SerializeField]
         private Dropdown m_WheelMaterialDropdown;
 
+        [SerializeField]
+        private bool m_ReadOnly;
+        public bool ReadOnly
+        {
+            get => m_ReadOnly;
+            set
+            {
+                m_ReadOnly = value;
+                m_SkinMaterialDropdown.interactable = !m_ReadOnly;
+                m_DetailsMaterialDropdown.interactable = !m_ReadOnly;
+                m_GlassMaterialDropdown.interactable = !m_ReadOnly;
+                m_WheelMaterialDropdown.interactable = !m_ReadOnly;
+            }
+        }
+        
         public void ToggleSkinMaterial(bool enable)
         {
             m_ViewerInstance.SkinRenderer.enabled = enable;

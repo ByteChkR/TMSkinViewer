@@ -47,7 +47,7 @@ PlayerSettings:
   defaultScreenWidthWeb: 1600
   defaultScreenHeightWeb: 900
   m_StereoRenderingPath: 0
-  m_ActiveColorSpace: 1
+  m_ActiveColorSpace: 0
   m_MTRendering: 1
   mipStripping: 0
   numberOfMipsStripped: 0

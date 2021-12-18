@@ -19,7 +19,7 @@ public class AppStartHelper : MonoBehaviour
         app.StartApp(instance, args);
 
     }
-    private void Awake()
+    private void Start()
     {
         AppStartArgs args = AppStartArgs.Args;
 

@@ -285,12 +285,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5808686401984920714, guid: 5299ae46f4a13f24eae99ce9a0d39810, type: 3}
       propertyPath: m_Apps.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5808686401984920714, guid: 5299ae46f4a13f24eae99ce9a0d39810, type: 3}
       propertyPath: m_Apps.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 388e6f96aa1646a41a4a3f2fdbde7349, type: 2}
+    - target: {fileID: 5808686401984920714, guid: 5299ae46f4a13f24eae99ce9a0d39810, type: 3}
+      propertyPath: m_Apps.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 522d1fe0476270545a271752dbca3f0f, type: 2}
     - target: {fileID: 5808686401984920715, guid: 5299ae46f4a13f24eae99ce9a0d39810, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -341,7 +345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8980587888154445987, guid: 5299ae46f4a13f24eae99ce9a0d39810, type: 3}
       propertyPath: testData.Search
-      value: ?app=full&skin_imports=eyJJdGVtcyI6W3siTmFtZSI6Ik5FQyIsIlVybCI6Imh0dHBzOi8vYnl0My5kZXYvYXBwcy9VTkVDL3Jlcy9ORUMuemlwIn1dfQ==
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8980587888154445987, guid: 5299ae46f4a13f24eae99ce9a0d39810, type: 3}
       propertyPath: testData.Hostname

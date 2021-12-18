@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1745594077631431892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551656764643268739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57571b2da717a104591c24d075e76c15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EditorWindowPrefab: {fileID: 1477649135484880755, guid: 08bee1c44f01c264d82831da9ceb7640, type: 3}
 --- !u!1001 &2545892734195120233
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9,7 +22,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3953109789681541354, guid: e6e21a9d98235f042a8ece9794e96848, type: 3}
       propertyPath: m_Name
-      value: TMSkinViewerDesktop
+      value: TMSkinEditor
       objectReference: {fileID: 0}
     - target: {fileID: 3953109789681541358, guid: e6e21a9d98235f042a8ece9794e96848, type: 3}
       propertyPath: m_Pivot.x
@@ -95,5 +108,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3953109790440191188, guid: e6e21a9d98235f042a8ece9794e96848, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6e21a9d98235f042a8ece9794e96848, type: 3}
+--- !u!1 &1551656764643268739 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3953109789681541354, guid: e6e21a9d98235f042a8ece9794e96848, type: 3}
+  m_PrefabInstance: {fileID: 2545892734195120233}
+  m_PrefabAsset: {fileID: 0}
