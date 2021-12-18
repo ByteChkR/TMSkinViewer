@@ -110,11 +110,23 @@ namespace UI.Settings
             //Create Inspector UI for each element
         }
 
+        private object CreateInstance( Type t )
+        {
+            try
+            {
+                return Activator.CreateInstance( t );
+            }
+            catch ( Exception e )
+            {
+                return null;
+            }
+        }
         public void AddValue()
         {
             Type eType = m_Wrapper.Type.GetElementType();
 
-            object o = eType == typeof( string ) ? "" : Activator.CreateInstance( eType );
+            
+            object o = eType == typeof( string ) ? "" : CreateInstance(eType);
             Array cur = ( Array )m_Wrapper.Value;
 
             Array a = Array.CreateInstance( eType, cur.Length + 1 );

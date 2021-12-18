@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.24625927, g: 0.36012015, b: 0.44213647, a: 1}
+  m_IndirectSpecularColor: {r: 0.5383134, g: 0.6372601, b: 0.6974911, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -282,6 +282,10 @@ PrefabInstance:
     - target: {fileID: 5808686401984920712, guid: 5299ae46f4a13f24eae99ce9a0d39810, type: 3}
       propertyPath: m_Name
       value: AppStartHelper
+      objectReference: {fileID: 0}
+    - target: {fileID: 5808686401984920714, guid: 5299ae46f4a13f24eae99ce9a0d39810, type: 3}
+      propertyPath: m_AddTestSettings
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5808686401984920714, guid: 5299ae46f4a13f24eae99ce9a0d39810, type: 3}
       propertyPath: m_Apps.Array.size

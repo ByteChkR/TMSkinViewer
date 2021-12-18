@@ -450,11 +450,17 @@ MonoBehaviour:
     InspectorPrefab: {fileID: 3512925784156844100, guid: ca90178e0337adc48a769fa05b3acbdf, type: 3}
   - Type: 9
     InspectorPrefab: {fileID: 4295862983302580840, guid: b60a82a3840f3d247a342e054b826937, type: 3}
+  - Type: 10
+    InspectorPrefab: {fileID: 2500392576191513900, guid: f38bb67a4a778794ba2cba7d27e2b781, type: 3}
+  - Type: 5
+    InspectorPrefab: {fileID: 5810130961152042724, guid: 0e86b575075f85c4cbb10d972076440f, type: 3}
+  - Type: 6
+    InspectorPrefab: {fileID: 5810130961152042724, guid: 0e86b575075f85c4cbb10d972076440f, type: 3}
+  - Type: 11
+    InspectorPrefab: {fileID: 5810130961152042724, guid: 0e86b575075f85c4cbb10d972076440f, type: 3}
   m_InspectorParent: {fileID: 2210347011282555590}
   m_InspectorButtonPrefab: {fileID: 3226477307148592372, guid: 0556ad71d8f0f564ab6bedec9fb7917b, type: 3}
   m_InspectorHeaderPrefab: {fileID: 6171719898454282470, guid: ea8a3629fbc231440933e49630304f57, type: 3}
-  m_PopOutInspectorPrefab: {fileID: 3226477307148592372, guid: 0556ad71d8f0f564ab6bedec9fb7917b, type: 3}
-  m_PopOutCustomWindowPrefab: {fileID: 5098305238307494804, guid: 204cfbd1c3265164d86fac64fd26334f, type: 3}
 --- !u!114 &2956040655396596984
 MonoBehaviour:
   m_ObjectHideFlags: 0
