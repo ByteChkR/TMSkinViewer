@@ -55,6 +55,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.InteropServices;
 
 using UnityEditor;
 
@@ -89,7 +90,9 @@ public class URLParameters : MonoBehaviour
         public string Hostname;
         public string Port;
         public string Pathname;
+        [TextArea(1, 50)]
         public string Search;
+        [TextArea(1, 50)]
         public string Hash;
 
     }

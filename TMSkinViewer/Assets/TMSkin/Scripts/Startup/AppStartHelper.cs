@@ -21,13 +21,13 @@ public class AppStartHelper : MonoBehaviour
     }
     private void Awake()
     {
-        Dictionary < string, string > args = URLParameters.GetSearchParameters();
+        AppStartArgs args = AppStartArgs.Args;
 
         string app;
 
-        if ( args.ContainsKey( "mode" ) )
+        if ( args.ContainsKey( "app" ) )
         {
-            app = args["mode"];
+            app = args["app"];
         }
         else
         {
@@ -38,7 +38,7 @@ public class AppStartHelper : MonoBehaviour
         {
             if ( appStartSettings.AppName == app )
             {
-                StartApp(appStartSettings, new AppStartArgs(args));
+                StartApp(appStartSettings, args);
                 return;
             }
         }

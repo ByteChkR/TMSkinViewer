@@ -16,13 +16,15 @@ public class ResourceSystem : MonoBehaviour
     [SerializeField]
     private List < ResourceDefaultIcon > m_DefaultIcons;
 
-    private readonly List < ResourceOrigin > m_Origins = new List < ResourceOrigin >();
+    public static readonly List < ResourceOrigin > DefaultOrigins = new List < ResourceOrigin >();
+    private List < ResourceOrigin > m_Origins;
 
     private static readonly Dictionary < string, Func < Uri, ResourceOrigin > > m_OriginCreators = new Dictionary < string, Func < Uri, ResourceOrigin > >();
     private bool m_IsInitialized = false;
 
     private void Awake()
     {
+        m_Origins = new List < ResourceOrigin >( DefaultOrigins );
         s_Instance = this;
         m_Settings = new ResourceSystemSettings();
         SettingsManager.AddSettingsObject(m_Settings);

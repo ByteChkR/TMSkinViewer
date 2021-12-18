@@ -99,7 +99,7 @@ public class SkinImporterWindow : MonoBehaviour
                                                          );
 
         CarSkin skin = SkinDatabase.CreateSkin( m_SkinName.text, template, true );
-        SkinImporter.Import( skin, data, () => m_Window.Close() );
+        SkinImporter.Import( new SkinImporterArgs(skin, data, skin.SkinName), () => m_Window.Close() );
 
     }
     

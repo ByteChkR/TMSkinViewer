@@ -1,13 +1,17 @@
 ﻿using System.Collections.Generic;
 
-public readonly struct AppStartArgs
+public class AppStartArgs
 {
 
+    private static AppStartArgs s_Args;
+    public static AppStartArgs Args => s_Args ??= new AppStartArgs(URLParameters.GetSearchParameters());
     private readonly Dictionary < string, string > m_Args;
     
     public string this [ string key ] => m_Args [ key ];
+    
+    public bool ContainsKey(string key) => m_Args.ContainsKey(key);
 
-    public AppStartArgs ( Dictionary < string, string > args )
+    private AppStartArgs ( Dictionary < string, string > args )
     {
         m_Args = args;
     }

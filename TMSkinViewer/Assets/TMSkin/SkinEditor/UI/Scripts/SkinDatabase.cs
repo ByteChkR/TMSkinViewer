@@ -1,7 +1,13 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+using UI.LoadingWindow;
 
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace UI.SkinEditorMainWindow
 {
@@ -17,7 +23,7 @@ namespace UI.SkinEditorMainWindow
 
         [SerializeField]
         private CarSkin m_DefaultSkin;
-        
+
         [SettingsProperty]
         [SettingsHeader("Skin Settings")]
         public CarSkin DefaultSkin
@@ -35,14 +41,96 @@ namespace UI.SkinEditorMainWindow
             set => m_Skins = new List<CarSkin>(value);
         }
 
-        public CarSkin Default => s_Instance.DefaultSkin;
+        public static CarSkin Default => s_Instance.DefaultSkin;
+
+        private bool m_Initialize = false;
 
 
         private void Awake()
         {
             s_Instance = this;
             SettingsManager.AddSettingsObject(this);
+            ResourceSystem.AddOrigin( SkinImporter.SkinImporterResources );
+            
+            PrefabInitializeHelper helper = GetComponent<PrefabInitializeHelper>();
+
+            helper.OnInitialized += TickInitialized;
         }
+
+        private void TickInitialized()
+        {
+            m_Initialize = true;
+        }
+
+        private void Update()
+        {
+            if ( m_Initialize )
+            {
+                m_Initialize = false;
+                ProcessImports();
+            }
+        }
+        private void ProcessImports()
+        {
+            AppStartArgs args = AppStartArgs.Args;
+
+            if ( args.ContainsKey( "skin_imports" ) )
+            {
+
+                Dictionary < string, string > skinImports = SkinUrlImportContainer.
+                                                            FromUrlArgument( args["skin_imports"] ).
+                                                            ToDictionary( x => x.Name, x => x.Url );
+
+                    ProcessImports( skinImports );
+            }
+        }
+
+        public static void ProcessImports( Dictionary < string, string > imports, Action onComplete = null  )
+        {
+            s_Instance.StartCoroutine( ProcessImportsRoutine( imports,onComplete) );
+        }
+        private static IEnumerator ProcessImportsRoutine( Dictionary < string, string > imports, Action onComplete =null )
+        {
+            LoadingWindow.LoadingWindow window = LoadingWindowBuilder.CreateWindow();
+            List < SkinImporterArgs > importerArgs = new List < SkinImporterArgs >();
+            foreach ( KeyValuePair<string,string> import in imports )
+            {
+                CarSkin skin = CreateSkin( import.Key, LoadedSkins.First(), true );
+                UnityWebRequestAsyncOperation request = UnityWebRequest.Get( import.Value ).SendWebRequest();
+                while ( request.webRequest.result == UnityWebRequest.Result.InProgress  )
+                {
+                    window.SetStatus( ( int )( request.progress * 100 ), 100, $"[{Math.Round(request.progress, 2) * 100}%] Downloading {import.Value}" );
+                    
+                    yield return new WaitForEndOfFrame();
+                }
+                
+                if ( request.webRequest.result != UnityWebRequest.Result.Success )
+                {
+                    Debug.LogError( request.webRequest.error );
+                    continue;
+                }
+                
+                importerArgs.Add(
+                                 new SkinImporterArgs(
+                                                      skin,
+                                                      new MemoryStream( request.webRequest.downloadHandler.data ),
+                                                      import.Key
+                                                     )
+                                );
+            }
+            
+            TaskCollection tasks = new TaskCollection();
+            
+            SkinImporter.Import(importerArgs.ToArray(), tasks );
+
+            foreach ( object o in window.ProcessRoutine( tasks ) )
+            {
+                yield return o;
+            }
+            
+            onComplete?.Invoke();
+        }
+
 
         public static event Action OnSkinDatabaseChanged;
 

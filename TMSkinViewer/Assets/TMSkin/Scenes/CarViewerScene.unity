@@ -341,7 +341,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8980587888154445987, guid: 5299ae46f4a13f24eae99ce9a0d39810, type: 3}
       propertyPath: testData.Search
-      value: ?mode=full
+      value: ?app=full&skin_imports=eyJJdGVtcyI6W3siTmFtZSI6Ik5FQyIsIlVybCI6Imh0dHBzOi8vYnl0My5kZXYvYXBwcy9VTkVDL3Jlcy9ORUMuemlwIn1dfQ==
       objectReference: {fileID: 0}
     - target: {fileID: 8980587888154445987, guid: 5299ae46f4a13f24eae99ce9a0d39810, type: 3}
       propertyPath: testData.Hostname
@@ -349,7 +349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8980587888154445987, guid: 5299ae46f4a13f24eae99ce9a0d39810, type: 3}
       propertyPath: testData.Pathname
-      value: /path/to/app
+      value: /path/to/build
       objectReference: {fileID: 0}
     - target: {fileID: 8980587888154445987, guid: 5299ae46f4a13f24eae99ce9a0d39810, type: 3}
       propertyPath: testData.Protocol

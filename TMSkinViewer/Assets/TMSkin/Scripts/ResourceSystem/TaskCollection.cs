@@ -37,7 +37,7 @@ public class TaskCollection
         m_Tasks.Add( new Task( name, action));
     }
 
-    public IEnumerator ProcessTasks( Action onComplete, OnProgress onProgress )
+    public IEnumerable ProcessTasks( Action onComplete, OnProgress onProgress )
     {
         for ( int i = 0; i < m_Tasks.Count; i++ )
         {

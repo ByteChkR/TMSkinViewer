@@ -18,4 +18,4 @@ MonoBehaviour:
   m_AmbientOcclusion: {fileID: 2800000, guid: c7234c8989fbd9d4998eae999516160c, type: 3}
   m_Emissive: {fileID: 2800000, guid: bba66c96531199c49afdc3d8775b05a9, type: 3}
   m_DirtMask: {fileID: 2800000, guid: 71c4784ccbe92f649860b56ad61d54e2, type: 3}
-  m_Roughness: {fileID: 2800000, guid: b3f9fcb810f00764cb4a2d9d1d7f97bd, type: 3}
+  m_Roughness: {fileID: 2800000, guid: 2a8fe908e1ec7de42922d2b34b1b2527, type: 3}
