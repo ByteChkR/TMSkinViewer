@@ -38,9 +38,12 @@ namespace UI.Settings.ColorPicker
 
         [SerializeField]
         private Color m_Color;
+        [SerializeField]
+        private Image m_PreviewImage;
 
         private void Start()
         {
+            OnColorChanged += SetImageColor;
             m_AlphaInput.onValueChanged.AddListener( x => m_AlphaSlider.SetValueWithoutNotify( float.Parse( x ) ) );
             m_AlphaSlider.onValueChanged.AddListener(x=> m_AlphaInput.SetTextWithoutNotify( x.ToString() ) );
             
@@ -62,6 +65,10 @@ namespace UI.Settings.ColorPicker
             UpdateInputText();
         }
 
+        private void SetImageColor( Color color)
+        {
+         m_PreviewImage.color = color;   
+        }
         
         
         private void UpdateSliders()

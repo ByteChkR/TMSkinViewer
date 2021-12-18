@@ -775,4 +775,21 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - Name: Console
+    Icon: {fileID: 21300000, guid: dab8c9382bb806c4586e1ad7beedf93b, type: 3}
+    OnClick:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3953109790440191190}
+          m_TargetAssemblyTypeName: UI.Desktop, Assembly-CSharp
+          m_MethodName: OpenWindow
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 3112785496426285253, guid: 3c9bd1266fbd8b94b81e14e17b352c82, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   m_AppButtonPrefab: {fileID: 5876853733135396311, guid: 4d5fc333aab06c74f83f1ff31c8dd3bf, type: 3}

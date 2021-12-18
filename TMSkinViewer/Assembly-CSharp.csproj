@@ -67,6 +67,7 @@
      <Compile Include="Assets\TMSkin\UI\Scripts\Settings\Inspectors\ColorPicker\SettingsColorValueInspector.cs" />
      <Compile Include="Assets\TMSkin\SkinEditor\UI\Scripts\SkinEditorViewHelper.cs" />
      <Compile Include="Assets\TMSkin\Shaders\MagicMirror\MirrorReflectionScript.cs" />
+     <Compile Include="Assets\TMSkin\UI\Scripts\Console\ConsoleWindow.cs" />
      <Compile Include="Assets\TMSkin\Scripts\DDS\InvalidFileHeaderException.cs" />
      <Compile Include="Assets\TMSkin\Scripts\Settings\Attributes\SettingsHeaderAttribute.cs" />
      <Compile Include="Assets\TMSkin\SkinEditor\UI\Scripts\SkinEditorMainWindowItem.cs" />
@@ -109,6 +110,7 @@
      <Compile Include="Assets\TMSkin\SkinEditor\UI\Scripts\SkinEditorMainWindow.cs" />
      <Compile Include="Assets\TMSkin\UI\Scripts\Themes\ThemeSelectorTarget.cs" />
      <Compile Include="Assets\TMSkin\SkinEditor\UI\Scripts\SkinUrlImport.cs" />
+     <Compile Include="Assets\TMSkin\UI\Scripts\Settings\Inspectors\SettingsVectorInspector.cs" />
      <Compile Include="Assets\TMSkin\Scripts\Settings\SettingsPropertyWrapper.cs" />
      <Compile Include="Assets\TMSkin\Scripts\PrefabInitializeHelper.cs" />
      <Compile Include="Assets\TMSkin\SkinEditor\Scripts\Camera\RotateCamera.cs" />
@@ -123,8 +125,10 @@
      <Compile Include="Assets\TMSkin\UI\Scripts\Loading\LoadingWindow.cs" />
      <Compile Include="Assets\TMSkin\SkinEditor\Scripts\Camera\CameraControllerPosition.cs" />
      <Compile Include="Assets\TMSkin\Shaders\MagicMirror\MirrorScript.cs" />
+     <Compile Include="Assets\TMSkin\UI\Scripts\Settings\Inspectors\SettingsBooleanInspector.cs" />
      <Compile Include="Assets\TMSkin\SkinEditor\Scripts\SkinArgumentViewerHelper.cs" />
      <Compile Include="Assets\TMSkin\Scripts\PrefabSpawnHelper.cs" />
+     <Compile Include="Assets\TMSkin\UI\Scripts\Console\ScrollRectExtensions.cs" />
      <Compile Include="Assets\TMSkin\Shaders\MagicMirror\MirrorCameraScript.cs" />
      <Compile Include="Assets\TMSkin\SkinEditor\Scripts\Camera\CameraController.cs" />
      <Compile Include="Assets\TMSkin\StandaloneFileBrowser\StandaloneFileBrowser.cs" />
@@ -165,8 +169,6 @@
      <Compile Include="Assets\TMSkin\Scripts\DDS\UnknownFileFormatException.cs" />
      <Compile Include="Assets\TMSkin\Scripts\ResourceSystem\ResourceNode.cs" />
      <Compile Include="Assets\TMSkin\SkinEditor\Scripts\CarPreset.cs" />
-     <Compile Include="Assets\TMSkin\UI\Scripts\Settings\Inspectors\SettingsBooleanInspector.cs" />
-     <Compile Include="Assets\TMSkin\UI\Scripts\Settings\Inspectors\SettingsVectorInspector.cs" />
      <None Include="Assets\TMSkin\Shaders\Water\#NVJOB Water Shaders V2\Water Specular.shader" />
      <None Include="Assets\TMSkin\Shaders\MagicMirror\Readme.txt" />
      <None Include="Assets\TMSkin\Shaders\TMCarShader.shader" />
