@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
-[SettingsCategory("WorldSettings")]
-public class WorldSettings : MonoBehaviour
+[SettingsCategory("Rendering Settings")]
+public class RenderingSettings : MonoBehaviour
 {
 
     [SerializeField]

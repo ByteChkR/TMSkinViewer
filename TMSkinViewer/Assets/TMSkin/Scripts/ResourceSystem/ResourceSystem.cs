@@ -12,8 +12,6 @@ public class ResourceSystem : MonoBehaviour
     private static ResourceSystem s_Instance;
     private ResourceSystemSettings m_Settings;
 
-    [SerializeField]
-    private GameObject m_BlockingPanel;
 
     [SerializeField]
     private List < ResourceDefaultIcon > m_DefaultIcons;
@@ -47,6 +45,14 @@ public class ResourceSystem : MonoBehaviour
                                           }
                                           Initialize();
                                       };
+
+        PrefabInitializeHelper helper =
+            GetComponent < PrefabInitializeHelper >();
+        helper.OnFinalize += () =>
+                             {
+                                 Initialize(helper.Tasks);
+                             };
+
     }
 
     public static IEnumerable < ResourceOrigin > GetResourceOrigins()
@@ -77,6 +83,10 @@ public class ResourceSystem : MonoBehaviour
         }
     }
 
+    private static void Initialize( TaskCollection taskCollection )
+    {
+        s_Instance.m_Origins.ForEach( x => x.Initialize( taskCollection ) );
+    }
     public static void Initialize()
     {
         if ( s_Instance.m_IsInitialized )
@@ -86,11 +96,10 @@ public class ResourceSystem : MonoBehaviour
 
         s_Instance.m_IsInitialized = true;
         TaskCollection taskCollection = new TaskCollection();
-        s_Instance.m_Origins.ForEach( x => x.Initialize( taskCollection ) );
-
+        Initialize(taskCollection);
         LoadingWindow window = LoadingWindowBuilder.CreateWindow();
-        window.OnComplete += () => { s_Instance.m_BlockingPanel.SetActive( false ); };
         window.Process( taskCollection );
+        
     }
 
 }

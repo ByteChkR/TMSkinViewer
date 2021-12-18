@@ -43,7 +43,7 @@ public class SkinImporterWindow : MonoBehaviour
 
     public void OpenDialog()
     {
-        string[] paths = StandaloneFileBrowser.OpenFilePanel( "Import Skin ZIP", "", "zip", false );
+        string[] paths = StandaloneFileBrowser.OpenFilePanel( "Import Skin ZIP", "", "zip", true );
 
         if ( paths.Length > 0 )
         {
@@ -72,20 +72,38 @@ public class SkinImporterWindow : MonoBehaviour
         }
     }
 
-    private void ImportSkin( byte[] data )
+    private void ImportSkin( byte[] data, TaskCollection collection ) =>
+        ImportSkin( new MemoryStream( data ), collection );
+    private void ImportSkin( Stream data, TaskCollection collection )
     {
         m_Progress.text = "Importing Skin...";
 
         CarSkin template = SkinDatabase.LoadedSkins.First(
-                                                    x => x.SkinName ==
-                                                         m_TemplateDropdown.options[m_TemplateDropdown.value].text
-                                                   );
+                                                          x => x.SkinName ==
+                                                               m_TemplateDropdown.options[m_TemplateDropdown.value].text
+                                                         );
 
         CarSkin skin = SkinDatabase.CreateSkin( m_SkinName.text, template, true );
-        SkinImporter.Import( skin, new MemoryStream( data ) );
-
-        m_Window.Close();
+        SkinImporter.Import( skin, data, collection );
     }
+
+    private void ImportSkin( byte[] data) =>
+        ImportSkin( new MemoryStream( data ) );
+    private void ImportSkin( Stream data )
+    {
+        m_Progress.text = "Importing Skin...";
+
+        CarSkin template = SkinDatabase.LoadedSkins.First(
+                                                          x => x.SkinName ==
+                                                               m_TemplateDropdown.options[m_TemplateDropdown.value].text
+                                                         );
+
+        CarSkin skin = SkinDatabase.CreateSkin( m_SkinName.text, template, true );
+        SkinImporter.Import( skin, data, () => m_Window.Close() );
+
+    }
+    
+    
 
     private void Start()
     {

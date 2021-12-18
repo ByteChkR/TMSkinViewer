@@ -4,16 +4,17 @@ using System.Collections.Generic;
 
 public class TaskCollection
 {
+    public delegate void OnProgress(int progress, int maxProgress, string status);
 
     private class Task
     {
 
         public readonly string Name;
-        public readonly Action Action;
+        public readonly Action<OnProgress> Action;
 
         #region Public
 
-        public Task( string name, Action action )
+        public Task( string name, Action<OnProgress> action )
         {
             Name = name;
             Action = action;
@@ -29,16 +30,20 @@ public class TaskCollection
 
     public void AddTask( string name, Action action )
     {
-        m_Tasks.Add( new Task( name, action ) );
+        m_Tasks.Add( new Task( name, p => action?.Invoke() ) );
+    }
+    public void AddTask( string name, Action<OnProgress> action )
+    {
+        m_Tasks.Add( new Task( name, action));
     }
 
-    public IEnumerator ProcessTasks( Action onComplete, Action < int, int, string > onProgress )
+    public IEnumerator ProcessTasks( Action onComplete, OnProgress onProgress )
     {
         for ( int i = 0; i < m_Tasks.Count; i++ )
         {
             Task task = m_Tasks[i];
             onProgress?.Invoke( i, m_Tasks.Count, $"Task: {task.Name}" );
-            task.Action();
+            task.Action?.Invoke(onProgress);
 
             yield return null;
         }

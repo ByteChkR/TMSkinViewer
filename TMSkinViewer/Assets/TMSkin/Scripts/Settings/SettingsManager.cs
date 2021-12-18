@@ -44,8 +44,6 @@ public static class SettingsManager
             path = attribute.Path;
         }
 
-        Debug.Log( $"Adding Category '{path}'" );
-
         SettingsCategory cat = GetOrCreate( path );
 
         cat.AddSettingsObject( o );
