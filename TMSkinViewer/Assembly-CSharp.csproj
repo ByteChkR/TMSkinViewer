@@ -175,6 +175,7 @@
      <None Include="Assets\TMSkin\Shaders\MagicMirror\MirrorShader.shader" />
      <None Include="Assets\TMSkin\Shaders\Water\license_unity.txt" />
      <None Include="Assets\TMSkin\Shaders\Water\license_nvjob.txt" />
+     <None Include="Assets\TMSkin\Shaders\SkyboxShader.shader" />
      <None Include="Assets\TMSkin\Shaders\Water\#NVJOB Water Shaders V2\Water Surface.shader" />
      <None Include="Assets\TMSkin\Shaders\Water\#NVJOB Water Shaders V2\NvWaters.cginc" />
  <Reference Include="UnityEngine">
