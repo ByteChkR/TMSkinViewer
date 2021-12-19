@@ -117,7 +117,7 @@ Material:
     - _BrakeLights: 0
     - _BumpScale: 1
     - _ClearCoat: 0
-    - _ClearCoatIntensity: 1
+    - _ClearCoatIntensity: 0
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 1
     - _Cull: 2

@@ -26,6 +26,7 @@ Shader "Custom/TMCarShader"
         [Space(10)]
         _ClearCoat ("Clear Coat", 2D) = "white" {} //Done
         _ClearCoatIntensity ( "Clear Coat Intensity", Range(0,1)) = 1.0 //Done
+        _SpecularIntensity ("Specular Intensity", Range(0,0.2)) = 0.05 //Done
         
         
         [Space(20)]
@@ -48,7 +49,7 @@ Shader "Custom/TMCarShader"
 
         CGPROGRAM
         // Physically based Standard lighting model, and enable shadows on all light types
-        #pragma surface surf Standard fullforwardshadows
+        #pragma surface surf Standard fullforwardshadows exclude_path:deferred exclude_path:prepass
 
         // Use shader model 3.0 target, to get nicer looking lighting
         #pragma target 3.0
@@ -164,6 +165,7 @@ Shader "Custom/TMCarShader"
         
         sampler2D _ClearCoat;
         fixed _ClearCoatIntensity;
+        fixed _SpecularIntensity;
 
         #pragma surface surf StandardSpecular nofog alpha:premul exclude_path:deferred exclude_path:prepass
         #pragma target 3.0
@@ -172,6 +174,7 @@ Shader "Custom/TMCarShader"
         {
             fixed r = 1 - (1 - _ClearCoatIntensity) * tex2D(_ClearCoat, IN.uv_MainTex).r;
             o.Smoothness = r;
+            o.Specular = _SpecularIntensity * r;
         }
         
         ENDCG
