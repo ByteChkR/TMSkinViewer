@@ -1,0 +1,61 @@
+﻿using System.IO;
+
+using UsefulThings;
+
+namespace CSharpImageLibrary.Headers
+{
+
+    /// <summary>
+    ///     Base header class for image headers.
+    /// </summary>
+    public abstract class AbstractHeader
+    {
+
+        /// <summary>
+        ///     Format of image as seen by header.
+        /// </summary>
+        public abstract ImageEngineFormat Format { get; }
+
+        /// <summary>
+        ///     Width of image.
+        /// </summary>
+        public virtual int Width { get; protected set; }
+
+        /// <summary>
+        ///     Height of image.
+        /// </summary>
+        public virtual int Height { get; protected set; }
+
+        #region Public
+
+        /// <summary>
+        ///     Provides string representation of header.
+        /// </summary>
+        /// <returns>String of header properties.</returns>
+        public override string ToString()
+        {
+            // Add some spacing for readability.
+            return General.StringifyObject( this );
+        }
+
+        #endregion
+
+        #region Protected
+
+        /// <summary>
+        ///     Loads header from stream.
+        /// </summary>
+        /// <param name="stream">Stream to load header from.</param>
+        /// <returns>Length of header.</returns>
+        protected virtual long Load( Stream stream )
+        {
+            stream.Seek( 0, SeekOrigin.Begin );
+
+            return 0;
+        }
+
+        #endregion
+
+    }
+
+}

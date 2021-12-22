@@ -1,5 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
+
+using CSharpImageLibrary;
+using CSharpImageLibrary.Headers;
 
 using UI.Settings;
 
@@ -69,6 +74,8 @@ public class AppStartHelper : MonoBehaviour
     private AppStartSettings[] m_Apps;
     [SerializeField]
     private bool m_AddTestSettings;
+    [SerializeField]
+    private Texture2D m_TestTexture;
 
     [SerializeField]
     private string m_DefaultApp = "full";
@@ -87,6 +94,16 @@ public class AppStartHelper : MonoBehaviour
     }
     private void Start()
     {
+
+        ImageEngineImage image = new ImageEngineImage( m_TestTexture.EncodeToTGA() );
+        MemoryStream ms = new MemoryStream(); 
+        image.Save(
+                                                         ms,
+                                                         new ImageFormats.ImageEngineFormatDetails(
+                                                              ImageEngineFormat.DDS_DXT5
+                                                             ),
+                                                         MipHandling.Default
+                                                        );
         AppStartArgs args = AppStartArgs.Args;
 
         string app;
