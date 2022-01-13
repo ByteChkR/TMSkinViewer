@@ -12,13 +12,11 @@ using UnityEngine.Networking;
 namespace UI.SkinEditorMainWindow
 {
 
-    [SettingsCategory("Car Skin Settings")]
+    [SettingsCategory( "Car Skin Settings" )]
     public class SkinDatabase : MonoBehaviour
     {
 
         private static SkinDatabase s_Instance;
-        
-        public event Action OnSkinDatabaseLoaded;
 
         [SerializeField]
         private List < CarSkin > m_Skins = new List < CarSkin >();
@@ -26,8 +24,10 @@ namespace UI.SkinEditorMainWindow
         [SerializeField]
         private CarSkin m_DefaultSkin;
 
+        private bool m_Initialize = false;
+
         [SettingsProperty]
-        [SettingsHeader("Skin Settings")]
+        [SettingsHeader( "Skin Settings" )]
         public CarSkin DefaultSkin
         {
             get => m_DefaultSkin;
@@ -40,28 +40,20 @@ namespace UI.SkinEditorMainWindow
         public CarSkin[] Skins
         {
             get => m_Skins.ToArray();
-            set => m_Skins = new List<CarSkin>(value);
+            set => m_Skins = new List < CarSkin >( value );
         }
 
         public static CarSkin Default => s_Instance.DefaultSkin;
 
-        private bool m_Initialize = false;
-
-
         private void Awake()
         {
             s_Instance = this;
-            SettingsManager.AddSettingsObject(this);
+            SettingsManager.AddSettingsObject( this );
             ResourceSystem.AddOrigin( SkinImporter.SkinImporterResources );
-            
-            PrefabInitializeHelper helper = GetComponent<PrefabInitializeHelper>();
+
+            PrefabInitializeHelper helper = GetComponent < PrefabInitializeHelper >();
 
             helper.OnInitialized += TickInitialized;
-        }
-
-        private void TickInitialized()
-        {
-            m_Initialize = true;
         }
 
         private void Update()
@@ -73,18 +65,24 @@ namespace UI.SkinEditorMainWindow
             }
         }
 
+        public event Action OnSkinDatabaseLoaded;
+
+        private void TickInitialized()
+        {
+            m_Initialize = true;
+        }
+
         private void ProcessImports()
         {
             AppStartArgs args = AppStartArgs.Args;
 
             if ( args.ContainsKey( "skin_imports" ) )
             {
-
                 Dictionary < string, string > skinImports = SkinUrlImportContainer.
                                                             FromUrlArgument( args["skin_imports"] ).
                                                             ToDictionary( x => x.Name, x => x.Url );
 
-                    ProcessImports( skinImports, OnSkinDatabaseLoaded );
+                ProcessImports( skinImports, OnSkinDatabaseLoaded );
             }
             else
             {
@@ -92,31 +90,41 @@ namespace UI.SkinEditorMainWindow
             }
         }
 
-        public static void ProcessImports( Dictionary < string, string > imports, Action onComplete = null  )
+        public static void ProcessImports( Dictionary < string, string > imports, Action onComplete = null )
         {
-            s_Instance.StartCoroutine( ProcessImportsRoutine( imports,onComplete) );
+            s_Instance.StartCoroutine( ProcessImportsRoutine( imports, onComplete ) );
         }
-        private static IEnumerator ProcessImportsRoutine( Dictionary < string, string > imports, Action onComplete =null )
+
+        private static IEnumerator ProcessImportsRoutine(
+            Dictionary < string, string > imports,
+            Action onComplete = null )
         {
             LoadingWindow.LoadingWindow window = LoadingWindowBuilder.CreateWindow();
             List < SkinImporterArgs > importerArgs = new List < SkinImporterArgs >();
-            foreach ( KeyValuePair<string,string> import in imports )
+
+            foreach ( KeyValuePair < string, string > import in imports )
             {
-                CarSkin skin = CreateSkin( import.Key, LoadedSkins.First(), true );
+                CarSkin skin = CreateSkin( import.Key, Default, true );
                 UnityWebRequestAsyncOperation request = UnityWebRequest.Get( import.Value ).SendWebRequest();
-                while ( request.webRequest.result == UnityWebRequest.Result.InProgress  )
+
+                while ( request.webRequest.result == UnityWebRequest.Result.InProgress )
                 {
-                    window.SetStatus( ( int )( request.progress * 100 ), 100, $"[{Math.Round(request.progress, 2) * 100}%] Downloading {import.Value}" );
-                    
+                    window.SetStatus(
+                                     ( int )( request.progress * 100 ),
+                                     100,
+                                     $"[{Math.Round( request.progress, 2 ) * 100}%] Downloading {import.Value}"
+                                    );
+
                     yield return new WaitForEndOfFrame();
                 }
-                
+
                 if ( request.webRequest.result != UnityWebRequest.Result.Success )
                 {
                     Debug.LogError( request.webRequest.error );
+
                     continue;
                 }
-                
+
                 importerArgs.Add(
                                  new SkinImporterArgs(
                                                       skin,
@@ -125,19 +133,18 @@ namespace UI.SkinEditorMainWindow
                                                      )
                                 );
             }
-            
+
             TaskCollection tasks = new TaskCollection();
-            
-            SkinImporter.Import(importerArgs.ToArray(), tasks );
+
+            SkinImporter.Import( importerArgs.ToArray(), tasks );
 
             foreach ( object o in window.ProcessRoutine( tasks ) )
             {
                 yield return o;
             }
-            
+
             onComplete?.Invoke();
         }
-
 
         public static event Action OnSkinDatabaseChanged;
 

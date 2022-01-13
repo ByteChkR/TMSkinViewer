@@ -1,15 +1,12 @@
-﻿using System;
-
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace UI.SkinEditorMainWindow
 {
 
-    [SettingsCategory("Presets")]
+    [SettingsCategory( "Presets" )]
     public class SkinEditorPresets : MonoBehaviour
     {
 
-        public static SkinEditorPresets Instance{ get; private set; }
         [SerializeField]
         private MapPreset[] m_MapPresets;
 
@@ -18,24 +15,24 @@ namespace UI.SkinEditorMainWindow
 
         [SerializeField]
         private CarPreset[] m_CarPresets;
-        
-        
 
-        [SettingsHeader("Presets")]
+        public static SkinEditorPresets Instance { get; private set; }
+
+        [SettingsHeader( "Presets" )]
         [SettingsProperty]
         public MapPreset[] MapPresets
         {
             get => m_MapPresets;
             set => m_MapPresets = value;
         }
-        
+
         [SettingsProperty]
         public SurfacePreset[] SurfacePresets
         {
             get => m_SurfacePresets;
             set => m_SurfacePresets = value;
         }
-        
+
         [SettingsProperty]
         public CarPreset[] CarPresets
         {
@@ -46,7 +43,7 @@ namespace UI.SkinEditorMainWindow
         private void Awake()
         {
             Instance = this;
-            SettingsManager.AddSettingsObject(this);
+            SettingsManager.AddSettingsObject( this );
         }
 
     }

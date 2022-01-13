@@ -25,7 +25,7 @@ namespace UI.LoadingWindow
         {
             StartCoroutine( collection.ProcessTasks( TaskListCompleted, OnProgress ).GetEnumerator() );
         }
-        
+
         public IEnumerable ProcessRoutine( TaskCollection collection )
         {
             return collection.ProcessTasks( TaskListCompleted, OnProgress );
@@ -42,8 +42,8 @@ namespace UI.LoadingWindow
             m_Slider.value = currentTask / ( float )totalTasks;
             m_Text.text = status;
         }
-        
-        public void SetStatus(int progress, int totalProgress, string status)
+
+        public void SetStatus( int progress, int totalProgress, string status )
         {
             m_Slider.value = progress;
             m_Text.text = status;

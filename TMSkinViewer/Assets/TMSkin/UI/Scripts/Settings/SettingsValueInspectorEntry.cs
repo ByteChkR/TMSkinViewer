@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Reflection;
 
 using UnityEngine;
 
@@ -13,7 +12,10 @@ namespace UI.Settings
         public SettingsValueInspectorType Type;
         public GameObject InspectorPrefab;
 
-        public virtual void OnCreate(GameObject inspector, object instance ){}
+        public virtual void OnCreate( GameObject inspector, object instance )
+        {
+        }
+
         public virtual bool IsValidInspectorPropertyType( Type t )
         {
             return t == typeof( string ) && Type == SettingsValueInspectorType.String ||
@@ -25,8 +27,8 @@ namespace UI.Settings
                    t == typeof( Vector2 ) && Type == SettingsValueInspectorType.Vector2 ||
                    t == typeof( Vector3 ) && Type == SettingsValueInspectorType.Vector3 ||
                    t == typeof( Vector4 ) && Type == SettingsValueInspectorType.Vector4 ||
-                   t.IsArray && Type == SettingsValueInspectorType.Array||
-                   t == typeof(Texture2D) && Type == SettingsValueInspectorType.Texture;
+                   t.IsArray && Type == SettingsValueInspectorType.Array ||
+                   t == typeof( Texture2D ) && Type == SettingsValueInspectorType.Texture;
         }
 
     }

@@ -14,11 +14,13 @@ namespace UI.Settings
         {
             m_PropertyName.text = prop.Name;
 
-            if(!prop.CanWrite)
-                foreach ( Selectable selectable in GetComponentsInChildren<Selectable>() )
+            if ( !prop.CanWrite )
+            {
+                foreach ( Selectable selectable in GetComponentsInChildren < Selectable >() )
                 {
                     selectable.interactable = false;
                 }
+            }
         }
 
     }

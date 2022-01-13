@@ -11,22 +11,22 @@ public class CarMaterial : ScriptableObject
     private string m_MaterialName;
 
     [SerializeField]
-    private Texture2D m_Albedo;
+    private CarTexture m_Albedo;
 
     [SerializeField]
-    private Texture2D m_Normal;
+    private CarTexture m_Normal;
 
     [SerializeField]
-    private Texture2D m_AmbientOcclusion;
+    private CarTexture m_AmbientOcclusion;
 
     [SerializeField]
-    private Texture2D m_Emissive;
+    private CarTexture m_Emissive;
 
     [SerializeField]
-    private Texture2D m_DirtMask;
+    private CarTexture m_DirtMask;
 
     [SerializeField]
-    private Texture2D m_Roughness;
+    private CarTexture m_Roughness;
 
     [SettingsProperty]
     public string MaterialName
@@ -36,41 +36,42 @@ public class CarMaterial : ScriptableObject
     }
 
     [SettingsProperty]
-    public Texture2D Albedo
+    public CarTexture Albedo
     {
         get => m_Albedo;
         set => m_Albedo = value;
     }
 
     [SettingsProperty]
-    public Texture2D Normal
+    public CarTexture Normal
     {
         get => m_Normal;
         set => m_Normal = value;
     }
+
     [SettingsProperty]
-    public Texture2D AmbientOcclusion
+    public CarTexture AmbientOcclusion
     {
         get => m_AmbientOcclusion;
         set => m_AmbientOcclusion = value;
     }
 
     [SettingsProperty]
-    public Texture2D Emissive
+    public CarTexture Emissive
     {
         get => m_Emissive;
         set => m_Emissive = value;
     }
 
     [SettingsProperty]
-    public Texture2D DirtMask
+    public CarTexture DirtMask
     {
         get => m_DirtMask;
         set => m_DirtMask = value;
     }
 
     [SettingsProperty]
-    public Texture2D Roughness
+    public CarTexture Roughness
     {
         get => m_Roughness;
         set => m_Roughness = value;

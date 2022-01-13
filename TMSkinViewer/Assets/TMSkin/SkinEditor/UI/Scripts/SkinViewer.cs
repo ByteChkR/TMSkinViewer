@@ -38,7 +38,7 @@ namespace UI.SkinEditorMainWindow
         public MapController MapController => m_MapController;
 
         public CarController CarController => m_CarController;
-        
+
         public CameraController CameraController => m_CameraController;
 
         private void Awake()
@@ -51,12 +51,12 @@ namespace UI.SkinEditorMainWindow
 
         private void ApplyMaterial( Material material, CarMaterial carMaterial )
         {
-            material.SetTexture( "_MainTex", carMaterial.Albedo );
-            material.SetTexture( "_AO", carMaterial.AmbientOcclusion );
-            material.SetTexture( "_Normals", carMaterial.Normal );
-            material.SetTexture( "_Emission", carMaterial.Emissive );
-            material.SetTexture( "_DirtMask", carMaterial.DirtMask );
-            material.SetTexture( "_Roughness", carMaterial.Roughness );
+            material.SetTexture( "_MainTex", carMaterial.Albedo?.Texture );
+            material.SetTexture( "_AO", carMaterial.AmbientOcclusion?.Texture );
+            material.SetTexture( "_Normals", carMaterial.Normal?.Texture );
+            material.SetTexture( "_Emission", carMaterial.Emissive?.Texture );
+            material.SetTexture( "_DirtMask", carMaterial.DirtMask?.Texture );
+            material.SetTexture( "_Roughness", carMaterial.Roughness?.Texture );
         }
 
         public void SetSkin( CarSkin skin )

@@ -1,25 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.RegularExpressions;
-using System.Web;
+﻿using System.Linq;
 
 using UnityEngine;
 
 namespace UI.SkinEditorMainWindow
 {
-    
+
     public class SkinDatabaseImportHelper : MonoBehaviour
     {
 
-        
-        
-
         public SkinUrlImport[] Items;
-        
+
         private void Awake()
         {
-
             GetComponent < PrefabInitializeHelper >().OnInitialized += () =>
                                                                        {
                                                                            SkinDatabase.ProcessImports(

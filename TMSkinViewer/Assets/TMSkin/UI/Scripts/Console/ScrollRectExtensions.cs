@@ -3,12 +3,19 @@ using UnityEngine.UI;
 
 public static class ScrollRectExtensions
 {
-    public static void ScrollToTop(this ScrollRect scrollRect)
+
+    #region Public
+
+    public static void ScrollToBottom( this ScrollRect scrollRect )
     {
-        scrollRect.normalizedPosition = new Vector2(0, 1);
+        scrollRect.normalizedPosition = new Vector2( 0, 0 );
     }
-    public static void ScrollToBottom(this ScrollRect scrollRect)
+
+    public static void ScrollToTop( this ScrollRect scrollRect )
     {
-        scrollRect.normalizedPosition = new Vector2(0, 0);
+        scrollRect.normalizedPosition = new Vector2( 0, 1 );
     }
+
+    #endregion
+
 }

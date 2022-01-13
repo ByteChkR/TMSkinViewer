@@ -13,8 +13,7 @@ namespace Themes
     {
 
         [SerializeField]
-        private List<ThemeSelectorTarget> m_Targets;
-        
+        private List < ThemeSelectorTarget > m_Targets;
 
         [SettingsProperty]
         public ThemeSelectorTarget[] Targets
@@ -28,8 +27,6 @@ namespace Themes
             OnSettingsChanged?.Invoke();
         }
 
-        public event Action OnSettingsChanged;
-
         void ISettingsObject.OnSettingsChanged()
         {
             OnSettingsChanged?.Invoke();
@@ -38,6 +35,8 @@ namespace Themes
         public void OnObjectLoaded()
         {
         }
+
+        public event Action OnSettingsChanged;
 
     }
 

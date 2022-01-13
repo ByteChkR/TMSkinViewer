@@ -5,7 +5,13 @@ public class ResourceNodeRoot : ResourceNode
 
     #region Public
 
-    public ResourceNodeRoot( string name, ResourceOrigin origin ) : base( name, null, ResourceType.Directory, origin, null )
+    public ResourceNodeRoot( string name, ResourceOrigin origin ) : base(
+                                                                         name,
+                                                                         null,
+                                                                         ResourceType.Directory,
+                                                                         origin,
+                                                                         null
+                                                                        )
     {
     }
 

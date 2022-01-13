@@ -1,4 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.IO;
+using System.Runtime.InteropServices;
+
+using SFB;
 
 using UnityEngine;
 
@@ -10,6 +14,7 @@ namespace UI.SkinEditorMainWindow
 
         [SerializeField]
         private bool m_ViewOnly = false;
+
         [SerializeField]
         private Window m_Window;
 
@@ -53,6 +58,7 @@ namespace UI.SkinEditorMainWindow
                 addItem.Button.onClick.AddListener( CreateSkin );
                 addItem.Icon.sprite = m_AddSkinSprite;
                 addItem.Text.text = "New";
+                addItem.ExportButton.gameObject.SetActive( false );
 
                 m_ImportSkinButtonInstance = Instantiate( m_SkinButtonPrefab, m_SkinButtonContainer );
 
@@ -62,6 +68,7 @@ namespace UI.SkinEditorMainWindow
                 importItem.Button.onClick.AddListener( ImportSkin );
                 importItem.Icon.sprite = m_AddSkinSprite;
                 importItem.Text.text = "Import";
+                importItem.ExportButton.gameObject.SetActive( false );
             }
 
             RebuildSkinList();
@@ -106,8 +113,42 @@ namespace UI.SkinEditorMainWindow
                 item.Button.onClick.AddListener( () => EditSkin( s ) );
                 item.Icon.sprite = m_SkinSprite;
                 item.Text.text = skin.SkinName;
+
+                item.ExportButton.onClick.AddListener(
+                                                      () => SaveCarSkinDialog( s.SkinName, SkinExporter.Export( s ) )
+                                                     );
             }
         }
+
+#if UNITY_WEBGL && !UNITY_EDITOR
+    //
+    // WebGL
+    //
+    [DllImport("__Internal")]
+    private static extern void DownloadFile(string gameObjectName, string methodName, string filename, byte[] byteArray, int byteArraySize);
+
+    // Broser plugin should be called in OnPointerDown.
+    public void SaveCarSkinDialog(string name, byte[] data) {
+        DownloadFile(gameObject.name, "SaveCarSkinDialog_Callback", $"{name}.zip", data, data.Length);
+    }
+
+    // Called from browser
+    public void SaveCarSkinDialog_Callback() {
+        Debug.Log("File Successfully Downloaded");
+    }
+#else
+
+        public void SaveCarSkinDialog( string name, byte[] data )
+        {
+            string path = StandaloneFileBrowser.SaveFilePanel( "Title", "", name, "zip" );
+
+            if ( !string.IsNullOrEmpty( path ) )
+            {
+                File.WriteAllBytes( path, data );
+                Debug.Log( "File Successfully Downloaded" );
+            }
+        }
+#endif
 
         private void OnSkinDatabaseChanged()
         {

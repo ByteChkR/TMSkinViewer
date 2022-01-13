@@ -90,9 +90,11 @@ public class URLParameters : MonoBehaviour
         public string Hostname;
         public string Port;
         public string Pathname;
-        [TextArea(1, 50)]
+
+        [TextArea( 1, 50 )]
         public string Search;
-        [TextArea(1, 50)]
+
+        [TextArea( 1, 50 )]
         public string Hash;
 
     }

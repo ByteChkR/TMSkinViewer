@@ -1,24 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-
-using UnityEngine;
 
 public class SettingsObjectWrapper
 {
 
     private readonly object m_Object;
 
-    public object Instance => m_Object;
-
     private readonly SettingsPropertyWrapper[] m_Properties;
     private readonly (string, MethodInfo)[] m_Methods;
+
+    public object Instance => m_Object;
 
     public event Action OnObjectChanged;
 
     public IEnumerable < SettingsPropertyWrapper > Properties => m_Properties;
-    public IEnumerable <(string, MethodInfo)> Methods => m_Methods;
+
+    public IEnumerable < (string, MethodInfo) > Methods => m_Methods;
 
     #region Public
 
@@ -38,7 +36,7 @@ public class SettingsObjectWrapper
             OnObjectChanged += so.OnSettingsChanged;
         }
     }
-    
+
     public void OnObjectLoaded()
     {
         if ( m_Object is ISettingsObject so )
@@ -53,23 +51,31 @@ public class SettingsObjectWrapper
 
     private (string, MethodInfo)[] CreateMethods()
     {
-        List<(string, MethodInfo)> methods = new List<(string, MethodInfo)>();
+        List < (string, MethodInfo) > methods = new List < (string, MethodInfo) >();
 
         foreach ( MethodInfo method in m_Object.GetType().GetMethods( BindingFlags.Instance | BindingFlags.Public ) )
         {
-            SettingsButtonAttribute attribute = method.GetCustomAttribute<SettingsButtonAttribute>();
-            if(attribute!=null)
+            SettingsButtonAttribute attribute = method.GetCustomAttribute < SettingsButtonAttribute >();
+
+            if ( attribute != null )
+            {
                 methods.Add( ( attribute.Name ?? method.Name, method ) );
+            }
         }
 
         return methods.ToArray();
     }
-    
+
     private SettingsPropertyWrapper[] CreateProperties()
     {
         List < SettingsPropertyWrapper > properties = new List < SettingsPropertyWrapper >();
 
-        foreach ( PropertyInfo info in m_Object.GetType().GetProperties( BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy ) )
+        foreach ( PropertyInfo info in m_Object.GetType().
+                                                GetProperties(
+                                                              BindingFlags.Public |
+                                                              BindingFlags.Instance |
+                                                              BindingFlags.FlattenHierarchy
+                                                             ) )
         {
             SettingsPropertyAttribute attribute = info.GetCustomAttribute < SettingsPropertyAttribute >();
 
@@ -86,8 +92,13 @@ public class SettingsObjectWrapper
     {
         string name = attribute.Name ?? info.Name;
 
-
-        SettingsPropertyWrapper wrapper = new SettingsPropertyWrapper( name, m_Object, info, info.GetCustomAttribute<SettingsHeaderAttribute>() );
+        SettingsPropertyWrapper wrapper = new SettingsPropertyWrapper(
+                                                                      name,
+                                                                      m_Object,
+                                                                      info,
+                                                                      info.GetCustomAttribute <
+                                                                          SettingsHeaderAttribute >()
+                                                                     );
 
         wrapper.OnPropertyChanged += OnPropertyChanged;
 

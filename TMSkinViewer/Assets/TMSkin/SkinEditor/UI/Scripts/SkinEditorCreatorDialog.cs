@@ -25,7 +25,9 @@ namespace UI.SkinEditorMainWindow
         {
             m_TemplateDropdown.options.AddRange(
                                                 SkinDatabase.LoadedSkins.Select(
-                                                                                x => new Dropdown.OptionData( x.SkinName )
+                                                                                x => new Dropdown.OptionData(
+                                                                                     x.SkinName
+                                                                                    )
                                                                                )
                                                );
         }
@@ -43,7 +45,8 @@ namespace UI.SkinEditorMainWindow
             {
                 CarSkin template = SkinDatabase.LoadedSkins.First(
                                                                   x => x.SkinName ==
-                                                                       m_TemplateDropdown.options[m_TemplateDropdown.value].
+                                                                       m_TemplateDropdown.
+                                                                           options[m_TemplateDropdown.value].
                                                                            text
                                                                  );
 

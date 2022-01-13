@@ -7,7 +7,6 @@ using UnityEngine;
 public class SurfacePreset : ScriptableObject
 {
 
-
     [SerializeField]
     private TrackSurface m_TrackSurface;
 

@@ -70,7 +70,7 @@ public class FileSystemResourceOrigin : ResourceOrigin
         {
             string name = Path.GetFileName( file );
             ResourceType type = ResourceTypeParser.ParseFromFileExtension( name );
-            ResourceNode child = node.AddChild( name, type, GetDefaultType(type) );
+            ResourceNode child = node.AddChild( name, type, GetDefaultType( type ) );
 
             if ( type == ResourceType.Texture )
             {
@@ -114,7 +114,7 @@ public class FileSystemResourceOrigin : ResourceOrigin
         foreach ( string directory in dirs )
         {
             string name = Path.GetFileName( directory );
-            ResourceNode child = node.AddChild( name, ResourceType.Directory , null);
+            ResourceNode child = node.AddChild( name, ResourceType.Directory, null );
             PopulateNode( directory, child, taskCollection );
         }
     }

@@ -68,18 +68,20 @@ namespace UI.Settings
             GameObject inspector = Instantiate( m_InspectorPrefab.InspectorPrefab, m_InspectorContent );
 
             object instance = ( ( Array )m_Wrapper.Value ).GetValue( i );
-            m_InspectorPrefab.OnCreate(inspector, instance);
+            m_InspectorPrefab.OnCreate( inspector, instance );
             m_InspectorItems.Add( inspector );
 
             inspector.transform.SetSiblingIndex( m_InspectorContent.childCount - 2 );
 
             SettingsValueInspector insp = inspector.
                 GetComponent < SettingsValueInspector >();
-            
-            if ( insp == null )
-                return;
 
-            Action<object> setter = null;
+            if ( insp == null )
+            {
+                return;
+            }
+
+            Action < object > setter = null;
 
             if ( m_Wrapper.CanWrite )
             {
@@ -90,6 +92,7 @@ namespace UI.Settings
                              cur.SetValue( o, i );
                          };
             }
+
             insp.SetProperty(
                              new SettingsArrayPropertyWrapper(
                                                               i.ToString(),
@@ -102,7 +105,7 @@ namespace UI.Settings
                                                                   return cur.GetValue( i );
                                                               },
                                                               null,
-                                                              m_Wrapper.GetCustomAttributes<Attribute>()
+                                                              m_Wrapper.GetCustomAttributes < Attribute >()
                                                              )
                             );
 
@@ -121,12 +124,12 @@ namespace UI.Settings
                 return null;
             }
         }
+
         public void AddValue()
         {
             Type eType = m_Wrapper.Type.GetElementType();
 
-            
-            object o = eType == typeof( string ) ? "" : CreateInstance(eType);
+            object o = eType == typeof( string ) ? "" : CreateInstance( eType );
             Array cur = ( Array )m_Wrapper.Value;
 
             Array a = Array.CreateInstance( eType, cur.Length + 1 );
@@ -162,7 +165,7 @@ namespace UI.Settings
         private class SettingsArrayPropertyWrapper : SettingsPropertyWrapper
         {
 
-            private readonly IEnumerable <Attribute> m_Attributes;
+            private readonly IEnumerable < Attribute > m_Attributes;
             private readonly Action < object > m_Setter;
             private readonly Func < object > m_Getter;
 
@@ -176,20 +179,25 @@ namespace UI.Settings
                 set => m_Setter?.Invoke( value );
             }
 
-            public override IEnumerable < T > GetCustomAttributes < T >() => m_Attributes.Where(x=> x is T).Cast<T>();
             #region Public
 
             public SettingsArrayPropertyWrapper(
                 string name,
                 Type elemType,
                 Action < object > set,
-                Func < object > get, SettingsHeaderAttribute header,
+                Func < object > get,
+                SettingsHeaderAttribute header,
                 IEnumerable < Attribute > attributes ) : base( name, null, null, header )
             {
                 Type = elemType;
                 m_Setter = set;
                 m_Getter = get;
                 m_Attributes = attributes;
+            }
+
+            public override IEnumerable < T > GetCustomAttributes < T >()
+            {
+                return m_Attributes.Where( x => x is T ).Cast < T >();
             }
 
             #endregion

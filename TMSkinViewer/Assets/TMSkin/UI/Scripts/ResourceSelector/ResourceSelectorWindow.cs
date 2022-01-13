@@ -6,7 +6,6 @@ using UnityEngine;
 
 namespace UI.ResourceSelector
 {
-    
 
     public class ResourceSelectorWindow : MonoBehaviour
     {
@@ -99,7 +98,7 @@ namespace UI.ResourceSelector
 
                 m_ActiveItems.Add( windowItem.gameObject );
             }
-            
+
             foreach ( ResourceNode item in items )
             {
                 if ( item.Type == ResourceType.Directory )

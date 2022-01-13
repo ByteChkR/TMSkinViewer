@@ -13,7 +13,6 @@ public class MapPreset : ScriptableObject
     [SerializeField]
     private Color m_LightColor;
 
-    
     [SettingsProperty]
     public string Name
     {
@@ -21,8 +20,6 @@ public class MapPreset : ScriptableObject
         set => name = value;
     }
 
-
-    
     [SettingsProperty]
     public Color LightColor
     {
@@ -36,7 +33,5 @@ public class MapPreset : ScriptableObject
         get => m_IsNight;
         set => m_IsNight = value;
     }
-    
-    
 
 }

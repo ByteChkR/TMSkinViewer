@@ -8,7 +8,6 @@ public class InternalResouceOriginCreatorComponent : MonoBehaviour
 
     private void Awake()
     {
-
         for ( int I = 0; I < m_Origins.Length; I++ )
         {
             InternalResourceOriginCreator origin = m_Origins[I];
@@ -17,6 +16,5 @@ public class InternalResouceOriginCreatorComponent : MonoBehaviour
             ResourceSystem.AddOrigin( resourceOrigin );
         }
     }
-
 
 }

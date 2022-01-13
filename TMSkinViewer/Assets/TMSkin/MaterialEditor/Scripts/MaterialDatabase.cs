@@ -6,8 +6,7 @@ using UnityEngine;
 namespace UI.SkinEditorMainWindow
 {
 
-    
-    [SettingsCategory("Car Skin Settings")]
+    [SettingsCategory( "Car Skin Settings" )]
     public class MaterialDatabase : MonoBehaviour
     {
 
@@ -20,7 +19,7 @@ namespace UI.SkinEditorMainWindow
         private CarMaterial m_DefaultMaterial;
 
         [SettingsProperty]
-        [SettingsHeader("Material Settings")]
+        [SettingsHeader( "Material Settings" )]
         public CarMaterial DefaultMaterial
         {
             get => m_DefaultMaterial;
@@ -31,14 +30,15 @@ namespace UI.SkinEditorMainWindow
         public CarMaterial[] Materials
         {
             get => m_Materials.ToArray();
-            set => m_Materials = new List < CarMaterial >(value);
+            set => m_Materials = new List < CarMaterial >( value );
         }
+
         public static IEnumerable < CarMaterial > LoadedMaterials => s_Instance.m_Materials;
 
         private void Awake()
         {
             s_Instance = this;
-            SettingsManager.AddSettingsObject(this);
+            SettingsManager.AddSettingsObject( this );
         }
 
         public static event Action OnMaterialDatabaseChanged;

@@ -29,7 +29,7 @@ public class CarSkin : ScriptableObject
         set => m_SkinName = value;
     }
 
-    [SettingsHeader("Skin Materials")]
+    [SettingsHeader( "Skin Materials" )]
     [SettingsProperty]
     public CarMaterial Skin
     {

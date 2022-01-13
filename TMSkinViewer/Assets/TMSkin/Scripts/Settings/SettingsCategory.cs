@@ -47,7 +47,6 @@ public class SettingsCategory
         SettingsObjectWrapper wrapper = new SettingsObjectWrapper( o );
         m_Objects.Add( wrapper );
         wrapper.OnObjectLoaded();
-
     }
 
     public SettingsCategory GetChild( string name )
@@ -55,11 +54,19 @@ public class SettingsCategory
         return m_Categories.FirstOrDefault( x => x.Name == name );
     }
 
-    public bool HasObjects() => m_Objects.Count != 0;
-    public bool HasChild() => m_Categories.Count != 0;
+    public bool HasChild()
+    {
+        return m_Categories.Count != 0;
+    }
+
     public bool HasChild( string name )
     {
         return m_Categories.Any( x => x.Name == name );
+    }
+
+    public bool HasObjects()
+    {
+        return m_Objects.Count != 0;
     }
 
     public void PrintDebug()

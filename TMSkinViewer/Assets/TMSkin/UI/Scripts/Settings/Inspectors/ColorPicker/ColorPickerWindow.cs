@@ -38,6 +38,7 @@ namespace UI.Settings.ColorPicker
 
         [SerializeField]
         private Color m_Color;
+
         [SerializeField]
         private Image m_PreviewImage;
 
@@ -45,19 +46,18 @@ namespace UI.Settings.ColorPicker
         {
             OnColorChanged += SetImageColor;
             m_AlphaInput.onValueChanged.AddListener( x => m_AlphaSlider.SetValueWithoutNotify( float.Parse( x ) ) );
-            m_AlphaSlider.onValueChanged.AddListener(x=> m_AlphaInput.SetTextWithoutNotify( x.ToString() ) );
-            
+            m_AlphaSlider.onValueChanged.AddListener( x => m_AlphaInput.SetTextWithoutNotify( x.ToString() ) );
+
             m_RedInput.onValueChanged.AddListener( x => m_RedSlider.SetValueWithoutNotify( float.Parse( x ) ) );
-            m_RedSlider.onValueChanged.AddListener(x=> m_RedInput.SetTextWithoutNotify( x.ToString() ) );
-            
+            m_RedSlider.onValueChanged.AddListener( x => m_RedInput.SetTextWithoutNotify( x.ToString() ) );
+
             m_GreenInput.onValueChanged.AddListener( x => m_GreenSlider.SetValueWithoutNotify( float.Parse( x ) ) );
-            m_GreenSlider.onValueChanged.AddListener(x=> m_GreenInput.SetTextWithoutNotify( x.ToString() ) );
-            
+            m_GreenSlider.onValueChanged.AddListener( x => m_GreenInput.SetTextWithoutNotify( x.ToString() ) );
+
             m_BlueInput.onValueChanged.AddListener( x => m_BlueSlider.SetValueWithoutNotify( float.Parse( x ) ) );
-            m_BlueSlider.onValueChanged.AddListener(x=> m_BlueInput.SetTextWithoutNotify( x.ToString() ) );
-            
-            
+            m_BlueSlider.onValueChanged.AddListener( x => m_BlueInput.SetTextWithoutNotify( x.ToString() ) );
         }
+
         public void Initialize( Color color )
         {
             m_Color = color;
@@ -65,12 +65,11 @@ namespace UI.Settings.ColorPicker
             UpdateInputText();
         }
 
-        private void SetImageColor( Color color)
+        private void SetImageColor( Color color )
         {
-         m_PreviewImage.color = color;   
+            m_PreviewImage.color = color;
         }
-        
-        
+
         private void UpdateSliders()
         {
             m_AlphaSlider.SetValueWithoutNotify( m_Color.a );
