@@ -1,33 +1,26 @@
 ﻿using System.Collections.Generic;
 
-using UI;
-using UI.Settings;
-
-
 using UnityEngine;
-using UnityEngine.UI;
-
 
 namespace Themes
 {
 
     public class ThemeManager : MonoBehaviour
     {
-        
+
         private static ThemeManager s_Instance;
 
         [SerializeField]
         private ThemeSettings m_Settings;
-        
 
         private readonly List < ThemeElement > m_Elements = new List < ThemeElement >();
 
         private void Awake()
         {
             s_Instance = this;
-            #if UNITY_EDITOR
+#if UNITY_EDITOR
             m_Settings = Instantiate( m_Settings );
-            #endif
+#endif
             m_Settings.OnSettingsChanged += ApplyToAllElements;
         }
 
@@ -35,8 +28,6 @@ namespace Themes
         {
             SettingsManager.AddSettingsObject( m_Settings );
         }
-
-        
 
         private static void ApplyToAllElements()
         {

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 using UnityEngine;
-
-using Object = UnityEngine.Object;
 
 public class InternalResourceOrigin : ResourceOrigin
 {
@@ -42,8 +39,6 @@ public class InternalResourceOrigin : ResourceOrigin
         return m_Root;
     }
 
-   
-
     public override void Initialize( TaskCollection taskCollection )
     {
         m_Resources.Clear();
@@ -54,7 +49,7 @@ public class InternalResourceOrigin : ResourceOrigin
 
         foreach ( InternalResourceOriginContent content in m_Content )
         {
-            ResourceNode node = m_Root.CreateNode( content.Path, content.Type,GetDefaultType( content.Type ));
+            ResourceNode node = m_Root.CreateNode( content.Path, content.Type, GetDefaultType( content.Type ) );
 
             taskCollection.AddTask(
                                    $"Loading Object: {node.Name}",

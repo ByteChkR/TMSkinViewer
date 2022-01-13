@@ -13,6 +13,7 @@ namespace UI.LoadingWindow
 
         [SerializeField]
         private Transform m_LoadingWindowParent;
+
         [SerializeField]
         private GameObject m_BlockingPanel;
 
@@ -23,16 +24,18 @@ namespace UI.LoadingWindow
 
         public static LoadingWindow CreateWindow()
         {
-            s_Instance.m_BlockingPanel.SetActive(true);
+            s_Instance.m_BlockingPanel.SetActive( true );
 
             s_Instance.m_BlockingPanel.transform.SetSiblingIndex(
                                                                  s_Instance.m_BlockingPanel.transform.parent.
                                                                             childCount -
                                                                  1
                                                                 );
+
             GameObject obj = Instantiate( s_Instance.m_LoadingWindowPrefab, s_Instance.m_LoadingWindowParent );
             LoadingWindow window = obj.GetComponent < LoadingWindow >();
-            window.OnComplete += () => s_Instance.m_BlockingPanel.SetActive(false);
+            window.OnComplete += () => s_Instance.m_BlockingPanel.SetActive( false );
+
             return window;
         }
 

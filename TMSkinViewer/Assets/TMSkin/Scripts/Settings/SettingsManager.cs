@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-using UnityEngine;
-
-
 public static class SettingsManager
 {
 
@@ -30,16 +27,17 @@ public static class SettingsManager
     }
 
     #region Public
-    
-    
+
     public static void AddSettingsObject( object o, string path = null )
     {
         SettingsCategoryAttribute attribute = o.GetType().GetCustomAttribute < SettingsCategoryAttribute >();
 
         if ( path == null )
         {
-            if(attribute==null)
+            if ( attribute == null )
+            {
                 throw new Exception( $"Object {o} does not have a SettingsCategoryAttribute" );
+            }
 
             path = attribute.Path;
         }

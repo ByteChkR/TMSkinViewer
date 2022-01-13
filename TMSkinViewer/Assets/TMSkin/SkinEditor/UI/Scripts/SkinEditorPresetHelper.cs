@@ -10,7 +10,6 @@ namespace UI.SkinEditorMainWindow
         [SerializeField]
         private SkinEditorWindow m_EditorWindow;
 
-
         [SerializeField]
         private Dropdown m_MapPresetDropdown;
 
@@ -22,7 +21,6 @@ namespace UI.SkinEditorMainWindow
 
         private void Awake()
         {
-            
             foreach ( MapPreset mapPreset in SkinEditorPresets.Instance.MapPresets )
             {
                 m_MapPresetDropdown.options.Add( new Dropdown.OptionData( mapPreset.name ) );
@@ -46,7 +44,9 @@ namespace UI.SkinEditorMainWindow
 
         public void SetSurfacePreset( int i )
         {
-            m_EditorWindow.ViewerInstance.MapController.SetSurfacePreset( SkinEditorPresets.Instance.SurfacePresets[i] );
+            m_EditorWindow.ViewerInstance.MapController.SetSurfacePreset(
+                                                                         SkinEditorPresets.Instance.SurfacePresets[i]
+                                                                        );
         }
 
         public void SetCarPreset( int i )

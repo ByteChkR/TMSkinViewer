@@ -53,6 +53,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\TMSkin\Shaders\Water\#NVJOB Water Shaders V2\Editor\NVWaterMaterials.cs" />
+     <Compile Include="Assets\TMSkin\Shaders\Water\#NVJOB Water Shaders V2\Editor\NVWaterShaderEditor.cs" />
  <Reference Include="UnityEngine">
  <HintPath>D:/UnityHub/2020.3.18f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
@@ -659,6 +660,9 @@
  <Reference Include="Unity.VSCode.Editor">
  <HintPath>D:/Users/Tim/Documents/TMSkinViewer/TMSkinViewer/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.Postprocessing.Runtime">
+ <HintPath>D:/Users/Tim/Documents/TMSkinViewer/TMSkinViewer/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>D:/Users/Tim/Documents/TMSkinViewer/TMSkinViewer/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
@@ -680,6 +684,9 @@
  <Reference Include="Unity.TextMeshPro">
  <HintPath>D:/Users/Tim/Documents/TMSkinViewer/TMSkinViewer/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.Postprocessing.Editor">
+ <HintPath>D:/Users/Tim/Documents/TMSkinViewer/TMSkinViewer/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>D:/Users/Tim/Documents/TMSkinViewer/TMSkinViewer/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
@@ -691,12 +698,6 @@
  </Reference>
  <Reference Include="Unity.SysrootPackage.Editor">
  <HintPath>D:/Users/Tim/Documents/TMSkinViewer/TMSkinViewer/Library/ScriptAssemblies/Unity.SysrootPackage.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Postprocessing.Editor">
- <HintPath>D:/Users/Tim/Documents/TMSkinViewer/TMSkinViewer/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Postprocessing.Runtime">
- <HintPath>D:/Users/Tim/Documents/TMSkinViewer/TMSkinViewer/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

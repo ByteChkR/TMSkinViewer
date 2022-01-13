@@ -62,7 +62,7 @@ public class ResourceNode
     {
         return Origin.GetResource( Path );
     }
-    
+
     public Type GetResourceType()
     {
         return m_ResourceType;
@@ -82,7 +82,12 @@ public class ResourceNode
 
     #region Protected
 
-    protected ResourceNode( string name, ResourceNode parent, ResourceType type, ResourceOrigin origin, Type resourceType )
+    protected ResourceNode(
+        string name,
+        ResourceNode parent,
+        ResourceType type,
+        ResourceOrigin origin,
+        Type resourceType )
     {
         Name = name;
         m_Parent = parent;

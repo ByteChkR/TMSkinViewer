@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SkinTemplate
   m_EditorClassIdentifier: 
   m_SkinName: 
-  m_Skin: {fileID: 0}
-  m_Glass: {fileID: 0}
-  m_Wheel: {fileID: 0}
-  m_Details: {fileID: 0}
+  m_Skin: {fileID: 11400000, guid: 9ee7b49ffdc61ce4c9dd6151ba08e3d6, type: 2}
+  m_Glass: {fileID: 11400000, guid: 9ee7b49ffdc61ce4c9dd6151ba08e3d6, type: 2}
+  m_Wheel: {fileID: 11400000, guid: 9ee7b49ffdc61ce4c9dd6151ba08e3d6, type: 2}
+  m_Details: {fileID: 11400000, guid: 9ee7b49ffdc61ce4c9dd6151ba08e3d6, type: 2}

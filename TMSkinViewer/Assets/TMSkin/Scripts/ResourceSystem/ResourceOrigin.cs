@@ -10,21 +10,23 @@ public abstract class ResourceOrigin
     private readonly string m_Name;
 
     public string Name => m_Name;
-    
+
+    #region Public
+
     public static Type GetDefaultType( ResourceType type )
     {
         switch ( type )
         {
             case ResourceType.Directory:
                 return null;
+
             case ResourceType.Texture:
                 return typeof( Texture2D );
+
             default:
                 return null;
         }
     }
-
-    #region Public
 
     public abstract Sprite GetIcon( string path );
 

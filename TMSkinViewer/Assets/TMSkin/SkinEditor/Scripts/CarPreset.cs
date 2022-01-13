@@ -6,12 +6,6 @@ using UnityEngine;
 [CreateAssetMenu( fileName = "CarPreset", menuName = "TMSkin/Presets/Car" )]
 public class CarPreset : ScriptableObject
 {
-    [SettingsProperty]
-    public string Name
-    {
-        get => name;
-        set => name = value;
-    }
 
     [SerializeField]
     private bool m_IsAccelerating;
@@ -63,6 +57,13 @@ public class CarPreset : ScriptableObject
     [SerializeField]
     private float m_Boost;
 
+    [SettingsProperty]
+    public string Name
+    {
+        get => name;
+        set => name = value;
+    }
+
     //Wrap all members into get/set properties
     [SettingsProperty]
     public bool IsAccelerating
@@ -70,7 +71,7 @@ public class CarPreset : ScriptableObject
         get => m_IsAccelerating;
         set => m_IsAccelerating = value;
     }
-    
+
     [SettingsProperty]
     [SettingsRange( 0, 1 )]
     public float Turn
@@ -78,7 +79,7 @@ public class CarPreset : ScriptableObject
         get => m_Turn;
         set => m_Turn = value;
     }
-    
+
     [SettingsProperty]
     [SettingsRange( 0, 1 )]
     public float Wings
@@ -86,7 +87,7 @@ public class CarPreset : ScriptableObject
         get => m_Wings;
         set => m_Wings = value;
     }
-    
+
     [SettingsProperty]
     [SettingsRange( 0, 1 )]
     public float ExhaustUp
@@ -94,7 +95,7 @@ public class CarPreset : ScriptableObject
         get => m_ExhaustUp;
         set => m_ExhaustUp = value;
     }
-    
+
     [SettingsProperty]
     [SettingsRange( 0, 1 )]
     public float ExhaustDown
@@ -102,7 +103,7 @@ public class CarPreset : ScriptableObject
         get => m_ExhaustDown;
         set => m_ExhaustDown = value;
     }
-    
+
     [SettingsProperty]
     [SettingsRange( 0, 1 )]
     public float WheelDown
@@ -110,7 +111,7 @@ public class CarPreset : ScriptableObject
         get => m_WheelDown;
         set => m_WheelDown = value;
     }
-    
+
     [SettingsProperty]
     [SettingsRange( 0, 1 )]
     public float BrakeLights
@@ -118,7 +119,7 @@ public class CarPreset : ScriptableObject
         get => m_BrakeLights;
         set => m_BrakeLights = value;
     }
-    
+
     [SettingsProperty]
     [SettingsRange( 0, 1 )]
     public float BrakeAnimation
@@ -126,7 +127,7 @@ public class CarPreset : ScriptableObject
         get => m_BrakeAnimation;
         set => m_BrakeAnimation = value;
     }
-    
+
     [SettingsProperty]
     [SettingsRange( 0, 1 )]
     public float Energy
@@ -134,7 +135,7 @@ public class CarPreset : ScriptableObject
         get => m_Energy;
         set => m_Energy = value;
     }
-    
+
     [SettingsProperty]
     [SettingsRange( 0, 1 )]
     public float Turbo
@@ -142,14 +143,14 @@ public class CarPreset : ScriptableObject
         get => m_Turbo;
         set => m_Turbo = value;
     }
-    
+
     [SettingsProperty]
     public Color TurboColor
     {
         get => m_TurboColor;
         set => m_TurboColor = value;
     }
-    
+
     [SettingsProperty]
     [SettingsRange( 0, 1 )]
     public float ExhaustHeat
@@ -157,7 +158,7 @@ public class CarPreset : ScriptableObject
         get => m_ExhaustHeat;
         set => m_ExhaustHeat = value;
     }
-    
+
     [SettingsProperty]
     [SettingsRange( 0, 1 )]
     public float Boost
@@ -165,9 +166,5 @@ public class CarPreset : ScriptableObject
         get => m_Boost;
         set => m_Boost = value;
     }
-    
-    
-    
-    
 
 }

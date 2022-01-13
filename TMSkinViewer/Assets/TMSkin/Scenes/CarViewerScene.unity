@@ -377,6 +377,10 @@ PrefabInstance:
       value: AppStartHelper
       objectReference: {fileID: 0}
     - target: {fileID: 5808686401984920714, guid: 5299ae46f4a13f24eae99ce9a0d39810, type: 3}
+      propertyPath: m_TestTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: 4bb2f8e6d83bd38479c76312c2ad261e, type: 3}
+    - target: {fileID: 5808686401984920714, guid: 5299ae46f4a13f24eae99ce9a0d39810, type: 3}
       propertyPath: m_AddTestSettings
       value: 1
       objectReference: {fileID: 0}

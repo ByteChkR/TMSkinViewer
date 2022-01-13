@@ -72,8 +72,11 @@ public class SkinImporterWindow : MonoBehaviour
         }
     }
 
-    private void ImportSkin( byte[] data, TaskCollection collection ) =>
+    private void ImportSkin( byte[] data, TaskCollection collection )
+    {
         ImportSkin( new MemoryStream( data ), collection );
+    }
+
     private void ImportSkin( Stream data, TaskCollection collection )
     {
         m_Progress.text = "Importing Skin...";
@@ -87,8 +90,11 @@ public class SkinImporterWindow : MonoBehaviour
         SkinImporter.Import( skin, data, collection );
     }
 
-    private void ImportSkin( byte[] data) =>
+    private void ImportSkin( byte[] data )
+    {
         ImportSkin( new MemoryStream( data ) );
+    }
+
     private void ImportSkin( Stream data )
     {
         m_Progress.text = "Importing Skin...";
@@ -99,15 +105,16 @@ public class SkinImporterWindow : MonoBehaviour
                                                          );
 
         CarSkin skin = SkinDatabase.CreateSkin( m_SkinName.text, template, true );
-        SkinImporter.Import( new SkinImporterArgs(skin, data, skin.SkinName), () => m_Window.Close() );
-
+        SkinImporter.Import( new SkinImporterArgs( skin, data, skin.SkinName ), () => m_Window.Close() );
     }
-    
-    
 
     private void Start()
     {
-        m_TemplateDropdown.options.AddRange( SkinDatabase.LoadedSkins.Select( x => new Dropdown.OptionData( x.SkinName ) ) );
+        m_TemplateDropdown.options.AddRange(
+                                            SkinDatabase.LoadedSkins.Select(
+                                                                            x => new Dropdown.OptionData( x.SkinName )
+                                                                           )
+                                           );
     }
 
 }

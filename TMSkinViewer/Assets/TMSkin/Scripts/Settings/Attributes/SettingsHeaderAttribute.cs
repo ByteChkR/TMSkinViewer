@@ -1,6 +1,6 @@
 ﻿using System;
 
-[AttributeUsage( AttributeTargets.Property| AttributeTargets.Method )]
+[AttributeUsage( AttributeTargets.Property | AttributeTargets.Method )]
 public class SettingsHeaderAttribute : Attribute
 {
 

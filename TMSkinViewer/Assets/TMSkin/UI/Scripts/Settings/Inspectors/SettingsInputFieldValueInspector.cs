@@ -1,6 +1,4 @@
-﻿using JetBrains.Annotations;
-
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI.Settings
@@ -11,29 +9,31 @@ namespace UI.Settings
 
         [SerializeField]
         private InputField m_Field;
+
         [SerializeField]
         private InputField m_SliderField;
+
         [SerializeField]
         private GameObject m_FieldContainer;
+
         [SerializeField]
         private GameObject m_SliderContainer;
 
         [SerializeField]
         private Slider m_Slider;
-        
+
         public override void SetProperty( SettingsPropertyWrapper prop )
         {
             base.SetProperty( prop );
 
-            SettingsRangeAttribute range = prop.GetCustomAttribute<SettingsRangeAttribute>();
+            SettingsRangeAttribute range = prop.GetCustomAttribute < SettingsRangeAttribute >();
 
-            if ( range != null && (prop.Type == typeof(int) || prop.Type == typeof(float)) )
+            if ( range != null && ( prop.Type == typeof( int ) || prop.Type == typeof( float ) ) )
             {
-                m_SliderContainer.SetActive(true);
-                m_FieldContainer.SetActive(false);
+                m_SliderContainer.SetActive( true );
+                m_FieldContainer.SetActive( false );
                 m_Slider.minValue = range.Min;
                 m_Slider.maxValue = range.Max;
-                
 
                 m_Slider.onValueChanged.AddListener(
                                                     v =>
@@ -42,30 +42,30 @@ namespace UI.Settings
                                                         {
                                                             int vi = ( int )v;
                                                             prop.Value = vi;
-                                                            m_SliderField.SetTextWithoutNotify( vi.ToString());
+                                                            m_SliderField.SetTextWithoutNotify( vi.ToString() );
                                                         }
                                                         else
                                                         {
                                                             prop.Value = v;
-                                                            m_SliderField.SetTextWithoutNotify( v.ToString());
+                                                            m_SliderField.SetTextWithoutNotify( v.ToString() );
                                                         }
                                                     }
                                                    );
-                
+
                 m_SliderField.onEndEdit.AddListener(
                                                     v =>
                                                     {
                                                         if ( prop.Type == typeof( int ) )
                                                         {
-                                                            int vi = int.Parse(v);
+                                                            int vi = int.Parse( v );
                                                             prop.Value = vi;
-                                                            m_Slider.SetValueWithoutNotify( vi);
+                                                            m_Slider.SetValueWithoutNotify( vi );
                                                         }
                                                         else
                                                         {
-                                                            float vf = float.Parse(v);
+                                                            float vf = float.Parse( v );
                                                             prop.Value = vf;
-                                                            m_Slider.SetValueWithoutNotify( vf);
+                                                            m_Slider.SetValueWithoutNotify( vf );
                                                         }
                                                     }
                                                    );
@@ -85,8 +85,8 @@ namespace UI.Settings
             }
             else
             {
-                m_SliderContainer.SetActive(false);
-                m_FieldContainer.SetActive(true);
+                m_SliderContainer.SetActive( false );
+                m_FieldContainer.SetActive( true );
                 m_Field.text = prop.Value?.ToString() ?? "";
 
                 m_Field.onEndEdit.AddListener(
@@ -107,11 +107,8 @@ namespace UI.Settings
                                               }
                                              );
             }
-            
         }
 
     }
-
-
 
 }

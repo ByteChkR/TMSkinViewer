@@ -120,8 +120,8 @@
      <Compile Include="Assets\TMSkin\StandaloneFileBrowser\ExtensionFilter.cs" />
      <Compile Include="Assets\TMSkin\UI\Scripts\Settings\SettingsValueInspectorType.cs" />
      <Compile Include="Assets\TMSkin\SkinEditor\Scripts\MapPreset.cs" />
-     <Compile Include="Assets\TMSkin\UI\Scripts\Settings\Inspectors\SettingsArrayValueInspector.cs" />
      <Compile Include="Assets\TMSkin\UI\Scripts\Themes\ThemeElement.cs" />
+     <Compile Include="Assets\TMSkin\UI\Scripts\Settings\Inspectors\SettingsArrayValueInspector.cs" />
      <Compile Include="Assets\TMSkin\UI\Scripts\Loading\LoadingWindow.cs" />
      <Compile Include="Assets\TMSkin\SkinEditor\Scripts\Camera\CameraControllerPosition.cs" />
      <Compile Include="Assets\TMSkin\Shaders\MagicMirror\MirrorScript.cs" />
@@ -169,6 +169,10 @@
      <Compile Include="Assets\TMSkin\Scripts\DDS\UnknownFileFormatException.cs" />
      <Compile Include="Assets\TMSkin\Scripts\ResourceSystem\ResourceNode.cs" />
      <Compile Include="Assets\TMSkin\SkinEditor\Scripts\CarPreset.cs" />
+     <Compile Include="Assets\TMSkin\SkinExporter\Scripts\SkinExporter.cs" />
+     <Compile Include="Assets\TMSkin\SkinEditor\UI\Scripts\SkinUrlImportContainer.cs" />
+     <Compile Include="Assets\TMSkin\SkinEditor\Scripts\Skin\CarTexture.cs" />
+     <Compile Include="Assets\TMSkin\SkinImporter\Scripts\SkinImporterArgs.cs" />
      <None Include="Assets\TMSkin\Shaders\Water\#NVJOB Water Shaders V2\Water Specular.shader" />
      <None Include="Assets\TMSkin\Shaders\MagicMirror\Readme.txt" />
      <None Include="Assets\TMSkin\Shaders\TMCarShader.shader" />
@@ -745,6 +749,9 @@
  <Reference Include="Unity.VSCode.Editor">
  <HintPath>D:/Users/Tim/Documents/TMSkinViewer/TMSkinViewer/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.Postprocessing.Runtime">
+ <HintPath>D:/Users/Tim/Documents/TMSkinViewer/TMSkinViewer/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>D:/Users/Tim/Documents/TMSkinViewer/TMSkinViewer/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
@@ -766,6 +773,9 @@
  <Reference Include="Unity.TextMeshPro">
  <HintPath>D:/Users/Tim/Documents/TMSkinViewer/TMSkinViewer/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.Postprocessing.Editor">
+ <HintPath>D:/Users/Tim/Documents/TMSkinViewer/TMSkinViewer/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>D:/Users/Tim/Documents/TMSkinViewer/TMSkinViewer/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
@@ -777,12 +787,6 @@
  </Reference>
  <Reference Include="Unity.SysrootPackage.Editor">
  <HintPath>D:/Users/Tim/Documents/TMSkinViewer/TMSkinViewer/Library/ScriptAssemblies/Unity.SysrootPackage.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Postprocessing.Editor">
- <HintPath>D:/Users/Tim/Documents/TMSkinViewer/TMSkinViewer/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Postprocessing.Runtime">
- <HintPath>D:/Users/Tim/Documents/TMSkinViewer/TMSkinViewer/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

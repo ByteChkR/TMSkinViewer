@@ -72,11 +72,11 @@ namespace UI.MaterialEditor
                                                () =>
                                                {
                                                    ResourceSelectorWindow window =
-                                                       ResourceSelectorWindowBuilder.CreateWindow<Texture2D>();
+                                                       ResourceSelectorWindowBuilder.CreateWindow < Texture2D >();
 
                                                    window.OnResourceSelected += o =>
                                                    {
-                                                       m_Material.Albedo = ( Texture2D )o.GetResource();
+                                                       m_Material.Albedo = ( CarTexture )o.GetResource();
                                                        UpdateButtons();
                                                    };
                                                }
@@ -86,11 +86,11 @@ namespace UI.MaterialEditor
                                                () =>
                                                {
                                                    ResourceSelectorWindow window =
-                                                       ResourceSelectorWindowBuilder.CreateWindow<Texture2D>();
+                                                       ResourceSelectorWindowBuilder.CreateWindow < Texture2D >();
 
                                                    window.OnResourceSelected += o =>
                                                    {
-                                                       m_Material.Normal = ( Texture2D )o.GetResource();
+                                                       m_Material.Normal = ( CarTexture )o.GetResource();
                                                        UpdateButtons();
                                                    };
                                                }
@@ -100,11 +100,14 @@ namespace UI.MaterialEditor
                                                          () =>
                                                          {
                                                              ResourceSelectorWindow window =
-                                                                 ResourceSelectorWindowBuilder.CreateWindow<Texture2D>();
+                                                                 ResourceSelectorWindowBuilder.
+                                                                     CreateWindow < Texture2D >();
 
                                                              window.OnResourceSelected += o =>
                                                              {
-                                                                 m_Material.AmbientOcclusion = ( Texture2D )o.GetResource();
+                                                                 m_Material.AmbientOcclusion =
+                                                                     ( CarTexture )o.GetResource();
+
                                                                  UpdateButtons();
                                                              };
                                                          }
@@ -114,11 +117,11 @@ namespace UI.MaterialEditor
                                                  () =>
                                                  {
                                                      ResourceSelectorWindow window =
-                                                         ResourceSelectorWindowBuilder.CreateWindow<Texture2D>();
+                                                         ResourceSelectorWindowBuilder.CreateWindow < Texture2D >();
 
                                                      window.OnResourceSelected += o =>
                                                      {
-                                                         m_Material.Emissive = ( Texture2D )o.GetResource();
+                                                         m_Material.Emissive = ( CarTexture )o.GetResource();
                                                          UpdateButtons();
                                                      };
                                                  }
@@ -128,11 +131,11 @@ namespace UI.MaterialEditor
                                                  () =>
                                                  {
                                                      ResourceSelectorWindow window =
-                                                         ResourceSelectorWindowBuilder.CreateWindow<Texture2D>();
+                                                         ResourceSelectorWindowBuilder.CreateWindow < Texture2D >();
 
                                                      window.OnResourceSelected += o =>
                                                      {
-                                                         m_Material.DirtMask = ( Texture2D )o.GetResource();
+                                                         m_Material.DirtMask = ( CarTexture )o.GetResource();
                                                          UpdateButtons();
                                                      };
                                                  }
@@ -142,11 +145,11 @@ namespace UI.MaterialEditor
                                                   () =>
                                                   {
                                                       ResourceSelectorWindow window =
-                                                          ResourceSelectorWindowBuilder.CreateWindow<Texture2D>();
+                                                          ResourceSelectorWindowBuilder.CreateWindow < Texture2D >();
 
                                                       window.OnResourceSelected += o =>
                                                       {
-                                                          m_Material.Roughness = ( Texture2D )o.GetResource();
+                                                          m_Material.Roughness = ( CarTexture )o.GetResource();
                                                           UpdateButtons();
                                                       };
                                                   }
@@ -209,19 +212,19 @@ namespace UI.MaterialEditor
 
         private void UpdateButtons()
         {
-            SetButtonImage( m_AlbedoImage, m_Material.Albedo );
-            SetButtonImage( m_NormalImage, m_Material.Normal );
-            SetButtonImage( m_AmbientOcclusionImage, m_Material.AmbientOcclusion );
-            SetButtonImage( m_EmissionImage, m_Material.Emissive );
-            SetButtonImage( m_DirtMaskImage, m_Material.DirtMask );
-            SetButtonImage( m_RoughnessImage, m_Material.Roughness );
+            SetButtonImage( m_AlbedoImage, m_Material.Albedo.Texture );
+            SetButtonImage( m_NormalImage, m_Material.Normal.Texture );
+            SetButtonImage( m_AmbientOcclusionImage, m_Material.AmbientOcclusion.Texture );
+            SetButtonImage( m_EmissionImage, m_Material.Emissive.Texture );
+            SetButtonImage( m_DirtMaskImage, m_Material.DirtMask.Texture );
+            SetButtonImage( m_RoughnessImage, m_Material.Roughness.Texture );
 
-            m_ViewerMaterial.SetTexture( "_MainTex", m_Material.Albedo );
-            m_ViewerMaterial.SetTexture( "_AO", m_Material.AmbientOcclusion );
-            m_ViewerMaterial.SetTexture( "_Normals", m_Material.Normal );
-            m_ViewerMaterial.SetTexture( "_Emission", m_Material.Emissive );
-            m_ViewerMaterial.SetTexture( "_DirtMask", m_Material.DirtMask );
-            m_ViewerMaterial.SetTexture( "_Roughness", m_Material.Roughness );
+            m_ViewerMaterial.SetTexture( "_MainTex", m_Material.Albedo.Texture );
+            m_ViewerMaterial.SetTexture( "_AO", m_Material.AmbientOcclusion.Texture );
+            m_ViewerMaterial.SetTexture( "_Normals", m_Material.Normal.Texture );
+            m_ViewerMaterial.SetTexture( "_Emission", m_Material.Emissive.Texture );
+            m_ViewerMaterial.SetTexture( "_DirtMask", m_Material.DirtMask.Texture );
+            m_ViewerMaterial.SetTexture( "_Roughness", m_Material.Roughness.Texture );
         }
 
         public void SetMaterial( CarMaterial material )

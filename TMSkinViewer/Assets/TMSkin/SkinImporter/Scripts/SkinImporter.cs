@@ -11,27 +11,6 @@ using UnityEngine;
 
 using Object = UnityEngine.Object;
 
-public readonly struct SkinImporterArgs : IDisposable
-{
-
-    public readonly CarSkin Skin;
-    public readonly Stream Data;
-    public readonly string ResourcePath;
-
-    public SkinImporterArgs( CarSkin skin, Stream data, string resourcePath = null )
-    {
-        Skin = skin;
-        Data = data;
-        ResourcePath = resourcePath;
-    }
-
-    public void Dispose()
-    {
-        Data?.Dispose();
-    }
-
-}
-
 public static class SkinImporter
 {
 
@@ -49,18 +28,18 @@ public static class SkinImporter
             m_Root = new ResourceNodeRoot( name, this );
         }
 
-        public void AddTexture( string nodePath, Texture2D resource )
+        public void AddTexture( string nodePath, CarTexture resource )
         {
-            string path = nodePath.Replace('\\', '/');
+            string path = nodePath.Replace( '\\', '/' );
             ResourceNode node = m_Root.CreateNode( path, ResourceType.Texture, typeof( Texture2D ) );
 
-            m_Resources.Add($"Imported Skins/{path}", resource );
+            m_Resources.Add( $"Imported Skins/{path}", resource );
 
             m_Icons.Add(
                         $"Imported Skins/{path}",
                         Sprite.Create(
-                                      resource,
-                                      new Rect( 0, 0, resource.width, resource.height ),
+                                      resource.Texture,
+                                      new Rect( 0, 0, resource.Texture.width, resource.Texture.height ),
                                       new Vector2( 0.5f, 0.5f )
                                      )
                        );
@@ -73,12 +52,16 @@ public static class SkinImporter
                 return sprite;
             }
             else
+            {
                 return ResourceSystem.GetDefaultIcon( ResourceType.Directory );
+            }
         }
 
         public override Object GetResource( string path )
         {
-            return m_Resources[path];
+            Object o = m_Resources[path];
+
+            return o;
         }
 
         public override ResourceNodeRoot GetRootNode()
@@ -172,7 +155,7 @@ public static class SkinImporter
 
                           if ( ao != null )
                           {
-                              Texture2D texture = LoadTexture( ao );
+                              CarTexture texture = LoadTexture( ao );
 
                               if ( texture != null )
                               {
@@ -202,7 +185,7 @@ public static class SkinImporter
 
                           if ( b != null )
                           {
-                              Texture2D texture = LoadTexture( b );
+                              CarTexture texture = LoadTexture( b );
 
                               if ( texture != null )
                               {
@@ -232,7 +215,7 @@ public static class SkinImporter
 
                           if ( dirtMask != null )
                           {
-                              Texture2D texture = LoadTexture( dirtMask );
+                              CarTexture texture = LoadTexture( dirtMask );
 
                               if ( texture != null )
                               {
@@ -262,7 +245,7 @@ public static class SkinImporter
 
                           if ( i != null )
                           {
-                              Texture2D texture = LoadTexture( i );
+                              CarTexture texture = LoadTexture( i );
 
                               if ( texture != null )
                               {
@@ -292,7 +275,7 @@ public static class SkinImporter
 
                           if ( n != null )
                           {
-                              Texture2D texture = LoadTexture( n );
+                              CarTexture texture = LoadTexture( n );
 
                               if ( texture != null )
                               {
@@ -322,7 +305,7 @@ public static class SkinImporter
 
                           if ( r != null )
                           {
-                              Texture2D texture = LoadTexture( r );
+                              CarTexture texture = LoadTexture( r );
 
                               if ( texture != null )
                               {
@@ -359,7 +342,7 @@ public static class SkinImporter
 
                           if ( ao != null )
                           {
-                              Texture2D texture = LoadTexture( ao );
+                              CarTexture texture = LoadTexture( ao );
 
                               if ( texture != null )
                               {
@@ -389,7 +372,7 @@ public static class SkinImporter
 
                           if ( d != null )
                           {
-                              Texture2D texture = LoadTexture( d );
+                              CarTexture texture = LoadTexture( d );
 
                               if ( texture != null )
                               {
@@ -419,7 +402,7 @@ public static class SkinImporter
 
                           if ( i != null )
                           {
-                              Texture2D texture = LoadTexture( i );
+                              CarTexture texture = LoadTexture( i );
 
                               if ( texture != null )
                               {
@@ -456,7 +439,7 @@ public static class SkinImporter
 
                           if ( ao != null )
                           {
-                              Texture2D texture = LoadTexture( ao );
+                              CarTexture texture = LoadTexture( ao );
 
                               if ( texture != null )
                               {
@@ -486,7 +469,7 @@ public static class SkinImporter
 
                           if ( b != null )
                           {
-                              Texture2D texture = LoadTexture( b );
+                              CarTexture texture = LoadTexture( b );
 
                               if ( texture != null )
                               {
@@ -516,7 +499,7 @@ public static class SkinImporter
 
                           if ( dirtMask != null )
                           {
-                              Texture2D texture = LoadTexture( dirtMask );
+                              CarTexture texture = LoadTexture( dirtMask );
 
                               if ( texture != null )
                               {
@@ -546,7 +529,7 @@ public static class SkinImporter
 
                           if ( i != null )
                           {
-                              Texture2D texture = LoadTexture( i );
+                              CarTexture texture = LoadTexture( i );
 
                               if ( texture != null )
                               {
@@ -576,7 +559,7 @@ public static class SkinImporter
 
                           if ( r != null )
                           {
-                              Texture2D texture = LoadTexture( r );
+                              CarTexture texture = LoadTexture( r );
 
                               if ( texture != null )
                               {
@@ -599,20 +582,20 @@ public static class SkinImporter
                      );
     }
 
-    private static Texture2D LoadTexture( ZipArchiveEntry entry )
+    private static CarTexture LoadTexture( ZipArchiveEntry entry )
     {
+        CarTexture ret = ScriptableObject.CreateInstance < CarTexture >();
+
         using ( Stream s = entry.Open() )
         {
-            byte[] data = new byte[entry.Length];
+            ret.TextureData = new byte[entry.Length];
 
-            s.Read( data, 0, ( int )entry.Length );
-
-            Texture2D tex = null;
+            s.Read( ret.TextureData, 0, ( int )entry.Length );
 
             try
             {
-                DDSImage image = new DDSImage( data );
-                tex = image.BitmapImage;
+                DDSImage image = new DDSImage( ret.TextureData );
+                ret.Texture = image.BitmapImage;
             }
             catch ( Exception e )
             {
@@ -621,7 +604,7 @@ public static class SkinImporter
                 return null;
             }
 
-            return tex;
+            return ret;
         }
     }
 
@@ -639,7 +622,7 @@ public static class SkinImporter
 
                           if ( ao != null )
                           {
-                              Texture2D texture = LoadTexture( ao );
+                              CarTexture texture = LoadTexture( ao );
 
                               if ( texture != null )
                               {
@@ -669,7 +652,7 @@ public static class SkinImporter
 
                           if ( b != null )
                           {
-                              Texture2D texture = LoadTexture( b );
+                              CarTexture texture = LoadTexture( b );
 
                               if ( texture != null )
                               {
@@ -699,7 +682,7 @@ public static class SkinImporter
 
                           if ( dirtMask != null )
                           {
-                              Texture2D texture = LoadTexture( dirtMask );
+                              CarTexture texture = LoadTexture( dirtMask );
 
                               if ( texture != null )
                               {
@@ -729,7 +712,7 @@ public static class SkinImporter
 
                           if ( i != null )
                           {
-                              Texture2D texture = LoadTexture( i );
+                              CarTexture texture = LoadTexture( i );
 
                               if ( texture != null )
                               {
@@ -759,7 +742,7 @@ public static class SkinImporter
 
                           if ( n != null )
                           {
-                              Texture2D texture = LoadTexture( n );
+                              CarTexture texture = LoadTexture( n );
 
                               if ( texture != null )
                               {
@@ -789,7 +772,7 @@ public static class SkinImporter
 
                           if ( r != null )
                           {
-                              Texture2D texture = LoadTexture( r );
+                              CarTexture texture = LoadTexture( r );
 
                               if ( texture != null )
                               {

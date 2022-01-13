@@ -21,9 +21,12 @@ namespace UI.ResourceSelector
             s_Instance = this;
         }
 
+        public static ResourceSelectorWindow CreateWindow < T >()
+        {
+            return CreateWindow( typeof( T ) );
+        }
 
-        public static ResourceSelectorWindow CreateWindow < T >() => CreateWindow( typeof( T ) );
-        public static ResourceSelectorWindow CreateWindow(params Type[] types)
+        public static ResourceSelectorWindow CreateWindow( params Type[] types )
         {
             GameObject obj = Instantiate( s_Instance.m_SelectorWindowPrefab, s_Instance.m_SelectorWindowParent );
             ResourceSelectorWindow window = obj.GetComponent < ResourceSelectorWindow >();

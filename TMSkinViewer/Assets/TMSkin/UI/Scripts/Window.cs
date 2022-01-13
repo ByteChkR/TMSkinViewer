@@ -6,20 +6,8 @@ using UnityEngine.EventSystems;
 namespace UI
 {
 
-    
     public class Window : MonoBehaviour, IPointerClickHandler
     {
-        public class WindowClosingEventArgs
-        {
-
-            public bool IsAborting { get; private set; }
-            public void Abort()
-            {
-                IsAborting = true;
-            }
-
-        }
-        public static Transform DefaultHost { get; set; }
 
         [SerializeField]
         private Vector2 m_MinSize;
@@ -32,7 +20,8 @@ namespace UI
 
         private RectTransform m_RectTransform;
 
-        public bool HasFocus() => m_RectTransform.GetSiblingIndex() == m_RectTransform.parent.childCount - 1;
+        public static Transform DefaultHost { get; set; }
+
         public Vector2 Position
         {
             get => m_RectTransform.anchoredPosition;
@@ -81,10 +70,16 @@ namespace UI
             transform.SetSiblingIndex( transform.parent.childCount - 1 );
         }
 
+        public bool HasFocus()
+        {
+            return m_RectTransform.GetSiblingIndex() == m_RectTransform.parent.childCount - 1;
+        }
+
         public event Action OnResized;
 
         public event Action OnClose;
-        public event Action<WindowClosingEventArgs> OnClosing;
+
+        public event Action < WindowClosingEventArgs > OnClosing;
 
         public void TriggerOnResized()
         {
@@ -100,14 +95,32 @@ namespace UI
 
         public void Close()
         {
-            WindowClosingEventArgs args = new WindowClosingEventArgs();   
+            WindowClosingEventArgs args = new WindowClosingEventArgs();
             OnClosing?.Invoke( args );
-            if(args.IsAborting)
+
+            if ( args.IsAborting )
             {
                 return;
             }
+
             OnClose?.Invoke();
             Destroy( gameObject );
+        }
+
+        public class WindowClosingEventArgs
+        {
+
+            public bool IsAborting { get; private set; }
+
+            #region Public
+
+            public void Abort()
+            {
+                IsAborting = true;
+            }
+
+            #endregion
+
         }
 
     }

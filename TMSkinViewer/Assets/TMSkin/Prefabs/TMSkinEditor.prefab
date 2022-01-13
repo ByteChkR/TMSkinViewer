@@ -20,6 +20,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3953109789681541270, guid: e6e21a9d98235f042a8ece9794e96848, type: 3}
+      propertyPath: m_Skins.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3953109789681541270, guid: e6e21a9d98235f042a8ece9794e96848, type: 3}
+      propertyPath: m_Skins.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3953109789681541272, guid: e6e21a9d98235f042a8ece9794e96848, type: 3}
+      propertyPath: m_Origins.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3953109789681541273, guid: e6e21a9d98235f042a8ece9794e96848, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3953109789681541354, guid: e6e21a9d98235f042a8ece9794e96848, type: 3}
       propertyPath: m_Name
       value: TMSkinEditor
@@ -111,6 +127,14 @@ PrefabInstance:
     - target: {fileID: 3953109790440191188, guid: e6e21a9d98235f042a8ece9794e96848, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056294255806883060, guid: e6e21a9d98235f042a8ece9794e96848, type: 3}
+      propertyPath: Items.Array.data[0].Url
+      value: https://byt3.dev/UNEC/res/DefaultSkin.zip
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056294255806883060, guid: e6e21a9d98235f042a8ece9794e96848, type: 3}
+      propertyPath: Items.Array.data[0].Name
+      value: DefaultSkin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6e21a9d98235f042a8ece9794e96848, type: 3}

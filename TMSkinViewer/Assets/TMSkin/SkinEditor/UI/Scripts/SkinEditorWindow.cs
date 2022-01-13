@@ -35,6 +35,12 @@ namespace UI.SkinEditorMainWindow
 
         [SerializeField]
         private bool m_ReadOnly;
+
+        private Camera m_Camera;
+
+        private CarSkin m_Skin;
+        private SkinViewer m_ViewerInstance;
+
         public bool ReadOnly
         {
             get => m_ReadOnly;
@@ -47,31 +53,6 @@ namespace UI.SkinEditorMainWindow
                 m_WheelMaterialDropdown.interactable = !m_ReadOnly;
             }
         }
-        
-        public void ToggleSkinMaterial(bool enable)
-        {
-            m_ViewerInstance.SkinRenderer.enabled = enable;
-        }
-        
-        public void ToggleDetailsMaterial(bool enable)
-        {
-            m_ViewerInstance.DetailRenderer.enabled = enable;
-        }
-        
-        public void ToggleGlassMaterial(bool enable)
-        {
-            m_ViewerInstance.GlassRenderer.enabled = enable;
-        }
-        
-        public void ToggleWheelMaterial(bool enable)
-        {
-            m_ViewerInstance.WheelRenderer.enabled = enable;
-        }
-        
-        private Camera m_Camera;
-
-        private CarSkin m_Skin;
-        private SkinViewer m_ViewerInstance;
 
         public SkinViewer ViewerInstance => m_ViewerInstance;
 
@@ -155,6 +136,26 @@ namespace UI.SkinEditorMainWindow
                 BuildMaterialDropdowns();
                 SetDropdownValues();
             }
+        }
+
+        public void ToggleSkinMaterial( bool enable )
+        {
+            m_ViewerInstance.SkinRenderer.enabled = enable;
+        }
+
+        public void ToggleDetailsMaterial( bool enable )
+        {
+            m_ViewerInstance.DetailRenderer.enabled = enable;
+        }
+
+        public void ToggleGlassMaterial( bool enable )
+        {
+            m_ViewerInstance.GlassRenderer.enabled = enable;
+        }
+
+        public void ToggleWheelMaterial( bool enable )
+        {
+            m_ViewerInstance.WheelRenderer.enabled = enable;
         }
 
         private void BuildMaterialDropdowns()

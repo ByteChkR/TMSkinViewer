@@ -1,22 +1,22 @@
 ﻿using UnityEngine;
 
-[SettingsCategory("Rendering Settings")]
+[SettingsCategory( "Rendering Settings" )]
 public class RenderingSettings : MonoBehaviour
 {
 
     [SerializeField]
     private Light m_Light;
-    
-    [SettingsHeader("Light Settings")]
+
+    [SettingsHeader( "Light Settings" )]
     [SettingsProperty]
     public Color SunColor
     {
         get => m_Light.color;
         set => m_Light.color = value;
     }
-    
+
     [SettingsProperty]
-    [SettingsRange(0, 5)]
+    [SettingsRange( 0, 5 )]
     public float SunIntensity
     {
         get => m_Light.intensity;
@@ -25,7 +25,12 @@ public class RenderingSettings : MonoBehaviour
 
     private void Awake()
     {
-        SettingsManager.AddSettingsObject(this);
+        SettingsManager.AddSettingsObject( this );
+    }
+
+    private void Start()
+    {
+        m_Light = GameObject.Find( "SunLight" ).GetComponent < Light >();
     }
 
 }

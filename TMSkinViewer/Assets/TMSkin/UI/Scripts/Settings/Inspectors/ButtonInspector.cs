@@ -9,6 +9,7 @@ namespace UI.Settings
 
         [SerializeField]
         private Button m_Button;
+
         [SerializeField]
         private Text m_ButtonText;
 
