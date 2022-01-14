@@ -176,18 +176,29 @@
      <Compile Include="Assets\TMSkin\SkinExporter\Scripts\SkinExporterSettings.cs" />
      <Compile Include="Assets\TMSkin\PostProcessing\Scripts\BloomSettings.cs" />
      <Compile Include="Assets\TMSkin\PostProcessing\Scripts\MotionBlurSettings.cs" />
-     <Compile Include="Assets\SSSAO\MinMaxRangeAttribute.cs" />
-     <Compile Include="Assets\SSSAO\SimpleScreenSpaceAmbientOcclusion.cs" />
+     <Compile Include="Assets\AmplifyOcclusion\Plugins\AmplifyOcclusionEffect.cs" />
+     <Compile Include="Assets\AmplifyOcclusion\Plugins\Runtime\VersionInfo.cs" />
+     <Compile Include="Assets\AmplifyOcclusion\Plugins\AmplifyOcclusionCommon.cs" />
      <None Include="Assets\TMSkin\Shaders\Water\#NVJOB Water Shaders V2\Water Specular.shader" />
      <None Include="Assets\TMSkin\Shaders\MagicMirror\Readme.txt" />
+     <None Include="Assets\AmplifyOcclusion\Resources\Blur.shader" />
+     <None Include="Assets\AmplifyOcclusion\Resources\OcclusionFunctions.cginc" />
+     <None Include="Assets\AmplifyOcclusion\Resources\Apply.shader" />
      <None Include="Assets\TMSkin\Shaders\TMCarShader.shader" />
      <None Include="Assets\TMSkin\Shaders\MagicMirror\MirrorShader.shader" />
-     <None Include="Assets\SSSAO\Resources\SimpleSSAO.shader" />
+     <None Include="Assets\AmplifyOcclusion\Resources\BlurFunctions.cginc" />
      <None Include="Assets\TMSkin\Shaders\Water\license_unity.txt" />
+     <None Include="Assets\AmplifyOcclusion\Readme.txt" />
      <None Include="Assets\TMSkin\Shaders\Water\license_nvjob.txt" />
      <None Include="Assets\TMSkin\Shaders\SkyboxShader.shader" />
+     <None Include="Assets\AmplifyOcclusion\Resources\GTAO.cginc" />
+     <None Include="Assets\AmplifyOcclusion\Resources\TemporalFilter.cginc" />
      <None Include="Assets\TMSkin\Shaders\Water\#NVJOB Water Shaders V2\Water Surface.shader" />
+     <None Include="Assets\AmplifyOcclusion\Resources\Occlusion.shader" />
+     <None Include="Assets\AmplifyOcclusion\Resources\ApplyPostEffect.cginc" />
+     <None Include="Assets\AmplifyOcclusion\Resources\Common.cginc" />
      <None Include="Assets\TMSkin\Shaders\Water\#NVJOB Water Shaders V2\NvWaters.cginc" />
+     <None Include="Assets\AmplifyOcclusion\Resources\CommonFunctions.cginc" />
  <Reference Include="UnityEngine">
  <HintPath>D:/UnityHub/2020.3.18f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>

@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194229}
   - component: {fileID: 5579684439715820449}
-  - component: {fileID: 2190216481160036100}
+  - component: {fileID: 3988296203725362023}
   m_Layer: 0
   m_Name: ViewerCamera
   m_TagString: MainCamera
@@ -347,7 +347,7 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
---- !u!114 &2190216481160036100
+--- !u!114 &3988296203725362023
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -356,25 +356,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 856787d014c4446a7b99b9af3cf2b04d, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a879e317c20b0d41a9a56f1a97f4cf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AxisPattern: {fileID: 2800000, guid: ef2abf928b3324453a512f9120f36b53, type: 2}
-  m_OcclusionColor: {r: 0, g: 0, b: 0, a: 1}
-  m_Quality: 2
-  m_Radius: 0.2
-  m_RadiusRange: {x: 0.02, y: 0.3}
-  m_OcclusionBias: 0.05
-  m_OcclusionOffset: 0
-  m_OcclusionIntensity: 2
-  m_OcclusionExponent: 2
-  m_LuminanceModulation: 0.8
-  m_BleedingIntensity: 0
-  m_Downsampling: 1
-  m_Blur: 1
-  m_BlurDepthThreshold: 1
-  m_BlurNormalThreshold: 0.1
-  m_Visualization: 0
+  ApplyMethod: 0
+  SampleCount: 1
+  PerPixelNormals: 1
+  Intensity: 1
+  Tint: {r: 0.1717539, g: 0.1707013, b: 0.26415092, a: 1}
+  Radius: 2
+  PowerExponent: 3
+  Bias: 0.99
+  Thickness: 1
+  Downsample: 1
+  CacheAware: 1
+  FadeEnabled: 0
+  FadeStart: 100
+  FadeLength: 50
+  FadeToIntensity: 0
+  FadeToTint: {r: 0, g: 0, b: 0, a: 1}
+  FadeToRadius: 2
+  FadeToPowerExponent: 1
+  FadeToThickness: 1
+  BlurEnabled: 1
+  BlurRadius: 3
+  BlurPasses: 1
+  BlurSharpness: 15
+  FilterEnabled: 1
+  FilterDownsample: 1
+  FilterBlending: 0.8
+  FilterResponse: 0.5
 --- !u!1 &1007573044
 GameObject:
   m_ObjectHideFlags: 0
