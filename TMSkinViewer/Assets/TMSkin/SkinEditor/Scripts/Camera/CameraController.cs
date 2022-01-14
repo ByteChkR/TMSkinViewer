@@ -26,6 +26,11 @@ public class CameraController : MonoBehaviour
         set => m_EnableKeyboardInput = value;
     }
 
+    private void Start()
+    {
+        NextCamera();
+    }
+
     private void Update()
     {
         if ( !m_IsTransitioning && m_Position != null )

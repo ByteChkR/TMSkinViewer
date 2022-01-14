@@ -235,7 +235,7 @@ namespace S16.Drawing
 
         #region Public
 
-        public DDSImage( byte[] ddsImage )
+        public DDSImage( byte[] ddsImage , bool sRGB)
         {
             if ( ddsImage == null )
             {
@@ -254,12 +254,12 @@ namespace S16.Drawing
 
                 using ( BinaryReader reader = new BinaryReader( stream ) )
                 {
-                    Parse( reader );
+                    Parse( reader, sRGB );
                 }
             }
         }
 
-        public DDSImage( Stream ddsImage )
+        public DDSImage( Stream ddsImage, bool sRGB )
         {
             if ( ddsImage == null )
             {
@@ -273,7 +273,7 @@ namespace S16.Drawing
 
             using ( BinaryReader reader = new BinaryReader( ddsImage ) )
             {
-                Parse( reader );
+                Parse( reader, sRGB );
             }
         }
 
@@ -435,9 +435,9 @@ namespace S16.Drawing
             return count;
         }
 
-        private Texture2D CreateBitmap( int width, int height, byte[] rawData )
+        private Texture2D CreateBitmap( int width, int height, byte[] rawData, bool sRGB )
         {
-            Texture2D bitmap = new Texture2D( width, height , TextureFormat.ARGB32, true, true );
+            Texture2D bitmap = new Texture2D( width, height , TextureFormat.ARGB32, true, !sRGB );
 
             int size = bitmap.width * bitmap.height * 4;
 
@@ -2068,7 +2068,7 @@ namespace S16.Drawing
             return ( uint )( ( s << 31 ) | ( e << 23 ) | m );
         }
 
-        private void Parse( BinaryReader reader )
+        private void Parse( BinaryReader reader, bool sRGB )
         {
             DDSStruct header = new DDSStruct();
             PixelFormat pixelFormat = PixelFormat.UNKNOWN;
@@ -2097,7 +2097,7 @@ namespace S16.Drawing
                 if ( data != null )
                 {
                     byte[] rawData = DecompressData( header, data, pixelFormat );
-                    m_bitmap = CreateBitmap( ( int )header.width, ( int )header.height, rawData );
+                    m_bitmap = CreateBitmap( ( int )header.width, ( int )header.height, rawData, sRGB );
                 }
             }
         }

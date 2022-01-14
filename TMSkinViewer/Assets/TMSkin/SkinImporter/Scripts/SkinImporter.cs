@@ -187,7 +187,7 @@ public static class SkinImporter
 
                           if ( b != null )
                           {
-                              CarTexture texture = LoadTexture( b,importAsDefault );
+                              CarTexture texture = LoadTexture( b,importAsDefault, true );
 
                               if ( texture != null )
                               {
@@ -375,7 +375,7 @@ public static class SkinImporter
 
                           if ( d != null )
                           {
-                              CarTexture texture = LoadTexture( d,importAsDefault );
+                              CarTexture texture = LoadTexture( d,importAsDefault, true );
 
                               if ( texture != null )
                               {
@@ -473,7 +473,7 @@ public static class SkinImporter
 
                           if ( b != null )
                           {
-                              CarTexture texture = LoadTexture( b,importAsDefault );
+                              CarTexture texture = LoadTexture( b,importAsDefault, true );
 
                               if ( texture != null )
                               {
@@ -586,7 +586,7 @@ public static class SkinImporter
                      );
     }
 
-    private static CarTexture LoadTexture( ZipArchiveEntry entry, bool importAsDefault )
+    private static CarTexture LoadTexture( ZipArchiveEntry entry, bool importAsDefault, bool sRGB = false )
     {
         CarTexture ret = ScriptableObject.CreateInstance < CarTexture >();
         ret.IsDefault = importAsDefault;
@@ -599,7 +599,7 @@ public static class SkinImporter
 
             try
             {
-                DDSImage image = new DDSImage( ret.TextureData );
+                DDSImage image = new DDSImage( ret.TextureData, sRGB );
 
                 ret.Texture = image.BitmapImage;
             }
@@ -659,7 +659,7 @@ public static class SkinImporter
 
                           if ( b != null )
                           {
-                              CarTexture texture = LoadTexture( b,importAsDefault );
+                              CarTexture texture = LoadTexture( b,importAsDefault, true );
 
                               if ( texture != null )
                               {

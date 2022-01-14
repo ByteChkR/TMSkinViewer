@@ -175,6 +175,7 @@
      <Compile Include="Assets\TMSkin\SkinImporter\Scripts\SkinImporterArgs.cs" />
      <Compile Include="Assets\TMSkin\SkinExporter\Scripts\SkinExporterSettings.cs" />
      <Compile Include="Assets\TMSkin\PostProcessing\Scripts\BloomSettings.cs" />
+     <Compile Include="Assets\TMSkin\PostProcessing\Scripts\MotionBlurSettings.cs" />
      <None Include="Assets\TMSkin\Shaders\Water\#NVJOB Water Shaders V2\Water Specular.shader" />
      <None Include="Assets\TMSkin\Shaders\MagicMirror\Readme.txt" />
      <None Include="Assets\TMSkin\Shaders\TMCarShader.shader" />
