@@ -18,6 +18,8 @@ Shader "Custom/TMCarShader"
         _DirtMask ("Dirt Mask", 2D) = "white" {}
         _DirtColor("Dirt Color", Color) = (1,0.9176471,0.6,0.4823529)
         _Roughness ("Roughness", 2D) = "white" {} //Done
+        _SmoothnessOverride ("Smoothness Override", Range(0,1)) = 1
+        _MetallicOverride ("Metallic Override", Range(0,1)) = 1
         _TurboColor ("Turbo Color", Color) = (1,1,1,1)
         
         
@@ -26,7 +28,7 @@ Shader "Custom/TMCarShader"
         [Space(10)]
         _ClearCoat ("Clear Coat", 2D) = "white" {} //Done
         _ClearCoatIntensity ( "Clear Coat Intensity", Range(0,1)) = 1.0 //Done
-        _SpecularIntensity ("Specular Intensity", Range(0,0.2)) = 0.05 //Done
+        _ClearCoatNormalIntensity("Clear Coat Normal Intensity", Range(0,1)) = 1.0 //Done
         
         
         [Space(20)]
@@ -66,6 +68,10 @@ Shader "Custom/TMCarShader"
         fixed4 _Color;
         
         sampler2D _Roughness;
+        fixed _SmoothnessOverride;
+        fixed _MetallicOverride;
+
+        
         sampler2D _Normals;
         sampler2D _AO;
 
@@ -91,9 +97,9 @@ Shader "Custom/TMCarShader"
         // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
         // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
         // #pragma instancing_options assumeuniformscaling
-        UNITY_INSTANCING_BUFFER_START(Props)
+        //UNITY_INSTANCING_BUFFER_START(Props)
             // put more per-instance properties here
-        UNITY_INSTANCING_BUFFER_END(Props)
+        //UNITY_INSTANCING_BUFFER_END(Props)
 
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
@@ -104,13 +110,13 @@ Shader "Custom/TMCarShader"
             
             //Combine Main Tex and Dirt Mask
             fixed4 albedo = lerp (c, _DirtColor, d.r * _DirtIntensity);
-            fixed smoothness = lerp(1-r.r, 0, d.r * _DirtIntensity);
+            fixed smoothness = lerp( 1 -r.r, 0, d.r * _DirtIntensity);
             fixed metallic = lerp(r.g, 0, d.r * _DirtIntensity);
             
             o.Albedo = albedo.rgb;
-            o.Metallic = metallic;
-            o.Smoothness = smoothness;
-            o.Normal = UnpackNormal(tex2D (_Normals, IN.uv_MainTex)).rgb;
+            o.Metallic = metallic * _MetallicOverride;
+            o.Smoothness = smoothness * _SmoothnessOverride;
+            o.Normal =  UnpackNormal(tex2D (_Normals, IN.uv_MainTex));
             o.Occlusion = tex2D (_AO, IN.uv_MainTex).r;
             o.Alpha = c.a;
                         
@@ -165,16 +171,19 @@ Shader "Custom/TMCarShader"
         
         sampler2D _ClearCoat;
         fixed _ClearCoatIntensity;
-        fixed _SpecularIntensity;
+        sampler2D _Normals;
+        fixed _ClearCoatNormalIntensity;
 
         #pragma surface surf StandardSpecular nofog alpha:premul exclude_path:deferred exclude_path:prepass
         #pragma target 3.0
 
         void surf (Input IN, inout SurfaceOutputStandardSpecular o)
         {
-            fixed r = 1 - (1 - _ClearCoatIntensity) * tex2D(_ClearCoat, IN.uv_MainTex).r;
-            o.Smoothness = r;
-            o.Specular = _SpecularIntensity * r;
+            fixed r = _ClearCoatIntensity * tex2D(_ClearCoat, IN.uv_MainTex).r;
+            fixed smoothness = r;
+            o.Smoothness = smoothness;
+            o.Specular =  r * 0.01;
+            o.Normal =  UnpackScaleNormal(tex2D (_Normals, IN.uv_MainTex), _ClearCoatNormalIntensity);
         }
         
         ENDCG

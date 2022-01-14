@@ -104,14 +104,18 @@ public class MirrorCameraScript : MonoBehaviour
             Skybox sky = src.GetComponent < Skybox >();
             Skybox mysky = dest.GetComponent < Skybox >();
 
-            if ( !sky || !sky.material )
+
+            if ( mysky != null )
             {
-                mysky.enabled = false;
-            }
-            else
-            {
-                mysky.enabled = true;
-                mysky.material = sky.material;
+                if ( !sky || !sky.material )
+                {
+                    mysky.enabled = false;
+                }
+                else
+                {
+                    mysky.enabled = true;
+                    mysky.material = sky.material;
+                }
             }
         }
 

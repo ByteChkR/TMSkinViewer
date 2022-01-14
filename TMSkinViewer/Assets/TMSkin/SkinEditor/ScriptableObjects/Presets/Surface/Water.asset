@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: Water
   m_EditorClassIdentifier: 
   m_TrackSurface: 2
-  m_SurfaceTexture: {fileID: 2800000, guid: 2d405dffd4c836847b0f1019636359a3, type: 3}
-  m_SurfaceReflectivity: 0.857
+  m_SurfaceTexture: {fileID: 0}
+  m_SurfaceReflectivity: 0.298
+  m_ClearCoatIntensity: 0.85
+  m_SurfaceRefractionDistortion: 0.06
   m_ApplySurfaceColor: 0
+  m_EnableMirrorReflection: 1
   m_SurfaceColor: {r: 1, g: 1, b: 1, a: 1}

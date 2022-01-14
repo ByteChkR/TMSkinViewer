@@ -51,6 +51,9 @@ public class CarController : MonoBehaviour
             DirtColor = preset.SurfaceColor;
             StartCoroutine( SurfaceChangeAnimation( DirtLevel, 1, 1 ) );
         }
+
+        ClearCoatIntensity = preset.ClearCoatIntensity;
+
     }
 
     public void SetMapPreset( MapPreset preset )
@@ -98,6 +101,18 @@ public class CarController : MonoBehaviour
     private float m_DirtLevel = 0.0f;
     private Color m_DirtColor;
 
+    private float m_ClearCoatIntensity = 0.0f;
+    
+    public float ClearCoatIntensity
+    {
+        get => m_ClearCoatIntensity;
+        set
+        {
+            m_ClearCoatIntensity = value;
+            m_WheelRenderer.material.SetFloat( "_ClearCoatIntensity", value );
+        }
+    }
+    
     public float DirtLevel
     {
         get => m_DirtLevel;

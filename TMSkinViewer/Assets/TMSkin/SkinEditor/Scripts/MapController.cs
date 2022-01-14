@@ -18,6 +18,9 @@ public class MapController : MonoBehaviour
     [SerializeField]
     private CarPreset m_CarPreset;
 
+    [SerializeField]
+    private MirrorCameraScript m_ReflectionScript;
+
     private Light m_SunLight;
 
     private void Awake()
@@ -49,6 +52,7 @@ public class MapController : MonoBehaviour
         m_GroundRenderer.material.SetTexture( "_DetailTex", preset.SurfaceTexture );
         m_GroundRenderer.material.SetFloat( "_ReflectionIntensity", preset.SurfaceReflectivity );
         m_GroundRenderer.material.SetFloat( "_DistortionIntensity", preset.SurfaceRefractionDistortion );
+        m_ReflectionScript.enabled = preset.EnableMirrorReflection;
         m_CarController.SetSurfacePreset( preset );
     }
 

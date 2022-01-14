@@ -141,6 +141,13 @@ public static class SkinImporter
 
     #region Private
 
+    private static void ConvertNormalMap( Texture2D tex )
+    {
+        
+        //TODO
+        
+    }
+
     private static void LoadDetailsMaterial(
         CarMaterial material,
         ZipArchive archive,
@@ -275,7 +282,7 @@ public static class SkinImporter
 
                           if ( n != null )
                           {
-                              CarTexture texture = LoadTexture( n );
+                              CarTexture texture = LoadTexture( n, true );
 
                               if ( texture != null )
                               {
@@ -582,7 +589,7 @@ public static class SkinImporter
                      );
     }
 
-    private static CarTexture LoadTexture( ZipArchiveEntry entry )
+    private static CarTexture LoadTexture( ZipArchiveEntry entry, bool isNormalMap = false )
     {
         CarTexture ret = ScriptableObject.CreateInstance < CarTexture >();
 
@@ -595,6 +602,12 @@ public static class SkinImporter
             try
             {
                 DDSImage image = new DDSImage( ret.TextureData );
+
+                if ( isNormalMap )
+                {
+                    ConvertNormalMap( image.BitmapImage );
+                }
+
                 ret.Texture = image.BitmapImage;
             }
             catch ( Exception e )
@@ -742,7 +755,7 @@ public static class SkinImporter
 
                           if ( n != null )
                           {
-                              CarTexture texture = LoadTexture( n );
+                              CarTexture texture = LoadTexture( n, true );
 
                               if ( texture != null )
                               {

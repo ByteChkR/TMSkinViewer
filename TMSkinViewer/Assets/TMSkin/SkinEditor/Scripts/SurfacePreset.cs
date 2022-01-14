@@ -16,6 +16,9 @@ public class SurfacePreset : ScriptableObject
     [SerializeField]
     [Range( 0, 1 )]
     private float m_SurfaceReflectivity;
+    [SerializeField]
+    [Range( 0, 1 )]
+    private float m_ClearCoatIntensity;
 
     [SerializeField]
     [Range( 0, 1 )]
@@ -23,6 +26,8 @@ public class SurfacePreset : ScriptableObject
 
     [SerializeField]
     private bool m_ApplySurfaceColor;
+    [SerializeField]
+    private bool m_EnableMirrorReflection;
 
     [SerializeField]
     private Color m_SurfaceColor;
@@ -51,6 +56,14 @@ public class SurfacePreset : ScriptableObject
 
     [SettingsProperty]
     [SettingsRange( 0, 1 )]
+    public float ClearCoatIntensity
+    {
+        get => m_ClearCoatIntensity;
+        set => m_ClearCoatIntensity = value;
+    }
+    
+    [SettingsProperty]
+    [SettingsRange( 0, 1 )]
     public float SurfaceRefractionDistortion
     {
         get => m_SurfaceRefractionDistortion;
@@ -62,6 +75,13 @@ public class SurfacePreset : ScriptableObject
     {
         get => m_ApplySurfaceColor;
         set => m_ApplySurfaceColor = value;
+    }
+    
+    [SettingsProperty]
+    public bool EnableMirrorReflection
+    {
+        get => m_EnableMirrorReflection;
+        set => m_EnableMirrorReflection = value;
     }
 
     [SettingsProperty]

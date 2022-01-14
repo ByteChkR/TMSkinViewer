@@ -437,7 +437,7 @@ namespace S16.Drawing
 
         private Texture2D CreateBitmap( int width, int height, byte[] rawData )
         {
-            Texture2D bitmap = new Texture2D( width, height );
+            Texture2D bitmap = new Texture2D( width, height , TextureFormat.ARGB32, true, true );
 
             int size = bitmap.width * bitmap.height * 4;
 
