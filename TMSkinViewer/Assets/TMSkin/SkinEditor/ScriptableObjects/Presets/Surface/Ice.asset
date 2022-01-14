@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TrackSurface: 3
   m_SurfaceTexture: {fileID: 2800000, guid: e46e7bdea5341c7429af9186de0b15ab, type: 3}
+  m_SurfaceTextureColor: {r: 1, g: 1, b: 1, a: 1}
   m_SurfaceReflectivity: 0.298
   m_ClearCoatIntensity: 0
   m_SurfaceRefractionDistortion: 0.06

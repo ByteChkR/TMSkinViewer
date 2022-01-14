@@ -176,10 +176,13 @@
      <Compile Include="Assets\TMSkin\SkinExporter\Scripts\SkinExporterSettings.cs" />
      <Compile Include="Assets\TMSkin\PostProcessing\Scripts\BloomSettings.cs" />
      <Compile Include="Assets\TMSkin\PostProcessing\Scripts\MotionBlurSettings.cs" />
+     <Compile Include="Assets\SSSAO\MinMaxRangeAttribute.cs" />
+     <Compile Include="Assets\SSSAO\SimpleScreenSpaceAmbientOcclusion.cs" />
      <None Include="Assets\TMSkin\Shaders\Water\#NVJOB Water Shaders V2\Water Specular.shader" />
      <None Include="Assets\TMSkin\Shaders\MagicMirror\Readme.txt" />
      <None Include="Assets\TMSkin\Shaders\TMCarShader.shader" />
      <None Include="Assets\TMSkin\Shaders\MagicMirror\MirrorShader.shader" />
+     <None Include="Assets\SSSAO\Resources\SimpleSSAO.shader" />
      <None Include="Assets\TMSkin\Shaders\Water\license_unity.txt" />
      <None Include="Assets\TMSkin\Shaders\Water\license_nvjob.txt" />
      <None Include="Assets\TMSkin\Shaders\SkyboxShader.shader" />

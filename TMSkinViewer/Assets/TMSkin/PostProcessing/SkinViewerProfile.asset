@@ -36,7 +36,7 @@ MonoBehaviour:
     value: 270
   sampleCount:
     overrideState: 1
-    value: 10
+    value: 32
 --- !u!114 &8708326982353340437
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -52,10 +52,10 @@ MonoBehaviour:
   active: 1
   enabled:
     overrideState: 1
-    value: 0
+    value: 1
   intensity:
     overrideState: 1
-    value: 1
+    value: 10
   threshold:
     overrideState: 1
     value: 1
@@ -64,13 +64,13 @@ MonoBehaviour:
     value: 0.5
   clamp:
     overrideState: 1
-    value: 65472
+    value: 64000
   diffusion:
     overrideState: 1
-    value: 7
+    value: 3
   anamorphicRatio:
     overrideState: 1
-    value: 0
+    value: -0.73156595
   color:
     overrideState: 1
     value: {r: 1, g: 1, b: 1, a: 1}

@@ -50,6 +50,7 @@ public class MapController : MonoBehaviour
     public void SetSurfacePreset( SurfacePreset preset )
     {
         m_GroundRenderer.material.SetTexture( "_DetailTex", preset.SurfaceTexture );
+        m_GroundRenderer.material.SetColor("_Color", preset.SurfaceTextureColor);
         m_GroundRenderer.material.SetFloat( "_ReflectionIntensity", preset.SurfaceReflectivity );
         m_GroundRenderer.material.SetFloat( "_DistortionIntensity", preset.SurfaceRefractionDistortion );
         m_ReflectionScript.enabled = preset.EnableMirrorReflection;

@@ -12,6 +12,8 @@ public class SurfacePreset : ScriptableObject
 
     [SerializeField]
     private Texture2D m_SurfaceTexture;
+    [SerializeField]
+    private Color m_SurfaceTextureColor = Color.white;
 
     [SerializeField]
     [Range( 0, 1 )]
@@ -46,6 +48,13 @@ public class SurfacePreset : ScriptableObject
         set => m_SurfaceTexture = value;
     }
 
+    [SettingsProperty]
+    public Color SurfaceTextureColor
+    {
+        get => m_SurfaceTextureColor;
+        set => m_SurfaceTextureColor = value;
+    }
+    
     [SettingsProperty]
     [SettingsRange( 0, 1 )]
     public float SurfaceReflectivity
