@@ -53,7 +53,6 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\TMSkin\SkinEditor\Scripts\SurfacePreset.cs" />
-     <Compile Include="Assets\TMSkin\SkinExporter\Scripts\SkinExporterSettings.cs" />
      <Compile Include="Assets\TMSkin\UI\Scripts\Window.cs" />
      <Compile Include="Assets\TMSkin\Shaders\Water\#NVJOB Water Shaders V2\NVWaterShaders.cs" />
      <Compile Include="Assets\TMSkin\SkinEditor\UI\Scripts\SkinEditorPresetHelper.cs" />
@@ -174,6 +173,8 @@
      <Compile Include="Assets\TMSkin\SkinEditor\UI\Scripts\SkinUrlImportContainer.cs" />
      <Compile Include="Assets\TMSkin\SkinEditor\Scripts\Skin\CarTexture.cs" />
      <Compile Include="Assets\TMSkin\SkinImporter\Scripts\SkinImporterArgs.cs" />
+     <Compile Include="Assets\TMSkin\SkinExporter\Scripts\SkinExporterSettings.cs" />
+     <Compile Include="Assets\TMSkin\PostProcessing\Scripts\BloomSettings.cs" />
      <None Include="Assets\TMSkin\Shaders\Water\#NVJOB Water Shaders V2\Water Specular.shader" />
      <None Include="Assets\TMSkin\Shaders\MagicMirror\Readme.txt" />
      <None Include="Assets\TMSkin\Shaders\TMCarShader.shader" />

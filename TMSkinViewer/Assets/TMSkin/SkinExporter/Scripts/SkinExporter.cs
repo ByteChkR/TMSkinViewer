@@ -5,22 +5,8 @@ using UnityEngine;
 
 public static class SkinExporter
 {
-    
-    private static SkinExporterSettings s_Settings;
 
-    private static SkinExporterSettings Settings
-    {
-        get
-        {
-            if ( !s_Settings )
-            {
-                s_Settings = ScriptableObject.CreateInstance < SkinExporterSettings >();
-                SettingsManager.AddSettingsObject( s_Settings );
-            }
-            return s_Settings;
-            
-        }
-    }
+    public static SkinExporterSettings Settings { get; set; }
 
     #region Public
 
@@ -69,7 +55,7 @@ public static class SkinExporter
 
     private static void AddTexture( ZipArchive arch, string path, CarTexture tex )
     {
-        if ( tex == null || tex.IsDefault )
+        if ( tex == null || tex.IsDefault && !Settings.ExportDefaultTextures )
         {
             return;
         }

@@ -17,6 +17,8 @@ namespace UI.Settings
 
         public Text ButtonText => m_ButtonText;
 
+        public Text PropertyText => m_PropertyName;
+
         public override void SetProperty( SettingsPropertyWrapper prop )
         {
             base.SetProperty( prop );

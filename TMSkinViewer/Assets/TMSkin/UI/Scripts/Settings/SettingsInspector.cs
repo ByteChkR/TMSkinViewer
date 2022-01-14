@@ -92,8 +92,11 @@ namespace UI.Settings
         private void CreateButtonValue( object instance, string name, MethodInfo info )
         {
             GameObject button = Instantiate( m_InspectorButtonPrefab, m_InspectorParent );
-            button.GetComponentInChildren < Text >().text = name;
-            button.GetComponentInChildren < Button >().onClick.AddListener( () => { info.Invoke( instance, null ); } );
+            ButtonInspector inspector = button.GetComponent < ButtonInspector >();
+            
+            inspector.ButtonText.text = name;
+            inspector.PropertyText.text = name;
+            inspector.Button.onClick.AddListener( () => { info.Invoke( instance, null ); } );
         }
 
         private void CreateInspectorValue( SettingsPropertyWrapper property )

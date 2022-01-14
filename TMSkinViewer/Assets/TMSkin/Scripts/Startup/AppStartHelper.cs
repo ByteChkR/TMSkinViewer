@@ -22,6 +22,10 @@ public class AppStartHelper : MonoBehaviour
 
         string app;
 
+        SkinExporterSettings exporterSettings = ScriptableObject.CreateInstance < SkinExporterSettings >();
+        SettingsManager.AddSettingsObject(exporterSettings);
+        SkinExporter.Settings = exporterSettings;
+
         if ( args.ContainsKey( "app" ) )
         {
             app = args["app"];

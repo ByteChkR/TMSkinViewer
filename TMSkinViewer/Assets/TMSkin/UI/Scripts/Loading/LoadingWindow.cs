@@ -39,12 +39,14 @@ namespace UI.LoadingWindow
 
         private void OnProgress( int currentTask, int totalTasks, string status )
         {
-            m_Slider.value = currentTask / ( float )totalTasks;
-            m_Text.text = status;
+            m_Slider.maxValue = totalTasks;
+            m_Slider.value = currentTask;
+            m_Text.text = $"[{currentTask}/{totalTasks}] {status}";
         }
 
         public void SetStatus( int progress, int totalProgress, string status )
         {
+            m_Slider.maxValue = totalProgress;
             m_Slider.value = progress;
             m_Text.text = status;
         }

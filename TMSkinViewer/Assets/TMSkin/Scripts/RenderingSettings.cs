@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[SettingsCategory( "Rendering Settings" )]
+[SettingsCategory( "Rendering" )]
 public class RenderingSettings : MonoBehaviour
 {
 

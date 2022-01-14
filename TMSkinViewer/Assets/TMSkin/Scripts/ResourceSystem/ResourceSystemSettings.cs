@@ -22,7 +22,7 @@ public class ResourceSystemSettings
 
     public event Action OnReloadOrigins;
 
-    [SettingsButton]
+    [SettingsButton("Reload")]
     public void ReloadOrigins()
     {
         OnReloadOrigins?.Invoke();

@@ -13,7 +13,7 @@ namespace UI.Settings
         public virtual void SetProperty( SettingsPropertyWrapper prop )
         {
             m_PropertyName.text = prop.Name;
-
+            
             if ( !prop.CanWrite )
             {
                 foreach ( Selectable selectable in GetComponentsInChildren < Selectable >() )
