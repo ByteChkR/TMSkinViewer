@@ -435,6 +435,7 @@ MonoBehaviour:
   Items:
   - Name: DefaultSkin
     Url: https://byt3.dev/UNEC/res/DefaultSkin.zip
+    ImportAsDefault: 1
 --- !u!1 &3953109790440191188
 GameObject:
   m_ObjectHideFlags: 0

@@ -78,9 +78,8 @@ namespace UI.SkinEditorMainWindow
 
             if ( args.ContainsKey( "skin_imports" ) )
             {
-                Dictionary < string, string > skinImports = SkinUrlImportContainer.
-                                                            FromUrlArgument( args["skin_imports"] ).
-                                                            ToDictionary( x => x.Name, x => x.Url );
+                IEnumerable<SkinUrlImport> skinImports = SkinUrlImportContainer.
+                                                            FromUrlArgument( args["skin_imports"] );
 
                 ProcessImports( skinImports, OnSkinDatabaseLoaded );
             }
@@ -90,29 +89,29 @@ namespace UI.SkinEditorMainWindow
             }
         }
 
-        public static void ProcessImports( Dictionary < string, string > imports, Action onComplete = null )
+        public static void ProcessImports( IEnumerable <SkinUrlImport> imports, Action onComplete = null )
         {
             s_Instance.StartCoroutine( ProcessImportsRoutine( imports, onComplete ) );
         }
 
         private static IEnumerator ProcessImportsRoutine(
-            Dictionary < string, string > imports,
+            IEnumerable <SkinUrlImport> imports,
             Action onComplete = null )
         {
             LoadingWindow.LoadingWindow window = LoadingWindowBuilder.CreateWindow();
             List < SkinImporterArgs > importerArgs = new List < SkinImporterArgs >();
 
-            foreach ( KeyValuePair < string, string > import in imports )
+            foreach ( SkinUrlImport import in imports )
             {
-                CarSkin skin = CreateSkin( import.Key, Default, true );
-                UnityWebRequestAsyncOperation request = UnityWebRequest.Get( import.Value ).SendWebRequest();
+                CarSkin skin = CreateSkin( import.Name, Default, true );
+                UnityWebRequestAsyncOperation request = UnityWebRequest.Get( import.Url ).SendWebRequest();
 
                 while ( request.webRequest.result == UnityWebRequest.Result.InProgress )
                 {
                     window.SetStatus(
                                      ( int )( request.progress * 100 ),
                                      100,
-                                     $"[{Math.Round( request.progress, 2 ) * 100}%] Downloading {import.Value}"
+                                     $"[{Math.Round( request.progress, 2 ) * 100}%] Downloading {import.Url}"
                                     );
 
                     yield return new WaitForEndOfFrame();
@@ -129,7 +128,8 @@ namespace UI.SkinEditorMainWindow
                                  new SkinImporterArgs(
                                                       skin,
                                                       new MemoryStream( request.webRequest.downloadHandler.data ),
-                                                      import.Key
+                                                      import.Name,
+                                                      import.ImportAsDefault
                                                      )
                                 );
             }

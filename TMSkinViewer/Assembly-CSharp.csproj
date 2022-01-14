@@ -53,6 +53,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\TMSkin\SkinEditor\Scripts\SurfacePreset.cs" />
+     <Compile Include="Assets\TMSkin\SkinExporter\Scripts\SkinExporterSettings.cs" />
      <Compile Include="Assets\TMSkin\UI\Scripts\Window.cs" />
      <Compile Include="Assets\TMSkin\Shaders\Water\#NVJOB Water Shaders V2\NVWaterShaders.cs" />
      <Compile Include="Assets\TMSkin\SkinEditor\UI\Scripts\SkinEditorPresetHelper.cs" />

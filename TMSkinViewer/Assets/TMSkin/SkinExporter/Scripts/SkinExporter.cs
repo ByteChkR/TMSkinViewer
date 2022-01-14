@@ -1,8 +1,26 @@
 using System.IO;
 using System.IO.Compression;
 
+using UnityEngine;
+
 public static class SkinExporter
 {
+    
+    private static SkinExporterSettings s_Settings;
+
+    private static SkinExporterSettings Settings
+    {
+        get
+        {
+            if ( !s_Settings )
+            {
+                s_Settings = ScriptableObject.CreateInstance < SkinExporterSettings >();
+                SettingsManager.AddSettingsObject( s_Settings );
+            }
+            return s_Settings;
+            
+        }
+    }
 
     #region Public
 
@@ -51,7 +69,7 @@ public static class SkinExporter
 
     private static void AddTexture( ZipArchive arch, string path, CarTexture tex )
     {
-        if ( tex == null )
+        if ( tex == null || tex.IsDefault )
         {
             return;
         }

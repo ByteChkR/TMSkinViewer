@@ -15,10 +15,7 @@ namespace UI.SkinEditorMainWindow
             GetComponent < PrefabInitializeHelper >().OnInitialized += () =>
                                                                        {
                                                                            SkinDatabase.ProcessImports(
-                                                                                Items.ToDictionary(
-                                                                                     x => x.Name,
-                                                                                     x => x.Url
-                                                                                    )
+                                                                                Items
                                                                                );
                                                                        };
         }

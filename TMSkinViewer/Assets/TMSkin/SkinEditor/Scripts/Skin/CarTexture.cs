@@ -13,6 +13,9 @@ public class CarTexture : ScriptableObject
     [SerializeField]
     private Texture2D m_Texture;
 
+    [SerializeField]
+    private bool m_IsDefault = false;
+
     public Texture2D Texture
     {
         get => m_Texture;
@@ -23,6 +26,12 @@ public class CarTexture : ScriptableObject
     {
         get => m_TextureData;
         set => m_TextureData = value;
+    }
+    
+    public bool IsDefault
+    {
+        get => m_IsDefault;
+        set => m_IsDefault = value;
     }
 
 }

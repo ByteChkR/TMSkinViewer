@@ -101,10 +101,10 @@ public static class SkinImporter
     {
         ZipArchive archive = new ZipArchive( args.Data, ZipArchiveMode.Read );
 
-        LoadSkinMaterial( args.Skin.Skin, archive, tasks, args.ResourcePath );
-        LoadDetailsMaterial( args.Skin.Details, archive, tasks, args.ResourcePath );
-        LoadWheelMaterial( args.Skin.Wheel, archive, tasks, args.ResourcePath );
-        LoadGlassMaterial( args.Skin.Glass, archive, tasks, args.ResourcePath );
+        LoadSkinMaterial( args.Skin.Skin, archive, tasks, args.ResourcePath, args.ImportAsDefault );
+        LoadDetailsMaterial( args.Skin.Details, archive, tasks, args.ResourcePath, args.ImportAsDefault );
+        LoadWheelMaterial( args.Skin.Wheel, archive, tasks, args.ResourcePath, args.ImportAsDefault );
+        LoadGlassMaterial( args.Skin.Glass, archive, tasks, args.ResourcePath, args.ImportAsDefault );
 
         tasks.AddTask(
                       "Skin Import Cleanup",
@@ -141,18 +141,13 @@ public static class SkinImporter
 
     #region Private
 
-    private static void ConvertNormalMap( Texture2D tex )
-    {
-        
-        //TODO
-        
-    }
 
     private static void LoadDetailsMaterial(
         CarMaterial material,
         ZipArchive archive,
         TaskCollection tasks,
-        string resourcePath )
+        string resourcePath,
+        bool importAsDefault )
     {
         tasks.AddTask(
                       "Loading Details_AO.dds",
@@ -162,7 +157,7 @@ public static class SkinImporter
 
                           if ( ao != null )
                           {
-                              CarTexture texture = LoadTexture( ao );
+                              CarTexture texture = LoadTexture( ao,importAsDefault );
 
                               if ( texture != null )
                               {
@@ -192,7 +187,7 @@ public static class SkinImporter
 
                           if ( b != null )
                           {
-                              CarTexture texture = LoadTexture( b );
+                              CarTexture texture = LoadTexture( b,importAsDefault );
 
                               if ( texture != null )
                               {
@@ -222,7 +217,7 @@ public static class SkinImporter
 
                           if ( dirtMask != null )
                           {
-                              CarTexture texture = LoadTexture( dirtMask );
+                              CarTexture texture = LoadTexture( dirtMask,importAsDefault );
 
                               if ( texture != null )
                               {
@@ -252,7 +247,7 @@ public static class SkinImporter
 
                           if ( i != null )
                           {
-                              CarTexture texture = LoadTexture( i );
+                              CarTexture texture = LoadTexture( i,importAsDefault );
 
                               if ( texture != null )
                               {
@@ -282,7 +277,7 @@ public static class SkinImporter
 
                           if ( n != null )
                           {
-                              CarTexture texture = LoadTexture( n, true );
+                              CarTexture texture = LoadTexture( n,importAsDefault );
 
                               if ( texture != null )
                               {
@@ -312,7 +307,7 @@ public static class SkinImporter
 
                           if ( r != null )
                           {
-                              CarTexture texture = LoadTexture( r );
+                              CarTexture texture = LoadTexture( r,importAsDefault );
 
                               if ( texture != null )
                               {
@@ -339,7 +334,8 @@ public static class SkinImporter
         CarMaterial material,
         ZipArchive archive,
         TaskCollection tasks,
-        string resourcePath )
+        string resourcePath,
+        bool importAsDefault )
     {
         tasks.AddTask(
                       "Loading Glass_AO.dds",
@@ -349,7 +345,7 @@ public static class SkinImporter
 
                           if ( ao != null )
                           {
-                              CarTexture texture = LoadTexture( ao );
+                              CarTexture texture = LoadTexture( ao,importAsDefault );
 
                               if ( texture != null )
                               {
@@ -379,7 +375,7 @@ public static class SkinImporter
 
                           if ( d != null )
                           {
-                              CarTexture texture = LoadTexture( d );
+                              CarTexture texture = LoadTexture( d,importAsDefault );
 
                               if ( texture != null )
                               {
@@ -409,7 +405,7 @@ public static class SkinImporter
 
                           if ( i != null )
                           {
-                              CarTexture texture = LoadTexture( i );
+                              CarTexture texture = LoadTexture( i,importAsDefault );
 
                               if ( texture != null )
                               {
@@ -436,7 +432,8 @@ public static class SkinImporter
         CarMaterial material,
         ZipArchive archive,
         TaskCollection tasks,
-        string resourcePath )
+        string resourcePath,
+        bool importAsDefault)
     {
         tasks.AddTask(
                       "Loading Skin_AO.dds",
@@ -446,7 +443,7 @@ public static class SkinImporter
 
                           if ( ao != null )
                           {
-                              CarTexture texture = LoadTexture( ao );
+                              CarTexture texture = LoadTexture( ao,importAsDefault );
 
                               if ( texture != null )
                               {
@@ -476,7 +473,7 @@ public static class SkinImporter
 
                           if ( b != null )
                           {
-                              CarTexture texture = LoadTexture( b );
+                              CarTexture texture = LoadTexture( b,importAsDefault );
 
                               if ( texture != null )
                               {
@@ -506,7 +503,7 @@ public static class SkinImporter
 
                           if ( dirtMask != null )
                           {
-                              CarTexture texture = LoadTexture( dirtMask );
+                              CarTexture texture = LoadTexture( dirtMask,importAsDefault );
 
                               if ( texture != null )
                               {
@@ -536,7 +533,7 @@ public static class SkinImporter
 
                           if ( i != null )
                           {
-                              CarTexture texture = LoadTexture( i );
+                              CarTexture texture = LoadTexture( i,importAsDefault );
 
                               if ( texture != null )
                               {
@@ -566,7 +563,7 @@ public static class SkinImporter
 
                           if ( r != null )
                           {
-                              CarTexture texture = LoadTexture( r );
+                              CarTexture texture = LoadTexture( r,importAsDefault );
 
                               if ( texture != null )
                               {
@@ -589,9 +586,10 @@ public static class SkinImporter
                      );
     }
 
-    private static CarTexture LoadTexture( ZipArchiveEntry entry, bool isNormalMap = false )
+    private static CarTexture LoadTexture( ZipArchiveEntry entry, bool importAsDefault )
     {
         CarTexture ret = ScriptableObject.CreateInstance < CarTexture >();
+        ret.IsDefault = importAsDefault;
 
         using ( Stream s = entry.Open() )
         {
@@ -602,11 +600,6 @@ public static class SkinImporter
             try
             {
                 DDSImage image = new DDSImage( ret.TextureData );
-
-                if ( isNormalMap )
-                {
-                    ConvertNormalMap( image.BitmapImage );
-                }
 
                 ret.Texture = image.BitmapImage;
             }
@@ -625,7 +618,8 @@ public static class SkinImporter
         CarMaterial material,
         ZipArchive archive,
         TaskCollection tasks,
-        string resourcePath )
+        string resourcePath,
+        bool importAsDefault )
     {
         tasks.AddTask(
                       "Loading Wheels_AO.dds",
@@ -635,7 +629,7 @@ public static class SkinImporter
 
                           if ( ao != null )
                           {
-                              CarTexture texture = LoadTexture( ao );
+                              CarTexture texture = LoadTexture( ao,importAsDefault );
 
                               if ( texture != null )
                               {
@@ -665,7 +659,7 @@ public static class SkinImporter
 
                           if ( b != null )
                           {
-                              CarTexture texture = LoadTexture( b );
+                              CarTexture texture = LoadTexture( b,importAsDefault );
 
                               if ( texture != null )
                               {
@@ -695,7 +689,7 @@ public static class SkinImporter
 
                           if ( dirtMask != null )
                           {
-                              CarTexture texture = LoadTexture( dirtMask );
+                              CarTexture texture = LoadTexture( dirtMask,importAsDefault );
 
                               if ( texture != null )
                               {
@@ -725,7 +719,7 @@ public static class SkinImporter
 
                           if ( i != null )
                           {
-                              CarTexture texture = LoadTexture( i );
+                              CarTexture texture = LoadTexture( i,importAsDefault );
 
                               if ( texture != null )
                               {
@@ -755,7 +749,7 @@ public static class SkinImporter
 
                           if ( n != null )
                           {
-                              CarTexture texture = LoadTexture( n, true );
+                              CarTexture texture = LoadTexture( n,importAsDefault );
 
                               if ( texture != null )
                               {
@@ -785,7 +779,7 @@ public static class SkinImporter
 
                           if ( r != null )
                           {
-                              CarTexture texture = LoadTexture( r );
+                              CarTexture texture = LoadTexture( r,importAsDefault );
 
                               if ( texture != null )
                               {

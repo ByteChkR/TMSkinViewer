@@ -9,6 +9,7 @@ namespace UI.SkinEditorMainWindow
 
         public string Name;
         public string Url;
+        public bool ImportAsDefault;
 
     }
 
