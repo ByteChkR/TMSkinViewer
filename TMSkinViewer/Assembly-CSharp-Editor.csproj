@@ -52,10 +52,10 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\TMSkin\Shaders\Water\#NVJOB Water Shaders V2\Editor\NVWaterMaterials.cs" />
      <Compile Include="Assets\TMSkin\Shaders\Water\#NVJOB Water Shaders V2\Editor\NVWaterShaderEditor.cs" />
      <Compile Include="Assets\AmplifyOcclusion\Plugins\Editor\StartScreen.cs" />
      <Compile Include="Assets\AmplifyOcclusion\Plugins\Editor\About.cs" />
+     <Compile Include="Assets\TMSkin\Shaders\Water\#NVJOB Water Shaders V2\Editor\NVWaterMaterials.cs" />
  <Reference Include="UnityEngine">
  <HintPath>D:/UnityHub/2020.3.18f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>

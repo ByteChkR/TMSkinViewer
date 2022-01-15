@@ -41,16 +41,16 @@ ModelImporter:
     second: ReleasePanels
   - first:
       74: 868250569160678121
-    second: Armature|StopFlaps
+    second: BrakePanels
   - first:
       74: -8596889171504102475
-    second: Armature|JumpFlaps
+    second: ReleasePanels
   - first:
       74: 7855619899660676045
-    second: Armature|TurnLeft
+    second: TurnLeft
   - first:
       74: -1180041773398129697
-    second: Armature|TurnRight
+    second: TurnRight
   - first:
       74: 7805231096606884622
     second: Armature|WingExpand (1)
@@ -62,13 +62,13 @@ ModelImporter:
     second: Armature|BoosterUp (1)
   - first:
       74: 2577618990345138623
-    second: Armature|WheelsDown
+    second: WheelsDown
   - first:
       74: 4796574205836525453
-    second: Armature|WingExpand
+    second: Wings
   - first:
       74: -8705159712079066298
-    second: Armature|BoosterDown
+    second: ExhaustDown
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -118,7 +118,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|StopFlaps
+      name: BrakePanels
       takeName: Armature|StopFlaps
       internalID: 0
       firstFrame: 0
@@ -147,7 +147,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|JumpFlaps
+      name: ReleasePanels
       takeName: Armature|JumpFlaps
       internalID: 0
       firstFrame: 0
@@ -176,7 +176,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|TurnLeft
+      name: TurnLeft
       takeName: Armature|TurnLeft
       internalID: 0
       firstFrame: 0
@@ -205,7 +205,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|TurnRight
+      name: TurnRight
       takeName: Armature|TurnRight
       internalID: 0
       firstFrame: 0
@@ -234,7 +234,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|WingExpand
+      name: Wings
       takeName: Armature|WingExpand
       internalID: 0
       firstFrame: 0
@@ -263,7 +263,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|BoosterUp
+      name: ExhaustUp
       takeName: Armature|BoosterUp
       internalID: 0
       firstFrame: 0
@@ -292,7 +292,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|BoosterDown
+      name: ExhaustDown
       takeName: Armature|BoosterDown
       internalID: 0
       firstFrame: 0
@@ -321,7 +321,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|WheelsDown
+      name: WheelsDown
       takeName: Armature|WheelsDown
       internalID: 0
       firstFrame: 0

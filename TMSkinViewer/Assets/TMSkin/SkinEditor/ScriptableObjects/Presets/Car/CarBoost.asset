@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsAccelerating: 1
   m_Turn: 0.5
-  m_Wings: 0
+  m_Wings: 1
   m_ExhaustUp: 0
   m_ExhaustDown: 0
   m_WheelDown: 0
