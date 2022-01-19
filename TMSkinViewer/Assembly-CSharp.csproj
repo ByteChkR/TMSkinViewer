@@ -179,6 +179,7 @@
      <Compile Include="Assets\TMSkin\Scripts\DDS\UnknownFileFormatException.cs" />
      <Compile Include="Assets\TMSkin\Scripts\ResourceSystem\ResourceNode.cs" />
      <Compile Include="Assets\TMSkin\SkinEditor\Scripts\CarPreset.cs" />
+     <Compile Include="Assets\TMSkin\Scripts\ResourceSystem\FileSystem\FileSystemResourceOriginHelper.cs" />
      <None Include="Assets\TMSkin\Shaders\Water\#NVJOB Water Shaders V2\Water Specular.shader" />
      <None Include="Assets\TMSkin\Shaders\MagicMirror\Readme.txt" />
      <None Include="Assets\AmplifyOcclusion\Resources\Blur.shader" />

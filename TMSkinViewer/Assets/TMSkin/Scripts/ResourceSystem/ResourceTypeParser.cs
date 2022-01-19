@@ -6,7 +6,7 @@ public static class ResourceTypeParser
 {
 
     private static readonly Dictionary < ResourceType, string[] > s_FileExtensions =
-        new Dictionary < ResourceType, string[] > { { ResourceType.Texture, new[] { ".png" } } };
+        new Dictionary < ResourceType, string[] > { { ResourceType.Texture, new[] { ".dds" } } };
 
     #region Public
 

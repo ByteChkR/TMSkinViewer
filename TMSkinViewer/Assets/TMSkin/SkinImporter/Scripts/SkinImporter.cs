@@ -586,31 +586,35 @@ public static class SkinImporter
                      );
     }
 
-    private static CarTexture LoadTexture( ZipArchiveEntry entry, bool importAsDefault, bool sRGB = false )
+    public static CarTexture LoadTexture( Stream s, int l, bool importAsDefault, bool sRGB = false )
     {
         CarTexture ret = ScriptableObject.CreateInstance < CarTexture >();
         ret.IsDefault = importAsDefault;
+        ret.TextureData = new byte[l];
 
+        s.Read( ret.TextureData, 0, l );
+
+        try
+        {
+            DDSImage image = new DDSImage( ret.TextureData, sRGB );
+
+            ret.Texture = image.BitmapImage;
+        }
+        catch ( Exception e )
+        {
+            Debug.LogError( "Can not Load Texture: " + e.Message );
+
+            return null;
+        }
+
+        return ret;
+    }
+
+    private static CarTexture LoadTexture( ZipArchiveEntry entry, bool importAsDefault, bool sRGB = false )
+    {
         using ( Stream s = entry.Open() )
         {
-            ret.TextureData = new byte[entry.Length];
-
-            s.Read( ret.TextureData, 0, ( int )entry.Length );
-
-            try
-            {
-                DDSImage image = new DDSImage( ret.TextureData, sRGB );
-
-                ret.Texture = image.BitmapImage;
-            }
-            catch ( Exception e )
-            {
-                Debug.LogError( "Can not Load Texture: " + entry.Name + " " + e.Message );
-
-                return null;
-            }
-
-            return ret;
+            return LoadTexture( s, (int)entry.Length, importAsDefault, importAsDefault );
         }
     }
 

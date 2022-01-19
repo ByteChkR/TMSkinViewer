@@ -212,19 +212,42 @@ namespace UI.MaterialEditor
 
         private void UpdateButtons()
         {
-            SetButtonImage( m_AlbedoImage, m_Material.Albedo.Texture );
-            SetButtonImage( m_NormalImage, m_Material.Normal.Texture );
-            SetButtonImage( m_AmbientOcclusionImage, m_Material.AmbientOcclusion.Texture );
-            SetButtonImage( m_EmissionImage, m_Material.Emissive.Texture );
-            SetButtonImage( m_DirtMaskImage, m_Material.DirtMask.Texture );
-            SetButtonImage( m_RoughnessImage, m_Material.Roughness.Texture );
+            if ( m_Material.Albedo != null )
+            {
+                SetButtonImage( m_AlbedoImage, m_Material.Albedo.Texture );
+                m_ViewerMaterial.SetTexture( "_MainTex", m_Material.Albedo.Texture );
+            }
 
-            m_ViewerMaterial.SetTexture( "_MainTex", m_Material.Albedo.Texture );
-            m_ViewerMaterial.SetTexture( "_AO", m_Material.AmbientOcclusion.Texture );
-            m_ViewerMaterial.SetTexture( "_Normals", m_Material.Normal.Texture );
-            m_ViewerMaterial.SetTexture( "_Emission", m_Material.Emissive.Texture );
-            m_ViewerMaterial.SetTexture( "_DirtMask", m_Material.DirtMask.Texture );
-            m_ViewerMaterial.SetTexture( "_Roughness", m_Material.Roughness.Texture );
+            if ( m_Material.Normal != null )
+            {
+                SetButtonImage( m_NormalImage, m_Material.Normal.Texture );
+                m_ViewerMaterial.SetTexture( "_Normals", m_Material.Normal.Texture );
+            }
+
+            if ( m_Material.AmbientOcclusion != null )
+            {
+                SetButtonImage( m_AmbientOcclusionImage, m_Material.AmbientOcclusion.Texture );
+                m_ViewerMaterial.SetTexture( "_AO", m_Material.AmbientOcclusion.Texture );
+            }
+
+            if ( m_Material.Emissive != null )
+            {
+                SetButtonImage( m_EmissionImage, m_Material.Emissive.Texture );
+                m_ViewerMaterial.SetTexture( "_Emission", m_Material.Emissive.Texture );
+            }
+
+            if ( m_Material.DirtMask != null )
+            {
+                SetButtonImage( m_DirtMaskImage, m_Material.DirtMask.Texture );
+                m_ViewerMaterial.SetTexture( "_DirtMask", m_Material.DirtMask.Texture );
+            }
+
+            if ( m_Material.Roughness != null )
+            {
+                SetButtonImage( m_RoughnessImage, m_Material.Roughness.Texture );
+                m_ViewerMaterial.SetTexture( "_Roughness", m_Material.Roughness.Texture );
+            }
+
         }
 
         public void SetMaterial( CarMaterial material )

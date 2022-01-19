@@ -32,7 +32,7 @@ public class ResourceSystem : MonoBehaviour
 
         m_OriginCreators.Add(
                              "file",
-                             u => new FileSystemResourceOrigin( Path.GetFileName( u.AbsolutePath ), u.AbsolutePath )
+                             u => new FileSystemResourceOrigin( Path.GetFileName( u.AbsolutePath ), u.AbsolutePath, false )
                             );
 
         m_Settings.OnReloadOrigins += () =>
@@ -58,7 +58,10 @@ public class ResourceSystem : MonoBehaviour
         PrefabInitializeHelper helper =
             GetComponent < PrefabInitializeHelper >();
 
-        helper.OnFinalize += () => { Initialize( helper.Tasks ); };
+        helper.OnFinalize += () =>
+                             {
+                                 Initialize( helper.Tasks );
+                             };
     }
 
     public static IEnumerable < ResourceOrigin > GetResourceOrigins()
